@@ -1,6 +1,8 @@
 package pl.isa.thebuggers.fitly;
 
-public class User {
+import com.sun.source.tree.CaseTree;
+
+public class UserData {
 
     private String name;
     private int age;
@@ -33,15 +35,11 @@ public class User {
 
     }
 //utworzyć mozliwość wyboru male/female
-    public boolean userGender(String) {
-        if(gender) {
-            return true;
+    public boolean userGender() {
 
-        }else if (gender != )
-
-        return false;
+           return true;
     }
-//utworzyć skalę wyboru aktywności w zakładanym zakresie np. 1-5
+//utworzyc skalę wyboru aktywności w zakładanym zakresie np. 1-5
     public int userActivity() {
 
         return activity;
