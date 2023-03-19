@@ -16,30 +16,45 @@ public class UserData {
 3.wyswietlanie diety default 4.wyswietlanie treningu default
  */
 
-//zrobic warunki dla integerow i Stringow, żeby nie przyjmowały niewłasciwych wartości
-
+    //user musi wprowadzić dane typu String -scanner w Main
+//zrobic exeption dla wprowadzenia integera
     public String userName() {
 
         return name;
     }
+    //user musi wprowadzić dane typu int -scanner w Main
+//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
+    public int userAge() {
 
-    public int userAge(){
-
-         return age;
+        return age;
     }
 
-    public int userWeight(){
+    //user musi wprowadzić dane typu int -scanner w Main
+//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
+    public int userWeight() {
 
 
         return weight;
 
     }
-//utworzyć mozliwość wyboru male/female
-    public boolean userGender() {
 
-           return true;
+    //utworzyć mozliwość wyboru male/female
+    //user musi wprowadzić dane char 'M' lub 'F' -scanner w Main
+//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz char i M/F
+    public boolean userGender(String female, String male, boolean isIgnoreCase) {
+        if (female.equalsIgnoreCase(male)) {
+            return (isIgnoreCase == true);
+        } else if (female.equals(male)) {
+            return (isIgnoreCase == false);
+        } else
+            return false;
+
+
     }
-//utworzyc skalę wyboru aktywności w zakładanym zakresie np. 1-5
+
+    //utworzyc skalę wyboru aktywności w zakładanym zakresie np. 1-5
+    //user musi wprowadzić dane typu int -scanner w Main
+//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
     public int userActivity() {
 
         return activity;
