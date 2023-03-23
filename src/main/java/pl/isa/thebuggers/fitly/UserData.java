@@ -6,11 +6,9 @@ public class UserData {
 
     private String name;
     private int age;
-    private int weight;
-    private char gender;
+    private double weight;
     private int activity;
-    char male = 'M';
-    char female = 'F';
+    private boolean whatGender;
 
 
 /*----Dane Uzytkownika---- 1.Wzrost 2.Waga 3.Plec 4.Aktywnosc fiz.
@@ -21,22 +19,23 @@ public class UserData {
 
     //user musi wprowadzić dane typu String -scanner w Main
 //zrobic exeption dla wprowadzenia integera
-    public String userName() {
-
+    public String getName() {
+        this.name = name;
         return name;
     }
+
     //user musi wprowadzić dane typu int -scanner w Main
 //zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
-    public int userAge() {
-
+    public int getAge() {
+        this.age = age;
         return age;
     }
 
     //user musi wprowadzić dane typu int -scanner w Main
 //zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
-    public int userWeight() {
+    public double getWeight() {
 
-
+        this.weight = weight;
         return weight;
 
     }
@@ -44,21 +43,18 @@ public class UserData {
     //utworzyć mozliwość wyboru male/female
     //user musi wprowadzić dane char 'M' lub 'F' -scanner w Main
 //zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz char i M/F
-    public boolean userGender(char userChar) {
-        if ('F' == female) {
-            return true;
-        } else ('M' = male) {
-            return false;
+    public String getGender() {
 
-
-
+        this.whatGender = whatGender;
+        return whatGender ? "M" : "F";
     }
 
     //utworzyc skalę wyboru aktywności w zakładanym zakresie np. 1-5
     //user musi wprowadzić dane typu int -scanner w Main
 //zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
-    public int userActivity() {
-
+    public int getActivity() {
+        this.activity = activity;
         return activity;
     }
+
 }
