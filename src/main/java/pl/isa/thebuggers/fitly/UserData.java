@@ -9,6 +9,9 @@ public class UserData {
     private int weight;
     private char gender;
     private int activity;
+    char male = 'M';
+    char female = 'F';
+
 
 /*----Dane Uzytkownika---- 1.Wzrost 2.Waga 3.Plec 4.Aktywnosc fiz.
 ----Dane Wyjsciowe------ 1.BMI 2.Dieta Default 3.Trening Default
@@ -41,13 +44,12 @@ public class UserData {
     //utworzyć mozliwość wyboru male/female
     //user musi wprowadzić dane char 'M' lub 'F' -scanner w Main
 //zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz char i M/F
-    public boolean userGender(String female, String male, boolean isIgnoreCase) {
-        if (female.equalsIgnoreCase(male)) {
-            return (isIgnoreCase == true);
-        } else if (female.equals(male)) {
-            return (isIgnoreCase == false);
-        } else
+    public boolean userGender(char userChar) {
+        if ('F' == female) {
+            return true;
+        } else ('M' = male) {
             return false;
+
 
 
     }
