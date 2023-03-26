@@ -7,9 +7,6 @@ import com.google.gson.GsonBuilder;
 
 public class UserService {
 
-
-
-
     Gson gson = new Gson();
     GsonBuilder gsonBuilder = new GsonBuilder();
 
