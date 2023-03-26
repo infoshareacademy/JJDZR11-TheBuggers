@@ -1,7 +1,5 @@
 package pl.isa.thebuggers.fitly;
-import java.nio.file.Path;
-import java.nio.file.Files;
-import java.io.IOException;
+
 import com.sun.source.tree.CaseTree;
 
 public class UserData {
@@ -14,6 +12,7 @@ public class UserData {
 
 
 
+
 /*----Dane Uzytkownika---- 1.Wzrost 2.Waga 3.Plec 4.Aktywnosc fiz.
 ----Dane Wyjsciowe------ 1.BMI 2.Dieta Default 3.Trening Default
 ----Funkcjonalnosci----- 1.Pobieranie danych uzytkownika 2.wyswietlanie bmi
@@ -22,7 +21,7 @@ public class UserData {
 
     //user musi wprowadzić dane typu String -scanner w Main
 //zrobic exeption dla wprowadzenia poprawnego Stringa
-    public String getName() throws IOException {
+    public String getName() {
         this.name = name;
         return name;
     }
