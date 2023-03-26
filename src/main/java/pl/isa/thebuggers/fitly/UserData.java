@@ -1,5 +1,7 @@
 package pl.isa.thebuggers.fitly;
-
+import java.nio.file.Path;
+import java.nio.file.Files;
+import java.io.IOException;
 import com.sun.source.tree.CaseTree;
 
 public class UserData {
@@ -9,6 +11,7 @@ public class UserData {
     private double weight;
     private int activity;
     private boolean whatGender;
+
 
 
 /*----Dane Uzytkownika---- 1.Wzrost 2.Waga 3.Plec 4.Aktywnosc fiz.
@@ -43,10 +46,10 @@ public class UserData {
     //utworzyć mozliwość wyboru male/female
     //user musi wprowadzić dane char 'M' lub 'F' -scanner w Main
 //zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz char i M/F
-    public String getGender() {
+    public char getGender() {
 
         this.whatGender = whatGender;
-        return whatGender ? "M" : "F";
+        return whatGender ? 'M' : 'F';
     }
 
     //utworzyc skalę wyboru aktywności w zakładanym zakresie np. 1-5
@@ -56,5 +59,8 @@ public class UserData {
         this.activity = activity;
         return activity;
     }
+
+
+
 
 }
