@@ -21,21 +21,21 @@ public class UserData {
  */
 
     //user musi wprowadzić dane typu String -scanner w Main
-//zrobic exeption dla wprowadzenia integera
-    public String getName() {
+//zrobic exeption dla wprowadzenia poprawnego Stringa
+    public String getName() throws IOException {
         this.name = name;
         return name;
     }
 
     //user musi wprowadzić dane typu int -scanner w Main
-//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
+//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niż int
     public int getAge() {
         this.age = age;
         return age;
     }
 
     //user musi wprowadzić dane typu int -scanner w Main
-//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz int
+//zrobic exeption dla niepoprawnego wprowadzenia innego typu danych niz double
     public double getWeight() {
 
         this.weight = weight;
