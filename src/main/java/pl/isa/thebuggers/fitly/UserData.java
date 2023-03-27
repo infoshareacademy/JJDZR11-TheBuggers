@@ -20,7 +20,6 @@ public class UserData {
               return whatGender ? 'M' : 'F';
     }
     public int getActivity() {
-        this.activity = activity;
-        return activity;
+               return activity;
     }
 }
