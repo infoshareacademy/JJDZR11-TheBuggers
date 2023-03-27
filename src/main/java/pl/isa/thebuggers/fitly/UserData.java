@@ -2,7 +2,7 @@ package pl.isa.thebuggers.fitly;
 import com.sun.source.tree.CaseTree;
 
 public class UserData {
-    public String name;
+    private String name;
     private int age;
     private double weight;
     private int activity;
