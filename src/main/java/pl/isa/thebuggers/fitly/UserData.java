@@ -7,7 +7,6 @@ public class UserData {
     private double weight;
     private int activity;
     private boolean whatGender;
-
     public String getName() {
                 return name;
     }
