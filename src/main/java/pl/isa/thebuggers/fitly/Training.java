@@ -57,7 +57,7 @@ public class Training {
     // wczytywanie pliku txt z treningiem
     public static void displayTrainingFile() {
         try {
-            File file = new File("Training.txt");
+            File file = new File("src/main/resources/Training.txt");
             Scanner scanner = new Scanner(file);
 
             System.out.println("Sample training");
