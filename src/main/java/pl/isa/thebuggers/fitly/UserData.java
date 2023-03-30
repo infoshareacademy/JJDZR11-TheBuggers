@@ -1,6 +1,4 @@
 package pl.isa.thebuggers.fitly;
-import com.sun.source.tree.CaseTree;
-
 public class UserData {
     private String name;
     private int age;
