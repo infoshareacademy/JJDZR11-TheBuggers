@@ -25,10 +25,12 @@ public class Main {
                 case 3:
                     System.out.print("Enter your weight in kg: ");
                     double weight = scanner.nextDouble();
-                    Training training = new Training(weight);
-                    training.calculateTraining();
-                    training.calculateTrainingWeightBasedOnRM();
-                    training.displayTrainingFile();
+                    TrainingCalculator calculator = new TrainingCalculator(weight);
+                    TrainingCalculatorPrinter printer = new TrainingCalculatorPrinter(calculator);
+
+                    printer.printTraining();
+                    printer.printTrainingWeightBasedOnRM();
+                    TrainingFileReader.displayTrainingFile();
                     break;
                 case 0:
                     System.out.println("Exit");
