@@ -3,7 +3,7 @@ package pl.isa.thebuggers.fitly;
 public class TrainingCalculatorPrinter {
     private TrainingCalculator calculator;
 
-    public TrainingCalculatorPrinter(TrainingCalculator calculator) {
+    public TrainingCalculatorPrinter(final TrainingCalculator calculator) {
         this.calculator = calculator;
     }
 
