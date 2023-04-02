@@ -28,13 +28,12 @@ public class Training {
         double dumbbellRows = 0.5 * userWeight;
         double dumbbellShoulderPress = 0.4 * userWeight;
 
-        System.out.println("Sample exercise weight based on your weight");
-        System.out.println("Bench press: " + benchPress + " kg");
-        System.out.println("Squat: " + squat + " kg");
-        System.out.println("Deadlift: " + deadlift + " kg");
-        System.out.println("Dumbbell curls: " + dumbbellCurls + " kg");
-        System.out.println("Dumbbell rows: " + dumbbellRows + " kg");
-        System.out.println("Dumbbell shoulder press: " + dumbbellShoulderPress + " kg");
+        System.out.printf("Bench press: %.1f kg%n", benchPress);
+        System.out.printf("Squat: %.1f kg%n", squat);
+        System.out.printf("Deadlift: %.1f kg%n", deadlift);
+        System.out.printf("Dumbbell curls: %.1f kg%n", dumbbellCurls);
+        System.out.printf("Dumbbell rows: %.1f kg%n", dumbbellRows);
+        System.out.printf("Dumbbell shoulder press: %.1f kg%n", dumbbellShoulderPress);
         System.out.println("");
 
     }
@@ -49,7 +48,7 @@ public class Training {
         System.out.println("Sample exercise weight based on your weight and number of reps:");
         for (int i = 0; i < reps.length; i++) {
             double weight = percentageRanges[i] * userWeight;
-            System.out.println("Weight for " + reps[i] + " reps: " + weight + " kg");
+            System.out.printf("Weight for %d reps: %.1f kg%n", reps[i], weight);
         }
         System.out.println("");
     }
