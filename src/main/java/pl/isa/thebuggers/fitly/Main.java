@@ -10,7 +10,7 @@ public class Main {
         do {
             System.out.println("Menu:");
             System.out.println("1. Option 1");
-            System.out.println("2. Option 2");
+            System.out.println("2. BMI");
             System.out.println("3. Training");
             System.out.println("0. Exit");
             System.out.print("Choose an option: ");
@@ -20,7 +20,13 @@ public class Main {
                     System.out.println("1");
                     break;
                 case 2:
-                    System.out.println("2");
+                    System.out.print("Enter your weight in kg: ");
+                    double weightBMI = scanner.nextDouble();
+                    System.out.print("Enter your height in kg: ");
+                    double heightBMI = scanner.nextDouble();
+                    BMI bmi = new BMI(weightBMI,heightBMI);
+                    System.out.println(String.format("%.2f", bmi.value()));
+                    System.out.println(bmi.nutritionalStatus());
                     break;
                 case 3:
                     System.out.print("Enter your weight in kg: ");
