@@ -4,15 +4,9 @@ public class BMI {
     private double weight;
     private double height;
 
-    /**
-     * @param weight user's weight in kilograms
-     * @param height user's height in centimeters
-     * @return user's BMI value
-     */
-
-    static double value(double weight, double height) {
-        // height converted from centimeters to meters (/100)
-        return (weight / Math.pow(height / 100, 2));
+    public BMI(double weight, double height) {
+        this.weight = weight;
+        this.height = height;
     }
 
     public double value() {
@@ -20,11 +14,8 @@ public class BMI {
         return (this.weight / Math.pow(this.height / 100, 2));
     }
 
-    /**
-     * @param bmi user's BMI value
-     * @return nutritional status based on BMI
-     */
-    static String nutritionalStatus(double bmi) {
+    public String nutritionalStatus() {
+        double bmi = value();
         if (bmi < 18.5) {
             return "Underweight";
         } else if (bmi < 24.9) {
@@ -40,20 +31,8 @@ public class BMI {
         }
     }
 
-    public String nutritionalStatus() {
-        return nutritionalStatus(value());
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
     public void setWeight(double weight) {
         this.weight = weight;
-    }
-
-    public double getHeight() {
-        return height;
     }
 
     public void setHeight(double height) {
