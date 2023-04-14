@@ -45,4 +45,7 @@ public class Main {
             }
         } while (choice != 0);
     }
+        private static boolean isMale() {
+        return true;
+        }
 }

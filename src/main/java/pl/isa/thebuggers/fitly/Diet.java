@@ -1,16 +1,11 @@
-//  TODO: IMPLEMENTATION DIET CLASS IN MAIN COMMENTED BELOW
-// package org.example;
-//
-//import java.util.Scanner;
-//
-//public class DietCalculatorApp {
-//
-//    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
+//  TODO: COPY -> PASTE to Case 1 instead of line 20
+//          IMPLEMENTATION DIET CLASS IN MAIN.java COMMENTED BELOW
+
+//        System.out.println("You are in \"Diet\" section. Type your parameters to receive diet example based on your weight, height and age.");
 //        System.out.print("Enter your weight (in kg): ");
-//        double weight = scanner.nextDouble();
+//        double dietWeight = scanner.nextDouble();
 //        System.out.print("Enter your height (in cm): ");
-//        double height = scanner.nextDouble();
+//        double dietHeight = scanner.nextDouble();
 //        System.out.print("Enter your age (in years): ");
 //        int age = scanner.nextInt();
 //
@@ -56,21 +51,20 @@
 //
 //        double bmr;
 //        if (isMale()) {
-//            bmr = Diet.calculateBmrForMale(weight, height, age);
+//            bmr = Diet.calculateBmrForMale(dietWeight, dietHeight, age);
 //        } else {
-//            bmr = Diet.calculateBmrForFemale(weight, height, age);
+//            bmr = Diet.calculateBmrForFemale(dietWeight, dietHeight, age);
 //        }
 //
 //        double activityFactor = Diet.getActivityFactor(activityLevel);
 //        double dailyCalorieNeeds = bmr * activityFactor;
 //        String selectedDietFile = Diet.selectAndDisplayDietFile(dailyCalorieNeeds);
-//
-//    }
-//
+
+
+//      TODO:#2 add this to Main in Main.java for Case 1 to work correctly
 //    private static boolean isMale() {
 //        return true;
 //    }
-//}
 
 package pl.isa.thebuggers.fitly;
 
