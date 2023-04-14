@@ -4,47 +4,70 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
-        int choice = 0;
+        MenuOption choice;
         do {
-            System.out.println("Menu:");
-            System.out.println("1. Option 1");
-            System.out.println("2. BMI");
-            System.out.println("3. Training");
-            System.out.println("0. Exit");
-            System.out.print("Choose an option: ");
-            choice = scanner.nextInt();
+            printMenu();
+            int choiceValue = scanner.nextInt();
+            choice = MenuOption.values()[choiceValue];
             switch (choice) {
-                case 1:
-                    System.out.println("1");
+                case USER:
+                    handleUserOption();
                     break;
-                case 2:
-                    System.out.print("Enter your weight in kg: ");
-                    double weightBMI = scanner.nextDouble();
-                    System.out.print("Enter your height in kg: ");
-                    double heightBMI = scanner.nextDouble();
-                    BMI bmi = new BMI(weightBMI,heightBMI);
-                    System.out.println(String.format("%.2f", bmi.value()));
-                    System.out.println(bmi.nutritionalStatus());
+                case BMI:
+                    handleBmiOption(scanner);
                     break;
-                case 3:
-                    System.out.print("Enter your weight in kg: ");
-                    double weight = scanner.nextDouble();
-                    TrainingCalculator calculator = new TrainingCalculator(weight);
-                    TrainingCalculatorPrinter printer = new TrainingCalculatorPrinter(calculator);
-
-                    printer.printTraining();
-                    printer.printTrainingWeightBasedOnRM();
-                    TrainingFileReader.displayTrainingFile();
+                case TRAINING:
+                    handleTrainingOption(scanner);
                     break;
-                case 0:
+                case DIET:
+                    handleDietOption();
+                    break;
+                case EXIT:
                     System.out.println("Exit");
                     break;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
-        } while (choice != 0);
+        } while (choice != MenuOption.EXIT);
+    }
+
+    private static void printMenu() {
+        System.out.println("Menu:");
+        System.out.println("1. User");
+        System.out.println("2. BMI");
+        System.out.println("3. Training");
+        System.out.println("4. Diet");
+        System.out.println("5. Exit");
+        System.out.print("Choose an option: ");
+    }
+
+    private static void handleUserOption() {
+        // TODO: implement
+    }
+
+    private static void handleBmiOption(Scanner scanner) {
+        System.out.print("Enter your weight in kg: ");
+        double weightBMI = scanner.nextDouble();
+        System.out.print("Enter your height in cm: ");
+        double heightBMI = scanner.nextDouble();
+        BMI bmi = new BMI(weightBMI, heightBMI);
+        System.out.println(String.format("%.2f", bmi.value()));
+        System.out.println(bmi.nutritionalStatus());
+    }
+
+    private static void handleTrainingOption(Scanner scanner) {
+        System.out.print("Enter your weight in kg: ");
+        double weight = scanner.nextDouble();
+        TrainingCalculator calculator = new TrainingCalculator(weight);
+        TrainingCalculatorPrinter printer = new TrainingCalculatorPrinter(calculator);
+        printer.printTraining();
+        printer.printTrainingWeightBasedOnRM();
+        TrainingFileReader.displayTrainingFile();
+    }
+
+    private static void handleDietOption() {
+        // TODO: implement
     }
 }
