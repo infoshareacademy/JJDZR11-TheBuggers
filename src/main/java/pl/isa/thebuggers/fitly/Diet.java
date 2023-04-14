@@ -19,7 +19,7 @@ public class Diet {
     private static final double BMR_FEMALE_ADJUSTMENT = -161;
 
 
-    public class ActivityLevels {
+    public static class ActivityLevels {
         public static final String FIRST_LVL = "Couch potato mode";
         public static final String SECOND_LVL = "Couch potato with occasional dance breaks";
         public static final String THIRD_LVL = "Parkour panda mode";
@@ -58,12 +58,17 @@ public class Diet {
         }
     }
 
+    private static final String[] DIET_FILES = {
+            "1500kcl.txt", "1800kcl.txt", "2000kcl.txt", "2200kcl.txt", "2500kcl.txt",
+            "2800kcl.txt", "3000kcl.txt", "3200kcl.txt", "3500kcl.txt", "3800kcl.txt", "4000kcl.txt"
+    };
+
     static String selectAndDisplayDietFile(double dailyCalorieNeeds) {
         String selectedFile = null;
-        final String[] DIET_FILES = {
-                "1500kcl.txt", "1800kcl.txt", "2000kcl.txt", "2200kcl.txt", "2500kcl.txt",
-                "2800kcl.txt", "3000kcl.txt", "3200kcl.txt", "3500kcl.txt", "3800kcl.txt", "4000kcl.txt"
-        };
+//        final String[] DIET_FILES = {
+//                "1500kcl.txt", "1800kcl.txt", "2000kcl.txt", "2200kcl.txt", "2500kcl.txt",
+//                "2800kcl.txt", "3000kcl.txt", "3200kcl.txt", "3500kcl.txt", "3800kcl.txt", "4000kcl.txt"
+//        };
         for (String file : DIET_FILES) {
             String[] parts = file.split("kcl");
             int calorieLimit = Integer.parseInt(parts[0]);

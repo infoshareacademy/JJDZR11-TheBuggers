@@ -4,12 +4,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
         do {
             System.out.println("Menu:");
-            System.out.println("1. Diet");
+            System.out.println("1. Option 1");
             System.out.println("2. BMI");
             System.out.println("3. Training");
             System.out.println("4. Diet");
@@ -18,6 +17,7 @@ public class Main {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
+                    System.out.println("1");
                     break;
                 case 2:
                     System.out.print("Enter your weight in kg: ");
@@ -95,6 +95,7 @@ public class Main {
                     double activityFactor = Diet.getActivityFactor(activityLevel);
                     double dailyCalorieNeeds = bmr * activityFactor;
                     String selectedDietFile = Diet.selectAndDisplayDietFile(dailyCalorieNeeds);
+                    break;
                 case 0:
                     System.out.println("Exit");
                     break;
