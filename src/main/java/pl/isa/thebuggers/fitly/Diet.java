@@ -1,6 +1,3 @@
-//  TODO: COPY -> PASTE to Case 1 instead of line 20
-//          IMPLEMENTATION DIET CLASS IN MAIN.java COMMENTED BELOW
-
 //        System.out.println("You are in \"Diet\" section. Type your parameters to receive diet example based on your weight, height and age.");
 //        System.out.print("Enter your weight (in kg): ");
 //        double dietWeight = scanner.nextDouble();
@@ -61,7 +58,6 @@
 //        String selectedDietFile = Diet.selectAndDisplayDietFile(dailyCalorieNeeds);
 
 
-//      TODO:#2 add this to Main in Main.java for Case 1 to work correctly
 //    private static boolean isMale() {
 //        return true;
 //    }
@@ -75,17 +71,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Diet {
+    private static final double MALE_BMR_CONSTANT = 88.362;
+    private static final double MALE_BMR_WEIGHT_COEFFICIENT = 13.397;
+    private static final double MALE_BMR_HEIGHT_COEFFICIENT = 4.799;
+    private static final double MALE_BMR_AGE_COEFFICIENT = 5.677;
+    private static final double FEMALE_BMR_CONSTANT = 447.593;
+    private static final double FEMALE_BMR_WEIGHT_COEFFICIENT = 9.247;
+    private static final double FEMALE_BMR_HEIGHT_COEFFICIENT = 3.098;
+    private static final double FEMALE_BMR_AGE_COEFFICIENT = 4.330;
+    private static final double BMR_MALE_ADJUSTMENT = 5;
+    private static final double BMR_FEMALE_ADJUSTMENT = -161;
 
-    private static final double maleBmrConstant = 88.362;
-    private static final double maleBmrWeightCoefficient = 13.397;
-    private static final double maleBmrHeightCoefficient = 4.799;
-    private static final double maleBmrAgeCoefficient = 5.677;
-    private static final double femaleBmrConstant = 447.593;
-    private static final double femaleBmrWeightCoefficient = 9.247;
-    private static final double femaleBmrHeightCoefficient = 3.098;
-    private static final double femaleBmrAgeCoefficient = 4.330;
-    private static final double bmrMaleAdjustment = 5;
-    private static final double bmrFemaleAdjustment = -161;
 
     public class ActivityLevels {
         public static final String FIRST_LVL = "Couch potato mode";
@@ -106,15 +102,15 @@ public class Diet {
     }
 
     static double calculateBmrForMale(double weight, double height, int age) {
-        return (maleBmrConstant + (maleBmrWeightCoefficient * weight)
-                + (maleBmrHeightCoefficient * height) - (maleBmrAgeCoefficient * age))
-                + bmrMaleAdjustment;
+        return (MALE_BMR_CONSTANT + (MALE_BMR_WEIGHT_COEFFICIENT * weight)
+                + (MALE_BMR_HEIGHT_COEFFICIENT * height) - (MALE_BMR_AGE_COEFFICIENT * age))
+                + BMR_MALE_ADJUSTMENT;
     }
 
     static double calculateBmrForFemale(double weight, double height, int age) {
-        return (femaleBmrConstant + (femaleBmrWeightCoefficient * weight)
-                + (femaleBmrHeightCoefficient * height) - (femaleBmrAgeCoefficient * age))
-                + bmrFemaleAdjustment;
+        return (FEMALE_BMR_CONSTANT + (FEMALE_BMR_WEIGHT_COEFFICIENT * weight)
+                + (FEMALE_BMR_HEIGHT_COEFFICIENT * height) - (FEMALE_BMR_AGE_COEFFICIENT * age))
+                + BMR_FEMALE_ADJUSTMENT;
     }
 
     static double getActivityFactor(String activityLevel) {
@@ -128,11 +124,11 @@ public class Diet {
 
     static String selectAndDisplayDietFile(double dailyCalorieNeeds) {
         String selectedFile = null;
-        String[] dietFiles = {
+        final String[] DIET_FILES = {
                 "1500kcl.txt", "1800kcl.txt", "2000kcl.txt", "2200kcl.txt", "2500kcl.txt",
                 "2800kcl.txt", "3000kcl.txt", "3200kcl.txt", "3500kcl.txt", "3800kcl.txt", "4000kcl.txt"
         };
-        for (String file : dietFiles) {
+        for (String file : DIET_FILES) {
             String[] parts = file.split("kcl");
             int calorieLimit = Integer.parseInt(parts[0]);
             if (dailyCalorieNeeds <= calorieLimit) {
@@ -141,7 +137,7 @@ public class Diet {
             }
         }
         if (selectedFile == null) {
-            selectedFile = dietFiles[dietFiles.length - 1];
+            selectedFile = DIET_FILES[DIET_FILES.length - 1];
         }
 
         String nazwaPliku = "./diety/" + selectedFile;
