@@ -7,10 +7,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        MenuOption choice;
+        MenuOption choice = null;
         do {
             printMenu();
             int choiceValue = scanner.nextInt();
+            if (choiceValue < 0 || choiceValue >= MenuOption.values().length) {
+                System.out.println("Invalid option");
+                continue;
+            }
             choice = MenuOption.values()[choiceValue];
             switch (choice) {
                 case USER:
