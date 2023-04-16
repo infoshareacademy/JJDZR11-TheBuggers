@@ -1,5 +1,6 @@
 package pl.isa.thebuggers.fitly;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -44,7 +45,69 @@ public class Main {
     }
 
     private static void handleUserOption() {
-        // TODO: implement
+        Scanner scanner = new Scanner(System.in);
+        UserService userService = new UserService();
+
+        System.out.println("1. Create a new user");
+        System.out.println("2. Load an existing user");
+        System.out.print("Choose an option: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        UserData userData = null;
+        switch (choice) {
+            case 1:
+                System.out.print("Enter your name: ");
+                String name = scanner.nextLine();
+                System.out.print("Enter your age: ");
+                int age = scanner.nextInt();
+                System.out.print("Enter your weight in kg: ");
+                double weight = scanner.nextDouble();
+                int activityLevelOption;
+                do {
+                    System.out.println("Specify your activity level:");
+                    System.out.println("1. Sedentary");
+                    System.out.println("2. Lightly active");
+                    System.out.println("3. Moderately active");
+                    System.out.println("4. Very active");
+                    System.out.println("5. Super active");
+                    System.out.print("Type your choice: ");
+                    activityLevelOption = scanner.nextInt();
+                } while (activityLevelOption < 1 || activityLevelOption > 5);
+
+                boolean isMale;
+                do {
+                    System.out.print("Enter your gender (M/F): ");
+                    char gender = scanner.next().charAt(0);
+                    isMale = (gender == 'M' || gender == 'm');
+                } while (!(isMale || !isMale));
+                userData = new UserData(name, age, weight, activityLevelOption, isMale);
+                try {
+                    userService.saveUserData(userData, "userData.json");
+                    System.out.println("User data saved successfully.");
+                } catch (IOException e) {
+                    System.out.println("Error while saving user data.");
+                }
+                break;
+            case 2:
+                try {
+                    userData = userService.getUserData("userData.json");
+                    System.out.println("User data loaded successfully.");
+                } catch (IOException e) {
+                    System.out.println("Error while loading user data.");
+                }
+                break;
+            default:
+                System.out.println("Invalid option");
+                break;
+        }
+        if (userData != null) {
+            System.out.println("Name: " + userData.getName());
+            System.out.println("Age: " + userData.getAge());
+            System.out.println("Weight: " + userData.getWeight());
+            System.out.println("Activity level: " + userData.getActivity());
+            System.out.println("Gender: " + userData.getGender());
+        }
     }
 
     private static void handleBmiOption(Scanner scanner) {
@@ -68,7 +131,70 @@ public class Main {
     }
 
     private static void handleDietOption() {
-        // TODO: implement
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("You are in \"Diet\" section. Type your parameters to receive diet example based on your weight, height and age.");
+        System.out.print("Enter your weight (in kg): ");
+        double dietWeight = scanner.nextDouble();
+        System.out.print("Enter your height (in cm): ");
+        double dietHeight = scanner.nextDouble();
+        System.out.print("Enter your age (in years): ");
+        int age = scanner.nextInt();
+
+        int activityLevelOption;
+        String activityLevel = null;
+        do {
+            System.out.println("Specify your activity level:");
+            System.out.println("1. Couch potato mode");
+            System.out.println("2. Couch potato with occasional dance breaks");
+            System.out.println("3. Parkour panda mode");
+            System.out.println("4. Marathoner chasing ice cream truck");
+            System.out.println("5. Superhero or ninja warrior level");
+            System.out.print("Type your choice: ");
+            try {
+                activityLevelOption = scanner.nextInt();
+                switch (activityLevelOption) {
+                    case 1:
+                        activityLevel = "Couch potato mode";
+                        break;
+                    case 2:
+                        activityLevel = "Couch potato with occasional dance breaks";
+                        break;
+                    case 3:
+                        activityLevel = "Parkour panda mode";
+                        break;
+                    case 4:
+                        activityLevel = "Marathoner chasing ice cream truck";
+                        break;
+                    case 5:
+                        activityLevel = "Superhero or ninja warrior level";
+                        break;
+                    default:
+                        System.out.println("Invalid input. Please enter a number between 1 and 5.");
+                        activityLevel = "Invalid";
+                        break;
+                }
+            } catch (IllegalArgumentException e) {
+                activityLevelOption = 0;
+            }
+        } while (activityLevelOption < 1 || activityLevelOption > 5);
+
+        System.out.println("Selected activity level: " + activityLevel);
+
+        double bmr;
+        if (isMale()) {
+            bmr = Diet.calculateBmrForMale(dietWeight, dietHeight, age);
+        } else {
+            bmr = Diet.calculateBmrForFemale(dietWeight, dietHeight, age);
+        }
+
+        double activityFactor = Diet.getActivityFactor(activityLevel);
+        double dailyCalorieNeeds = bmr * activityFactor;
+        String selectedDietFile = Diet.selectAndDisplayDietFile(dailyCalorieNeeds);
+
+    }
+
+    private static boolean isMale() {
+        return true;
     }
     private enum MenuOption {
 
