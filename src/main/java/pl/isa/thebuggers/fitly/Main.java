@@ -343,7 +343,4 @@ public class Main {
             return value;
         }
     }
-        private static boolean isMale() {
-        return true;
-        }
 }
