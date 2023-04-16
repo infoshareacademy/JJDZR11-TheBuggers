@@ -6,10 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 public class UserService {
     Gson gson = new Gson();
-    UserData userData = new UserData();
-    String json = gson.toJson(userData);
 
     public void saveUserData(UserData data, String filename) throws IOException {
         FileWriter writer = new FileWriter(filename);
@@ -25,5 +24,4 @@ public class UserService {
         reader.close();
         return data;
     }
-
 }
