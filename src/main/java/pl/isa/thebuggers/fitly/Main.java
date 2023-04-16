@@ -16,6 +16,7 @@ public class Main {
                 continue;
             }
             choice = MenuOption.values()[choiceValue];
+            
             switch (choice) {
                 case USER:
                     handleUserOption();
@@ -346,4 +347,7 @@ public class Main {
             return value;
         }
     }
+        private static boolean isMale() {
+        return true;
+        }
 }
