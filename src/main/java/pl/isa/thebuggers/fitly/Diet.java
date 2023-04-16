@@ -20,11 +20,11 @@ public class Diet {
 
 
     public static class ActivityLevels {
-        public static final String FIRST_LVL = "Couch potato mode";
-        public static final String SECOND_LVL = "Couch potato with occasional dance breaks";
-        public static final String THIRD_LVL = "Parkour panda mode";
-        public static final String FOURTH_LVL = "Marathoner chasing ice cream truck";
-        public static final String FIFTH_LVL = "Superhero or ninja warrior level";
+        public static final String FIRST_LVL = "Sedentary";
+        public static final String SECOND_LVL = "Lightly active";
+        public static final String THIRD_LVL = "Moderately active";
+        public static final String FOURTH_LVL = "Very active";
+        public static final String FIFTH_LVL = "Super active";
     }
 
     private static Map<String, Double> createActivityFactorsMap() {
@@ -95,6 +95,7 @@ public class Diet {
         }
         return selectedFile;
     }
+
 
 
 }
