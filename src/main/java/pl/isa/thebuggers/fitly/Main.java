@@ -330,7 +330,7 @@ public class Main {
 
     private enum MenuOption {
 
-        DUMP(0), // do wygody
+        DUMP(0),
         USER(1),
         BMI(2),
         TRAINING(3),
@@ -347,7 +347,4 @@ public class Main {
             return value;
         }
     }
-        private static boolean isMale() {
-        return true;
-        }
 }

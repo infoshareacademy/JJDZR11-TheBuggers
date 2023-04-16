@@ -65,10 +65,6 @@ public class Diet {
 
     static String selectAndDisplayDietFile(double dailyCalorieNeeds) {
         String selectedFile = null;
-//        final String[] DIET_FILES = {
-//                "1500kcl.txt", "1800kcl.txt", "2000kcl.txt", "2200kcl.txt", "2500kcl.txt",
-//                "2800kcl.txt", "3000kcl.txt", "3200kcl.txt", "3500kcl.txt", "3800kcl.txt", "4000kcl.txt"
-//        };
         for (String file : DIET_FILES) {
             String[] parts = file.split("kcl");
             int calorieLimit = Integer.parseInt(parts[0]);
