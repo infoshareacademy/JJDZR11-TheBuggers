@@ -49,7 +49,6 @@ public class Main {
         System.out.println("5. Exit");
         System.out.print("Choose an option: ");
     }
-
     private static void handleUserOption() {
         Scanner scanner = new Scanner(System.in);
         UserService userService = new UserService();
@@ -63,7 +62,6 @@ public class Main {
         System.out.print("Choose an option: ");
         int choice = scanner.nextInt();
         scanner.nextLine();
-
         UserData userData = null;
         switch (choice) {
             case 1:
@@ -86,7 +84,6 @@ public class Main {
                     System.out.print("Type your choice: ");
                     activityLevelOption = scanner.nextInt() - 1;
                 } while (activityLevelOption < 0 || activityLevelOption >= activityLevels.length);
-
                 boolean isMale;
                 do {
                     System.out.print("Enter your gender (M/F): ");
@@ -124,7 +121,6 @@ public class Main {
             System.out.println("Gender: " + userData.getGender());
         }
     }
-
     private static void handleBmiOption(Scanner scanner) {
         UserService userService = new UserService();
         UserData userData = null;
