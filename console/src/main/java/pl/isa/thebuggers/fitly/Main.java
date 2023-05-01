@@ -1,6 +1,5 @@
 package pl.isa.thebuggers.fitly;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
