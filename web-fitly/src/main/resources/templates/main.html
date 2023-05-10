@@ -1,10 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>main</title>
+    <title>Moja strona</title>
+    <style>
+        /* style dla elementów strony */
+        body {
+            background-color: #eee;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .header {
+            height: 200px;
+            background-image: url("*.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .menu {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .menu button:last-child {
+            margin-right: 0;
+        }
+
+        .menu button:first-child {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .content img {
+            width: 40%;
+            height: auto;
+        }
+
+        .content p {
+            width: 50%;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .footer {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
-
+<div class="container">
+    <header class="header"></header>
+    <nav class="menu">
+        <button style="margin-right: 0;"><img src="grafika1.jpg" alt="Przycisk 1"></button>
+        <button style="margin-right: 0;"><img src="grafika1.jpg" alt="Przycisk 2"></button>
+        <button style="margin-right: 0;"><img src="grafika1.jpg" alt="Przycisk 3"></button>
+        <button style="margin-right: 0;"><img src="grafika1.jpg" alt="Przycisk 4"></button>
+        <button style="margin-left: auto;"><img src="grafika1.jpg" alt="Przycisk 5"></button>
+    </nav>
+    <div class="content">
+        <img src="sciezka/do/zdjecia2.jpg" alt="Zdjęcie">
+        <p>tekst obok grafiki</p>
+    </div>
+    <footer class="footer">
+        <p>Wszelkie prawa zastrzeżone</p>
+    </footer>
+</div>
 </body>
-</html>
