@@ -19,7 +19,7 @@
 
         .header {
             height: 200px;
-            background-image: url("*.jpg");
+            background-image: url("#");
             background-size: cover;
             background-position: center;
         }
@@ -69,6 +69,19 @@
             width: 50%;
             font-size: 1.2rem;
             line-height: 1.5;
+            text-align: justify;
+            margin-right: 15px;
+        }
+        .content ul {
+            width: 50%;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-top: 0;
+        }
+        .content ul p {
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 2px;
         }
 
         .footer {
@@ -80,25 +93,78 @@
             background-color: #f9f9f9;
             border-top: 1px solid #ccc;
         }
+
+        .form_bmi {
+            display: block;
+            margin-left: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .inputs {
+            margin: 10px 0px;
+        }
+
+        .inputs span {
+            color: red;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <header class="header"></header>
     <nav class="menu">
-        <button style="margin-right: 0;"><a href="main.html"><img src="grafika1.jpg" alt="MAIN"></a></button>
-        <button style="margin-right: 0;"><a href="bmi.html"><img src="grafika1.jpg" alt="BMI"></a></button>
-        <button style="margin-right: 0;"><a href="calories.html"><img src="grafika1.jpg" alt="CALORIES"></a></button>
-        <button style="margin-right: 0;"><a href="diets.html"><img src="grafika1.jpg" alt="DIETS"></a></button>
-        <button style="margin-right: 0;"><a href="trainings.html"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
-        <button style="margin-left: auto;"><a href="login.html"><img src="grafika1.jpg" alt="LOGIN"></a></button>
+        <button style="margin-right: 0;"><a href="/"><img src="grafika1.jpg" alt="MAIN"></a></button>
+        <button style="margin-right: 0;"><a href="bmi"><img src="grafika1.jpg" alt="BMI"></a></button>
+        <button style="margin-right: 0;"><a href="calories"><img src="grafika1.jpg" alt="CALORIES"></a></button>
+        <button style="margin-right: 0;"><a href="diets"><img src="grafika1.jpg" alt="DIETS"></a></button>
+        <button style="margin-right: 0;"><a href="trainings"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
+        <button style="margin-left: auto;"><a href="usersite"><img src="grafika1.jpg" alt="LOGIN"></a></button>
     </nav>
+    <div class="form_bmi">
+        <h1>BMI Calculator</h1>
+        <form th:action="@{/bmi}" th:object="${userData}" method="post">
+            <legend>Your dimensions</legend>
+            <div class="inputs">
+                <label for="disabledHeightInput" class="form-label">Height [cm]</label>
+                <input type="text" th:field="*{height}" id="disabledHeightInput" class="form-control"
+                       placeholder="Height">
+                <span th:if="${#fields.hasErrors('height')}">Please enter a valid height</span>
+            </div>
+            <div class="inputs">
+                <label for="disabledWightInput" class="form-label">Weight [kg]</label>
+                <input type="text" th:field="*{weight}" id="disabledWightInput" class="form-control"
+                       placeholder="Weight">
+                <span th:if="${#fields.hasErrors('weight')}">Please enter a valid weight</span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="results">
+                <p th:text="${bmi}"></p>
+                <p th:text="${bmiNS}"></p>
+            </div>
+        </form>
+    </div>
     <div class="content">
         <img src="sciezka/do/zdjecia2.jpg" alt="Zdjęcie">
-        <p>tutaj tekst o tajemniczym wskaźniku BMI, na którym zarabia masa dietetyków, choc nikt do końca nie wie o co chodzi</p>
+        <p>BMI stands for Body Mass Index, which is a measure of body fat based on a person's weight and height.
+            It is a commonly used tool to assess whether an individual's weight is within a healthy range or not.
+            BMI is calculated by dividing a person's weight (in kilograms) by their height (in meters) squared.
+            BMI can be used to categorize a person's weight as underweight, normal weight, overweight, or obese.
+        </p>
+        <ul>
+            <p>There are several levels of BMI Index:</p>
+            <li> < 18.5 Underweight</li>
+            <li> 18.5 - 24.9 Normal weight</li>
+            <li> 25.0 - 29.9 Pre-obesity</li>
+            <li> 30.0 - 34.9 Obesity class I</li>
+            <li> 35.0 - 39.9 Obesity class II</li>
+            <li> > 40 Obesity class III</li>
+        </ul>
     </div>
+
     <footer class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
     </footer>
 </div>
 </body>
+</html>
+

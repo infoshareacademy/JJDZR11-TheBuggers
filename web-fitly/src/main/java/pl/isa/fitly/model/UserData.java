@@ -1,12 +1,16 @@
 package pl.isa.fitly.model;
 
 
+import jakarta.validation.constraints.Min;
+
 public class UserData {
     private String name;
     private int age;
+    @Min(1)
     private double weight;
     private String activityLevel;
     private boolean whatGender;
+    @Min(1)
     private int height;
 
     public UserData() {
@@ -50,7 +54,6 @@ public class UserData {
     }
 
 
-
     public void setWeight(double weight) {
         this.weight = weight;
     }
@@ -62,8 +65,8 @@ public class UserData {
     public static double bmiValue(double weight, int height) {
         // height converted from centimeters to meters (/100)
         return (weight / Math.pow((double) height / 100, 2));
-
     }
+
     public double bmiValue() {
         return bmiValue(this.weight, this.height);
     }
@@ -87,6 +90,5 @@ public class UserData {
             return "Obesity class III";
         }
     }
-
 
 }
