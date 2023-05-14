@@ -159,27 +159,20 @@
 
             </div>
             <div class="inputs">
-                <label for="form-check-input" class="form-label">Gender</label>
-<!--                <input type="text" th:field="*{whatGender}" id="disabledWhatGenderInput" class="form-control"-->
-<!--                       placeholder="Gender">-->
-<!--                <span th:if="${#fields.hasErrors('whatGender')}">Please enter a valid Gender</span>-->
-                <input th:field="*{whatGender}"  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <p>Gender</p>
+                <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true">
                 <label class="form-check-label" for="inlineRadio1">M</label>
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option1">
-                <label class="form-check-label" for="inlineRadio1">K</label>
-<!--            </div>-->
+                <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false">
+                <label class="form-check-label" for="inlineRadio1">F</label>
+<!--                <span th:if="${#fields.hasErrors('whatGender')}">Please enter a valid Gender</span>-->
+            </div>
             <div class="inputs">
                 <label for="disabledHeightInput" class="form-label">Height [cm]</label>
                 <input type="text" th:field="*{height}" id="disabledHeightInput" class="form-control"
                        placeholder="Height">
                 <span th:if="${#fields.hasErrors('height')}">Please enter a valid height</span>
             </div>
-
             <button type="submit" class="btn btn-primary">Submit</button>
-            <!--            <div class="results">-->
-            <!--                <p th:text="${}"></p>-->
-            <!--                <p th:text="${}"></p>-->
-            <!--            </div>-->
         </form>
     </div>
     <div class="content">

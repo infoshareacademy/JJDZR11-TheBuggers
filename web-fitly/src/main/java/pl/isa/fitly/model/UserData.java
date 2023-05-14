@@ -41,8 +41,12 @@ public class UserData {
         return activityLevel;
     }
 
-    public boolean getGender() {
+    public boolean getWhatGender() {
         return whatGender;
+    }
+
+    public void setWhatGender(boolean whatGender) {
+        this.whatGender = whatGender;
     }
 
     public int getHeight() {
@@ -53,17 +57,12 @@ public class UserData {
         this.activityLevel = activityLevel;
     }
 
-
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-    public void setWhatGender(boolean whatGender) {
-        this.whatGender = whatGender;
     }
 
     public static double bmiValue(double weight, int height) {

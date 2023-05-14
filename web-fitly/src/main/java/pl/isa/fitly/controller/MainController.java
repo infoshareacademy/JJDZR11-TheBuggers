@@ -54,13 +54,13 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String login(@Valid UserData userData, BindingResult bindingResult, Model model) {
+    public String login(@Valid UserData userData , BindingResult bindingResult, Model model) {
        // model.addAttribute("userData", new UserData());
 //        if (!bindingResult.hasErrors()) {
 //            model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
 //            model.addAttribute("bmiNS", userData.nutritionalStatus());
 //        }
-
+        System.out.println(userData.getWhatGender());
         return "usersite";
     }
 
