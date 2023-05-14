@@ -1,10 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>usersite</title>
+    <style>
+        /* style dla elementów strony */
+        body {
+            background-color: #eee;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .header {
+            height: 200px;
+            background-image: url("#");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .menu {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .menu button:last-child {
+            margin-right: 0;
+        }
+
+        .menu button:first-child {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .content img {
+            width: 40%;
+            height: auto;
+        }
+
+        .content p {
+            width: 50%;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            text-align: justify;
+            margin-right: 15px;
+        }
+
+        .content ul {
+            width: 50%;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-top: 0;
+        }
+
+        .content ul p {
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 2px;
+        }
+
+        .footer {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ccc;
+        }
+
+        .form_bmi {
+            display: block;
+            margin-left: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .inputs {
+            margin: 10px 0px;
+        }
+
+        .inputs span {
+            color: red;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <header class="header"></header>
+    <nav class="menu">
+        <button style="margin-right: 0;"><a href="/"><img src="grafika1.jpg" alt="MAIN"></a></button>
+        <button style="margin-right: 0;"><a href="bmi"><img src="grafika1.jpg" alt="BMI"></a></button>
+        <button style="margin-right: 0;"><a href="calories"><img src="grafika1.jpg" alt="CALORIES"></a></button>
+        <button style="margin-right: 0;"><a href="diets"><img src="grafika1.jpg" alt="DIETS"></a></button>
+        <button style="margin-right: 0;"><a href="trainings"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
+        <button style="margin-left: auto;"><a href="login"><img src="grafika1.jpg" alt="LOGIN"></a></button>
+    </nav>
+    <div class="form_bmi">
+        <h1>Registration</h1>
+        <form th:action="@{/login}" th:object="${userData}" method="post">
+            <legend>-----</legend>
+            <div class="inputs">
+                <label for="disabledNameInput" class="form-label">Name</label>
+                <input type="text" th:field="*{name}" id="disabledNameInput" class="form-control"
+                       placeholder="Name">
+                <span th:if="${#fields.hasErrors('name')}">Please enter a valid name</span>
+            </div>
+            <div class="inputs">
+                <label for="disabledAgeInput" class="form-label">Age</label>
+                <input type="text" th:field="*{age}" id="disabledAgeInput" class="form-control"
+                       placeholder="Age">
+                <span th:if="${#fields.hasErrors('age')}">Please enter a valid age</span>
+            </div>
+            <div class="inputs">
+                <label for="disabledWightInput" class="form-label">Weight [kg]</label>
+                <input type="text" th:field="*{weight}" id="disabledWightInput" class="form-control"
+                       placeholder="Weight">
+                <span th:if="${#fields.hasErrors('weight')}">Please enter a valid weight</span>
+            </div>
+            <div class="inputs">
+                <label for="disabledActivityInput" class="form-label">Activity Level</label>
+<!--                <input type="text" th:field="*{activityLevel}" id="disabledActivityInput" class="form-control"-->
+<!--                       placeholder="Activity Level">-->
+<!--                <span th:if="${#fields.hasErrors('activityLevel')}">Please enter a valid activity level</span>-->
+                <select id="disabledActivityInput" class="form-select" >
+                    <option>Sedentary</option>
+                    <option>Lightly active</option>
+                    <option>Moderately active</option>
+                    <option>Very active</option>
+                    <option>Super active</option>
+                </select>
 
+            </div>
+            <div class="inputs">
+                <label for="form-check-input" class="form-label">Gender</label>
+<!--                <input type="text" th:field="*{whatGender}" id="disabledWhatGenderInput" class="form-control"-->
+<!--                       placeholder="Gender">-->
+<!--                <span th:if="${#fields.hasErrors('whatGender')}">Please enter a valid Gender</span>-->
+                <input th:field="*{whatGender}"  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">M</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option1">
+                <label class="form-check-label" for="inlineRadio1">K</label>
+<!--            </div>-->
+            <div class="inputs">
+                <label for="disabledHeightInput" class="form-label">Height [cm]</label>
+                <input type="text" th:field="*{height}" id="disabledHeightInput" class="form-control"
+                       placeholder="Height">
+                <span th:if="${#fields.hasErrors('height')}">Please enter a valid height</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <!--            <div class="results">-->
+            <!--                <p th:text="${}"></p>-->
+            <!--                <p th:text="${}"></p>-->
+            <!--            </div>-->
+        </form>
+    </div>
+    <div class="content">
+
+    </div>
+    <footer class="footer">
+        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+    </footer>
+</div>
 </body>
 </html>
+

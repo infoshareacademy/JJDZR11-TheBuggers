@@ -62,6 +62,10 @@ public class UserData {
         this.height = height;
     }
 
+    public void setWhatGender(boolean whatGender) {
+        this.whatGender = whatGender;
+    }
+
     public static double bmiValue(double weight, int height) {
         // height converted from centimeters to meters (/100)
         return (weight / Math.pow((double) height / 100, 2));

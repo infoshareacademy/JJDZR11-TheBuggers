@@ -47,5 +47,24 @@ public class MainController {
         return "trainings";
     }
 
+    @GetMapping("/login")
+    public String usersite(Model model) {
+        model.addAttribute("userData", new UserData());
+        return "usersite";
+    }
+
+    @PostMapping("/login")
+    public String login(@Valid UserData userData, BindingResult bindingResult, Model model) {
+       // model.addAttribute("userData", new UserData());
+//        if (!bindingResult.hasErrors()) {
+//            model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
+//            model.addAttribute("bmiNS", userData.nutritionalStatus());
+//        }
+
+        return "usersite";
+    }
+
+
+
 
 }
