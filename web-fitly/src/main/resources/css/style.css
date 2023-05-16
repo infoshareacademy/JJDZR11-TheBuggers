@@ -38,9 +38,7 @@ a:hover {
     height: 100%;
     border: 2px solid black;
     box-sizing: border-box;
-}
-
-/* header:after to cover white (transparent) border around an image may delete later */
+} /* header:after to cover white (transparent) border around an image may delete later */
 
 .menu {
     background-image: url("../img/background/menu_background.png");
@@ -71,6 +69,7 @@ a:hover {
     color: #bba674;
     text-decoration: none;
     font-family: Oswald, serif;
+    font-size: 1.6rem;
     background-image: url("../img/buttons/button_off.png");
     background-size: cover;
     background-position: center;
@@ -78,6 +77,9 @@ a:hover {
     height: 40px;
     cursor: pointer;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-button:hover {
@@ -144,8 +146,6 @@ a:hover {
     border-top: 1px solid #bba674;
     font-size: small;
 }
-
-
 /*********************************** POP-UP FORM BELOW */
 
 .form-popup {
