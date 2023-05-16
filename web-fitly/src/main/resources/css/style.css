@@ -68,12 +68,16 @@ a:hover {
 }
 
 .nav-button {
+    color: #bba674;
+    text-decoration: none;
+    font-family: Oswald, serif;
     background-image: url("../img/buttons/button_off.png");
     background-size: cover;
     background-position: center;
     width: 100px;
     height: 40px;
     cursor: pointer;
+    border: none;
 }
 
 .nav-button:hover {
@@ -83,6 +87,7 @@ a:hover {
     width: 100px;
     height: 40px;
     cursor: pointer;
+    /*opacity: 0.5;*/
 }
 
 .joinUs-button {
@@ -152,7 +157,10 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     border: 3px solid #bba674;
-    z-index: 9;
+    z-index: 10;
+}
+.form-popup.active {
+    display: block;
 }
 
 .form-container {
@@ -175,10 +183,6 @@ a:hover {
     outline: none;
 }
 
-.form-container .btn:hover {
-    opacity: 1;
-}
-
 .form-container::before {
     content: "";
     position: fixed;
@@ -192,17 +196,22 @@ a:hover {
 }
 
 .form-container .btn {
+    align-self: center;
     background-color: seagreen;
     font-size: 90%;
     font-weight: bold;
     color: #bba674;
-    padding: 16px 20px;
+    padding: 16px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    /*width: 100%;*/
     margin-top: 10px;
     margin-bottom: 10px;
     opacity: 0.8;
+}
+
+.btn:hover {
+    opacity: 1;
 }
 
 .form-container .cancel {
