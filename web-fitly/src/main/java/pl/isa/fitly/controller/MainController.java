@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 
+
 @Controller
 public class MainController {
-
+    UserData userData = new UserData();
     @GetMapping("/")
     public String mainSide() {
         return "main";
@@ -19,7 +20,7 @@ public class MainController {
 
     @GetMapping("/bmi")
     public String bmi(Model model) {
-        model.addAttribute("userData", new UserData());
+        model.addAttribute("userData",  userData);
         return "bmi";
     }
 
@@ -28,6 +29,8 @@ public class MainController {
         if (!bindingResult.hasErrors()) {
             model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
             model.addAttribute("bmiNS", userData.nutritionalStatus());
+        }else {
+            model.addAttribute("bmi", "Error"+ bindingResult.toString());
         }
         return "bmi";
     }
@@ -49,22 +52,18 @@ public class MainController {
 
     @GetMapping("/login")
     public String usersite(Model model) {
-        model.addAttribute("userData", new UserData());
+        model.addAttribute("userData",  userData);
         return "usersite";
     }
 
     @PostMapping("/login")
     public String login(@Valid UserData userData , BindingResult bindingResult, Model model) {
        // model.addAttribute("userData", new UserData());
-//        if (!bindingResult.hasErrors()) {
-//            model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
-//            model.addAttribute("bmiNS", userData.nutritionalStatus());
-//        }
-        System.out.println(userData.getWhatGender());
+        if (!bindingResult.hasErrors()) {
+            //model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
+            //model.addAttribute("bmiNS", userData.nutritionalStatus());
+            this.userData=userData;
+        }
         return "usersite";
     }
-
-
-
-
 }

@@ -134,7 +134,7 @@
             </div>
             <div class="inputs">
                 <label for="disabledAgeInput" class="form-label">Age</label>
-                <input type="text" th:field="*{age}" id="disabledAgeInput" class="form-control"
+                <input type="number" th:field="*{age}" id="disabledAgeInput" class="form-control"
                        placeholder="Age">
                 <span th:if="${#fields.hasErrors('age')}">Please enter a valid age</span>
             </div>
@@ -146,24 +146,22 @@
             </div>
             <div class="inputs">
                 <label for="disabledActivityInput" class="form-label">Activity Level</label>
-<!--                <input type="text" th:field="*{activityLevel}" id="disabledActivityInput" class="form-control"-->
-<!--                       placeholder="Activity Level">-->
-<!--                <span th:if="${#fields.hasErrors('activityLevel')}">Please enter a valid activity level</span>-->
-                <select id="disabledActivityInput" class="form-select" >
-                    <option>Sedentary</option>
-                    <option>Lightly active</option>
-                    <option>Moderately active</option>
-                    <option>Very active</option>
-                    <option>Super active</option>
+                <select th:field="*{activityLevel}" id="disabledActivityInput" class="form-select" >
+                    <option value="Sedentary">Sedentary</option>
+                    <option value="Lightly active">Lightly active</option>
+                    <option value="Moderately active">Moderately active</option>
+                    <option value="Very active">Very active</option>
+                    <option value="Super active">Super active</option>
                 </select>
+                <span th:if="${#fields.hasErrors('activityLevel')}">Please enter a valid activity level</span>
 
             </div>
             <div class="inputs">
-                <p>Gender</p>
+                <p>Gender
                 <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true">
                 <label class="form-check-label" for="inlineRadio1">M</label>
                 <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false">
-                <label class="form-check-label" for="inlineRadio1">F</label>
+                <label class="form-check-label" for="inlineRadio1">F</label></p>
 <!--                <span th:if="${#fields.hasErrors('whatGender')}">Please enter a valid Gender</span>-->
             </div>
             <div class="inputs">

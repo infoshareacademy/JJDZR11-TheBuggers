@@ -2,9 +2,13 @@ package pl.isa.fitly.model;
 
 
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 public class UserData {
+    @NotEmpty
     private String name;
+    @Min(1)
     private int age;
     @Min(1)
     private double weight;
@@ -63,6 +67,14 @@ public class UserData {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public static double bmiValue(double weight, int height) {
