@@ -92,8 +92,16 @@ a:hover {
     /*opacity: 0.5;*/
 }
 
+.joinUs-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
 .joinUs-button {
-    font-size: 100%;
+    color: #bba674;
+    text-decoration: none;
+    font-family: Oswald, serif;
+    font-size: 1.6rem;
     background-image: url("../img/buttons/sm_button_off.png");
     width: 115px;
     height: 40px;
@@ -101,6 +109,9 @@ a:hover {
     cursor: pointer;
     background-color: black;
     background-blend-mode: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .joinUs-button:hover {
