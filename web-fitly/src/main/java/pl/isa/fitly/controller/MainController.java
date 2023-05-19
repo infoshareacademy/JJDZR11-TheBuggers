@@ -2,17 +2,23 @@ package pl.isa.fitly.controller;
 
 
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 @Controller
 public class MainController {
     UserData userData = new UserData();
+    UserController userController = new UserController();
+
     @GetMapping("/")
     public String mainSide() {
         return "main";
@@ -20,20 +26,32 @@ public class MainController {
 
     @GetMapping("/bmi")
     public String bmi(Model model) {
-        model.addAttribute("userData",  userData);
+        model.addAttribute("userData", userData);
         return "bmi";
     }
 
     @PostMapping("/bmi")
     public String bmiSubmit(@Valid UserData userData, BindingResult bindingResult, Model model) {
-        if (!bindingResult.hasErrors()) {
-            model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
-            model.addAttribute("bmiNS", userData.nutritionalStatus());
-        }else {
-            model.addAttribute("bmi", "Error"+ bindingResult.toString());
+        if (bindingResult.hasErrors()) {
+            if (!errorInputBmi(bindingResult)) {
+                model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
+                model.addAttribute("bmiNS", userData.nutritionalStatus());
+            } else {
+                model.addAttribute("bmi", "Error  " + bindingResult.getAllErrors().get(0));
+            }
         }
         return "bmi";
     }
+
+    static boolean errorInputBmi(BindingResult bindingResult) {
+        for (FieldError fieldError : bindingResult.getFieldErrors()) {
+            if (fieldError.getField().equals("height") || fieldError.getField().equals("weight")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     @GetMapping("/calories")
     public String calories() {
@@ -52,17 +70,17 @@ public class MainController {
 
     @GetMapping("/login")
     public String usersite(Model model) {
-        model.addAttribute("userData",  userData);
+        model.addAttribute("userData", userData);
+        //System.out.println(userController.getUserByEmail(null));
         return "usersite";
     }
 
     @PostMapping("/login")
-    public String login(@Valid UserData userData , BindingResult bindingResult, Model model) {
-       // model.addAttribute("userData", new UserData());
+    public String login(@Valid UserData userData, BindingResult bindingResult, Model model) {
         if (!bindingResult.hasErrors()) {
-            //model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
-            //model.addAttribute("bmiNS", userData.nutritionalStatus());
-            this.userData=userData;
+            this.userData = userData;
+            model.addAttribute("Error", userController.addUser(userData).text);
+            System.out.println(userData.toString());
         }
         return "usersite";
     }

@@ -106,7 +106,7 @@
             margin: 10px 0px;
         }
 
-        .inputs span {
+        .error {
             color: red;
         }
     </style>
@@ -126,23 +126,36 @@
         <h1>Registration</h1>
         <form th:action="@{/login}" th:object="${userData}" method="post">
             <legend>-----</legend>
+            <span class="error" th:text="${Error}"></span>
+            <div class="inputs">
+                <label for="disabledEmailInput" class="form-label">Email</label>
+                <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"
+                       placeholder="Email">
+                <span th:if="${#fields.hasErrors('email')}"class="error" >Please enter a valid email</span>
+            </div>
+            <div class="inputs">
+                <label for="disabledPasswordInput" class="form-label">Password</label>
+                <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"
+                       placeholder="Password">
+                <span th:if="${#fields.hasErrors('password')}"class="error" >Please enter a valid password</span>
+            </div>
             <div class="inputs">
                 <label for="disabledNameInput" class="form-label">Name</label>
                 <input type="text" th:field="*{name}" id="disabledNameInput" class="form-control"
                        placeholder="Name">
-                <span th:if="${#fields.hasErrors('name')}">Please enter a valid name</span>
+                <span th:if="${#fields.hasErrors('name')}" class="error" >Please enter a valid name</span>
             </div>
             <div class="inputs">
                 <label for="disabledAgeInput" class="form-label">Age</label>
                 <input type="number" th:field="*{age}" id="disabledAgeInput" class="form-control"
                        placeholder="Age">
-                <span th:if="${#fields.hasErrors('age')}">Please enter a valid age</span>
+                <span th:if="${#fields.hasErrors('age')}" class="error" >Please enter a valid age</span>
             </div>
             <div class="inputs">
                 <label for="disabledWightInput" class="form-label">Weight [kg]</label>
                 <input type="text" th:field="*{weight}" id="disabledWightInput" class="form-control"
                        placeholder="Weight">
-                <span th:if="${#fields.hasErrors('weight')}">Please enter a valid weight</span>
+                <span th:if="${#fields.hasErrors('weight')}" class="error" >Please enter a valid weight</span>
             </div>
             <div class="inputs">
                 <label for="disabledActivityInput" class="form-label">Activity Level</label>
@@ -153,7 +166,7 @@
                     <option value="Very active">Very active</option>
                     <option value="Super active">Super active</option>
                 </select>
-                <span th:if="${#fields.hasErrors('activityLevel')}">Please enter a valid activity level</span>
+                <span th:if="${#fields.hasErrors('activityLevel')}" class="error" >Please enter a valid activity level</span>
 
             </div>
             <div class="inputs">
@@ -168,7 +181,7 @@
                 <label for="disabledHeightInput" class="form-label">Height [cm]</label>
                 <input type="text" th:field="*{height}" id="disabledHeightInput" class="form-control"
                        placeholder="Height">
-                <span th:if="${#fields.hasErrors('height')}">Please enter a valid height</span>
+                <span th:if="${#fields.hasErrors('height')}" class="error" >Please enter a valid height</span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

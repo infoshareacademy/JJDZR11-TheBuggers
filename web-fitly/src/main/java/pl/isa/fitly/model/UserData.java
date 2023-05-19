@@ -3,9 +3,11 @@ package pl.isa.fitly.model;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 public class UserData {
+    private String email;
+    @NotEmpty
+    private String password;
     @NotEmpty
     private String name;
     @Min(1)
@@ -18,6 +20,11 @@ public class UserData {
     private int height;
 
     public UserData() {
+    }
+
+    public UserData(double weight, int height) {
+        this.age = age;
+        this.height = height;
     }
 
     public UserData(String name, int age, double weight, String activityLevel, boolean whatGender, int height) {
@@ -77,6 +84,22 @@ public class UserData {
         this.age = age;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public static double bmiValue(double weight, int height) {
         // height converted from centimeters to meters (/100)
         return (weight / Math.pow((double) height / 100, 2));
@@ -106,4 +129,15 @@ public class UserData {
         }
     }
 
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", activityLevel='" + activityLevel + '\'' +
+                ", whatGender=" + whatGender +
+                ", height=" + height +
+                '}';
+    }
 }

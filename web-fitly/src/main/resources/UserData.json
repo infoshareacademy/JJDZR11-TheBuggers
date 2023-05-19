@@ -1,0 +1,10 @@
+[ {
+  "email" : "grzes1616@gmail.com",
+  "password" : "123",
+  "name" : "asd",
+  "age" : 22,
+  "weight" : 55.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 555
+}]
