@@ -1,27 +1,65 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>trainings</title>
+    <title>Trainings</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="container">
-    <header class="header"></header>
+    <header>
+        <h1>Trainings</h1>
+    </header>
     <nav class="menu">
         <button style="margin-right: 0;"><a href="/"><img src="grafika1.jpg" alt="MAIN"></a></button>
-        <button style="margin-right: 0;"><a href="bmi"><img src="grafika1.jpg" alt="BMI"></a></button>
-        <button style="margin-right: 0;"><a href="calories"><img src="grafika1.jpg" alt="CALORIES"></a></button>
-        <button style="margin-right: 0;"><a href="diets"><img src="grafika1.jpg" alt="DIETS"></a></button>
-        <button style="margin-right: 0;"><a href="trainings"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
-        <button style="margin-left: auto;"><a href="login"><img src="grafika1.jpg" alt="LOGIN"></a></button>
+        <button style="margin-right: 0;"><a href="/bmi"><img src="grafika1.jpg" alt="BMI"></a></button>
+        <button style="margin-right: 0;"><a href="/calories"><img src="grafika1.jpg" alt="CALORIES"></a></button>
+        <button style="margin-right: 0;"><a href="/diets"><img src="grafika1.jpg" alt="DIETS"></a></button>
+        <button style="margin-right: 0;"><a href="/trainings"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
+        <button style="margin-left: auto;"><a href="/login"><img src="grafika1.jpg" alt="LOGIN"></a></button>
     </nav>
-    <div class="content">
-        <img src="grafika2.jpg" alt="main image">
-        <p>Some main content here</p>
-    </div>
-    <footer class="footer">
-        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+    <main>
+        <h2>Calculate Training Weights</h2>
+        <form action="/training" method="post">
+            <label for="weight">Enter your weight:</label>
+            <input type="number" id="weight" name="weight" required>
+            <button type="submit">Calculate Training</button>
+        </form>
+
+        <div th:if="${showWeights}">
+            <h2>Training Weights</h2>
+            <div th:if="${benchPressWeight}">
+                <h3>Bench Press Weight: <span th:text="${benchPressWeight}"></span> kg</h3>
+            </div>
+            <div th:if="${squatWeight}">
+                <h3>Squat Weight: <span th:text="${squatWeight}"></span> kg</h3>
+            </div>
+            <div th:if="${deadliftWeight}">
+                <h3>Deadlift Weight: <span th:text="${deadliftWeight}"></span> kg</h3>
+            </div>
+            <div th:if="${dumbbellCurlsWeight}">
+                <h3>Dumbbell Curls Weight: <span th:text="${dumbbellCurlsWeight}"></span> kg</h3>
+            </div>
+            <div th:if="${dumbbellRowsWeight}">
+                <h3>Dumbbell Rows Weight: <span th:text="${dumbbellRowsWeight}"></span> kg</h3>
+            </div>
+            <div th:if="${dumbbellShoulderPressWeight}">
+                <h3>Dumbbell Shoulder Press Weight: <span th:text="${dumbbellShoulderPressWeight}"></span> kg</h3>
+            </div>
+
+            <h2>Training Weights Based on Repetitions:</h2>
+            <ul>
+                <li th:each="weight : ${weights}" th:text="${weight}"></li>
+            </ul>
+        </div>
+
+        <div th:if="${showFileContent}">
+            <h2>Training File Content:</h2>
+            <pre th:utext="${fileContent}"></pre>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; The Buggers. All rights reserved!</p>
     </footer>
 </div>
 </body>
