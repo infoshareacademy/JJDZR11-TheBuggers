@@ -2,14 +2,8 @@ package pl.isa.fitly.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import pl.isa.fitly.model.UserData;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -32,12 +26,10 @@ public class UserController {
     }
 
     public boolean userExists(String email) {
-        List<UserData> users = usersData.stream().filter(user -> user.getEmail().equals(email)).toList();
-        if (users.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        List<UserData> users = usersData.stream()
+                .filter(user -> user.getEmail().equals(email))
+                .toList();
+        return !users.isEmpty();
     }
 
     public UserData getUserByEmail(String email) {
@@ -50,7 +42,6 @@ public class UserController {
     }
 
     private List<UserData> readUsers() {
-//        List<UserData> result = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
         Path pathJson = Path.of("web-fitly", "src", "main", "resources", "UserData.json");
         TypeReference<List<UserData>> typeReference = new TypeReference<>() {
@@ -78,16 +69,16 @@ public class UserController {
         }
     }
 
-    public  enum formError{
+    public enum formError {
         OK(""),
         WRITE_ERROR("Write error"),
         USER_EXISTS("User exists");
 
         String text;
-        formError(String text){
-            this.text=text;
-        }
 
+        formError(String text) {
+            this.text = text;
+        }
     }
 
 }

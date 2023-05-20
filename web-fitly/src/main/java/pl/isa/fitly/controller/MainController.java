@@ -2,7 +2,6 @@ package pl.isa.fitly.controller;
 
 
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,8 +9,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 
 @Controller
@@ -52,7 +49,6 @@ public class MainController {
         return false;
     }
 
-
     @GetMapping("/calories")
     public String calories() {
         return "calories";
@@ -71,7 +67,6 @@ public class MainController {
     @GetMapping("/login")
     public String usersite(Model model) {
         model.addAttribute("userData", userData);
-        //System.out.println(userController.getUserByEmail(null));
         return "usersite";
     }
 

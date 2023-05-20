@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 
 public class UserData {
+    @NotEmpty
     private String email;
     @NotEmpty
     private String password;
@@ -23,7 +24,7 @@ public class UserData {
     }
 
     public UserData(double weight, int height) {
-        this.age = age;
+        this.weight = weight;
         this.height = height;
     }
 
@@ -132,7 +133,8 @@ public class UserData {
     @Override
     public String toString() {
         return "UserData{" +
-                "name='" + name + '\'' +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
                 ", activityLevel='" + activityLevel + '\'' +
