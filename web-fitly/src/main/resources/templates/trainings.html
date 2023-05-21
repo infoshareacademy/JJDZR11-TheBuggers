@@ -27,7 +27,7 @@
             <button type="submit">Calculate Training</button>
         </form>
 
-        <div th:if="${showWeights}">
+        <div th:if="${showFlag}">
             <h2>Training Weights</h2>
             <div>
                 <h3>Bench Press Weight: <span th:text="${benchPressWeight}"></span> kg</h3>
@@ -54,7 +54,7 @@
             </ul>
         </div>
 
-        <div th:if="${showFileContent}">
+        <div th:if="${showFlag}">
             <h2>Training File Content:</h2>
             <pre th:utext="${fileContent}"></pre>
         </div>

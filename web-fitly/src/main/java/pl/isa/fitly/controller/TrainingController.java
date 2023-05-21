@@ -16,8 +16,6 @@ public class TrainingController {
     private TrainingCalculator trainingCalculator;
     private TrainingCalculatorPrinter trainingCalculatorPrinter;
     private TrainingFileReader trainingFileReader;
-    private boolean showWeights = false;
-    private boolean showFileContent = false;
 
     public TrainingController(TrainingCalculator trainingCalculator, TrainingCalculatorPrinter trainingCalculatorPrinter, TrainingFileReader trainingFileReader) {
         this.trainingCalculator = trainingCalculator;
@@ -27,31 +25,22 @@ public class TrainingController {
 
     @GetMapping("/trainings")
     public String showTrainingsPage(Model model) {
-        resetFlags();
         model.addAttribute("userData", new UserData());
-        model.addAttribute("showWeights", showWeights);
-        model.addAttribute("showFileContent", showFileContent);
+        model.addAttribute("showFlag", false);
         return "trainings";
     }
 
     @PostMapping("/training")
     public String calculateTraining(@RequestParam("weight") double weight, Model model) {
-        showWeights = true;
-        showFileContent = true;
 
         trainingCalculator.calculateTrainingWeights(weight);
         trainingCalculatorPrinter.printTraining(model);
         trainingCalculatorPrinter.printTrainingWeightBasedOnRM(model);
         trainingFileReader.run(model);
 
-        model.addAttribute("showWeights", showWeights);
-        model.addAttribute("showFileContent", showFileContent);
+        model.addAttribute("showFlag", true);
 
         return "trainings";
     }
 
-    private void resetFlags() {
-        showWeights = false;
-        showFileContent = false;
-    }
 }
