@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
+    <meta charset="UTF-8">
+    <title>main</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+
+<div th:replace="/main-template.html">
+    <div th:insert="/main-template::variable-content">
+
+        <h1>FIT YOUR MUSCLES</h1>
+        Choose from hunderds of workouts, heatlhy recipes, relaxing meditations,<br>
+        and expert articles, for a whole body and mind approach to feeling great.<br><br>
+        Proffessionally designed programs take the guesswork out of exercising.<br><br>
+        Excercise with certified personal trainers whether you're at home or on the road.<br><br>
+        <button class="joinUs-button"><a href="joinUs.html"><span class="button-text">JOIN US</span></a></button>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>

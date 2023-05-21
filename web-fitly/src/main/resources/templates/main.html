@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <meta charset="UTF-8">
@@ -7,108 +7,22 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<div class="container">
-    <div class="shader"></div>
 
-    <header class="header"></header>
 
-    <nav class="menu">
-        <div class="nav-left">
-            <a href="main.html" class="nav-button"><span class="button-text">MAIN</span></a>
-            <a href="bmi.html" class="nav-button"><span class="button-text">BMI</span></a>
-            <a href="calories.html" class="nav-button"><span class="button-text">CALORIES</span></a>
-            <a href="diets.html" class="nav-button"><span class="button-text">DIETS</span></a>
-            <a href="trainings.html" class="nav-button"><span class="button-text">TRAININGS</span></a>
-        </div>
-        <div class="nav-right">
-            <button class="nav-button" onclick="openForm()">LOGIN</button>
+<div th:replace="main-template.html">
+    <div th:insert="main-template::variable-content">
 
-            <div class="form-popup" id="myForm">
-                <form class="form-container">
+                <h1>FIT YOUR MUSCLES</h1>
+                Choose from hunderds of workouts, heatlhy recipes, relaxing meditations,<br>
+                and expert articles, for a whole body and mind approach to feeling great.<br><br>
+                Proffessionally designed programs take the guesswork out of exercising.<br><br>
+                Excercise with certified personal trainers whether you're at home or on the road.<br><br>
+                <button class="joinUs-button"><a href="joinUs.html"><span class="button-text">JOIN US</span></a></button>
 
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <div style="padding-bottom: 5px; padding-top: 5px; display: flex; justify-content: space-between;">
-                        <div class="col-6">
-                            <input type="checkbox" value="" id="form2Example3">
-                            <label class="form-check-label" for="form2Example3">
-                                Remember me
-                            </label>
-                        </div>
-                        <div class="col-6">
-                            <a href="#" class="forgot-password">Forgot password?</a>
-                        </div>
-                    </div>
-                    <div style="display: flex; justify-content: center;">
-                        <button type="submit" class="btn" style="margin-right: 10px;">Login</button>
-                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                    </div>
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                        <p class="small fw-bold mt-2 pt-1 mb-0">
-                            Don't have an account? <a href="#" style="color: darkred">Register</a>
-                        </p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="content">
-        <img src="../img/background/bg-transparent.png" alt="main image">
-        <div class="text-block">
-            <h1>FIT YOUR MUSCLES</h1>
-
-            Choose from hunderds of workouts, heatlhy recipes, relaxing meditations,
-            and expert articles, for a whole body and mind approach to feeling great.<br><br>
-            Proffessionally designed programs take the guesswork out of exercising.<br><br>
-            Excercise with certified personal trainers whether you're at home or on the road.<br><br>
-
-            <a href="joinUs.html" class="joinUs-link">
-                <button class="joinUs-button">
-                    <span class="button-text">JOIN US</span>
-                </button>
-            </a>
-        </div>
     </div>
-
-    <footer class="footer">
-        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-    </footer>
-
 </div>
 
 
-<script>
-    function openForm() {
-        var formPopup = document.getElementById("myForm");
-        var shader = document.querySelector('.shader');
-        formPopup.classList.add('active');
-        shader.classList.add('active');
-    }
 
-    function closeForm() {
-        var formPopup = document.getElementById("myForm");
-        var shader = document.querySelector('.shader');
-        formPopup.classList.remove('active');
-        shader.classList.remove('active');
-    }
-</script>
-<script>
-    const formPopup = document.querySelector('.form-popup');
-    const openFormButton = document.querySelector('.nav-button[onclick="openForm()"]');
-    const shader = document.querySelector('.shader');
-
-    function handleClickOutsideForm(event) {
-        if (!formPopup.contains(event.target) && event.target !== openFormButton) {
-            closeForm();
-        }
-    }
-
-    document.addEventListener('click', handleClickOutsideForm);
-</script>
 </body>
 </html>
