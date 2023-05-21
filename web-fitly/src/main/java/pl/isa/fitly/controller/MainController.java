@@ -34,7 +34,7 @@ public class MainController {
                 model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
                 model.addAttribute("bmiNS", userData.nutritionalStatus());
             } else {
-                model.addAttribute("bmi", "Error  " + bindingResult.getAllErrors().get(0));
+                model.addAttribute("bmi", "Incorrect data");
             }
         }
         return "bmi";
@@ -86,15 +86,17 @@ public class MainController {
             if (!errorInputLogin(bindingResult)) {
                 int error = userController.userLogin(userData.getEmail(), userData.getPassword()).ordinal();
                 switch (UserController.formError.values()[error]) {
-                    case OK ->
+                    case OK ->{
                         this.userData = userController.getUserByEmail(userData.getEmail());
+                        model.addAttribute("Info", "Logged in correctly");
+                    }
                     case INCORRECT_PASSWORD ->
-                            model.addAttribute("ErrorLogin", UserController.formError.INCORRECT_PASSWORD.text);
+                            model.addAttribute("Info", UserController.formError.INCORRECT_PASSWORD.text);
                     case NOT_FOUND_USER ->
-                            model.addAttribute("ErrorLogin", UserController.formError.NOT_FOUND_USER.text);
+                            model.addAttribute("Info", UserController.formError.NOT_FOUND_USER.text);
                 }
             } else {
-                model.addAttribute("ErrorLogin", "Incorrect data");
+                model.addAttribute("Info", "Incorrect data");
             }
             System.out.println(this.userData);
         }

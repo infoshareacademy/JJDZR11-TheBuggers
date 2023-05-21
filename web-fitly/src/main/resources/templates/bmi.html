@@ -128,14 +128,14 @@
             <legend>Your dimensions</legend>
             <div class="inputs">
                 <label for="disabledHeightInput" class="form-label">Height [cm]</label>
-                <input type="text" th:field="*{height}" id="disabledHeightInput" class="form-control"
+                <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control"
                        placeholder="Height">
                 <span th:if="${#fields.hasErrors('height')}">Please enter a valid height</span>
             </div>
             <div class="inputs">
                 <label for="disabledWightInput" class="form-label">Weight [kg]</label>
-                <input type="text" th:field="*{weight}" id="disabledWightInput" class="form-control"
-                       placeholder="Weight">
+                <input type="number" th:field="*{weight}" id="disabledWightInput" class="form-control"
+                       placeholder="Weight" step="any" >
                 <span th:if="${#fields.hasErrors('weight')}">Please enter a valid weight</span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
