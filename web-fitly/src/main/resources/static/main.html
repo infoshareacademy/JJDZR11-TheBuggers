@@ -4,13 +4,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
     <meta charset="UTF-8">
     <title>main</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 
-<div th:replace="/main-template.html">
-    <div th:insert="/main-template::variable-content">
+<div th:replace="~{fragments::navbar}">
+    <div th:insert="~{main-template::variable-content}">
 
         <h1>FIT YOUR MUSCLES</h1>
         Choose from hunderds of workouts, heatlhy recipes, relaxing meditations,<br>
