@@ -124,18 +124,18 @@
     </nav>
     <div class="form_bmi">
         <h1>Registration</h1>
-        <form th:action="@{/login}" th:object="${userData}" method="post">
+        <form th:action="@{/register}" th:object="${userData}" method="post">
             <legend>-----</legend>
             <span class="error" th:text="${Error}"></span>
             <div class="inputs">
-                <label for="disabledEmailInput" class="form-label">Email</label>
-                <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"
+                <label for="disabledEmailLogin" class="form-label">Email</label>
+                <input type="email" th:field="*{email}" id="disabledEmailLogin" class="form-control"
                        placeholder="Email">
                 <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>
             </div>
             <div class="inputs">
-                <label for="disabledPasswordInput" class="form-label">Password</label>
-                <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"
+                <label for="disabledPasswordLogin" class="form-label">Password</label>
+                <input type="password" th:field="*{password}" id="disabledPasswordLogin" class="form-control"
                        placeholder="Password">
                 <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>
             </div>
@@ -189,6 +189,25 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <h1>Login</h1>
+    <form th:action="@{/login}" th:object="${userData}" method="post">
+        <legend>-----</legend>
+        <span class="error" th:text="${ErrorLogin}"></span>
+        <div class="inputs">
+            <label for="disabledEmailInput" class="form-label">Email</label>
+            <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"
+                   placeholder="Email">
+            <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>
+        </div>
+        <div class="inputs">
+            <label for="disabledPasswordInput" class="form-label">Password</label>
+            <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"
+                   placeholder="Password">
+            <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
     <div class="content">
 
     </div>

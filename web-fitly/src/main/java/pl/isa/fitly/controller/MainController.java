@@ -70,13 +70,44 @@ public class MainController {
         return "usersite";
     }
 
-    @PostMapping("/login")
-    public String login(@Valid UserData userData, BindingResult bindingResult, Model model) {
+    @PostMapping("/register")
+    public String register(@Valid UserData userData, BindingResult bindingResult, Model model) {
         if (!bindingResult.hasErrors()) {
             this.userData = userData;
             model.addAttribute("Error", userController.addUser(userData).text);
-            System.out.println(userData.toString());
+            System.out.println(userData);
         }
         return "usersite";
     }
+
+    @PostMapping("/login")
+    public String login(@Valid UserData userData, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            if (!errorInputLogin(bindingResult)) {
+                int error = userController.userLogin(userData.getEmail(), userData.getPassword()).ordinal();
+                switch (UserController.formError.values()[error]) {
+                    case OK ->
+                        this.userData = userController.getUserByEmail(userData.getEmail());
+                    case INCORRECT_PASSWORD ->
+                            model.addAttribute("ErrorLogin", UserController.formError.INCORRECT_PASSWORD.text);
+                    case NOT_FOUND_USER ->
+                            model.addAttribute("ErrorLogin", UserController.formError.NOT_FOUND_USER.text);
+                }
+            } else {
+                model.addAttribute("ErrorLogin", "Incorrect data");
+            }
+            System.out.println(this.userData);
+        }
+        return "usersite";
+    }
+
+    static boolean errorInputLogin(BindingResult bindingResult) {
+        for (FieldError fieldError : bindingResult.getFieldErrors()) {
+            if (fieldError.getField().equals("email") || fieldError.getField().equals("password")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

@@ -3,7 +3,9 @@ package pl.isa.fitly.model;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserData {
     @NotEmpty
     private String email;
@@ -142,4 +144,5 @@ public class UserData {
                 ", height=" + height +
                 '}';
     }
+
 }

@@ -32,8 +32,26 @@ public class UserController {
         return !users.isEmpty();
     }
 
+    public formError userLogin(String email, String password){
+        if(userExists(email)){
+            if(getUserByEmail(email).getPassword().equals(password)){
+                return formError.OK;
+
+            }else {
+                return formError.INCORRECT_PASSWORD;
+
+            }
+        }else{
+            return formError.NOT_FOUND_USER;
+
+        }
+
+    }
+
     public UserData getUserByEmail(String email) {
-        List<UserData> users = usersData.stream().filter(user -> user.getEmail().equals(email)).toList();
+        List<UserData> users = usersData.stream()
+                .filter(user -> user.getEmail().equals(email))
+                .toList();
         if (users.isEmpty()) {
             return new UserData();
         } else {
@@ -72,7 +90,9 @@ public class UserController {
     public enum formError {
         OK(""),
         WRITE_ERROR("Write error"),
-        USER_EXISTS("User exists");
+        USER_EXISTS("User exists"),
+        NOT_FOUND_USER("Not found user"),
+        INCORRECT_PASSWORD("Incorrect password");
 
         String text;
 
