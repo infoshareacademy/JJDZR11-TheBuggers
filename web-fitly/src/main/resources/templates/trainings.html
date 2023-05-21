@@ -22,28 +22,29 @@
         <h2>Calculate Training Weights</h2>
         <form action="/training" method="post">
             <label for="weight">Enter your weight:</label>
-            <input type="number" id="weight" name="weight" required>
+            <input type="number" id="weight" name="weight" required min="0.5" step="0.1" pattern="[0-9]+([.,][0-9]+)?"
+                   title="Enter a number greater than 0.5">
             <button type="submit">Calculate Training</button>
         </form>
 
         <div th:if="${showWeights}">
             <h2>Training Weights</h2>
-            <div th:if="${benchPressWeight}">
+            <div>
                 <h3>Bench Press Weight: <span th:text="${benchPressWeight}"></span> kg</h3>
             </div>
-            <div th:if="${squatWeight}">
+            <div>
                 <h3>Squat Weight: <span th:text="${squatWeight}"></span> kg</h3>
             </div>
-            <div th:if="${deadliftWeight}">
+            <div>
                 <h3>Deadlift Weight: <span th:text="${deadliftWeight}"></span> kg</h3>
             </div>
-            <div th:if="${dumbbellCurlsWeight}">
+            <div>
                 <h3>Dumbbell Curls Weight: <span th:text="${dumbbellCurlsWeight}"></span> kg</h3>
             </div>
-            <div th:if="${dumbbellRowsWeight}">
+            <div>
                 <h3>Dumbbell Rows Weight: <span th:text="${dumbbellRowsWeight}"></span> kg</h3>
             </div>
-            <div th:if="${dumbbellShoulderPressWeight}">
+            <div>
                 <h3>Dumbbell Shoulder Press Weight: <span th:text="${dumbbellShoulderPressWeight}"></span> kg</h3>
             </div>
 
@@ -59,7 +60,7 @@
         </div>
     </main>
     <footer>
-        <p>&copy; The Buggers. All rights reserved!</p>
+        <p>&copy; 2023 Trainings</p>
     </footer>
 </div>
 </body>

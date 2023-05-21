@@ -15,21 +15,25 @@ public class TrainingCalculatorPrinter {
     }
 
     public void printTraining(Model model) {
-        model.addAttribute("benchPressWeight", calculator.getBenchPressWeight());
-        model.addAttribute("squatWeight", calculator.getSquatWeight());
-        model.addAttribute("deadliftWeight", calculator.getDeadLiftWeight());
-        model.addAttribute("dumbbellCurlsWeight", calculator.getDumbbellCurlsWeight());
-        model.addAttribute("dumbbellRowsWeight", calculator.getDumbbellRowsWeight());
-        model.addAttribute("dumbbellShoulderPressWeight", calculator.getDumbbellShoulderPressWeight());
+        model.addAttribute("benchPressWeight", formatWeight(calculator.getBenchPressWeight()));
+        model.addAttribute("squatWeight", formatWeight(calculator.getSquatWeight()));
+        model.addAttribute("deadliftWeight", formatWeight(calculator.getDeadLiftWeight()));
+        model.addAttribute("dumbbellCurlsWeight", formatWeight(calculator.getDumbbellCurlsWeight()));
+        model.addAttribute("dumbbellRowsWeight", formatWeight(calculator.getDumbbellRowsWeight()));
+        model.addAttribute("dumbbellShoulderPressWeight", formatWeight(calculator.getDumbbellShoulderPressWeight()));
     }
 
     public void printTrainingWeightBasedOnRM(Model model) {
         List<String> weights = new ArrayList<>();
         for (int i = 1; i <= 15; i++) {
             double weight = calculator.getWeightForReps(i);
-            String weightString = weight + " kg (" + i + " repetition" + (i > 1 ? "s" : "") + ")";
+            String weightString = formatWeight(weight) + " kg (" + i + " repetition" + (i > 1 ? "s" : "") + ")";
             weights.add(weightString);
         }
         model.addAttribute("weights", weights);
+    }
+
+    private double formatWeight(double weight) {
+        return Math.round(weight * 2) / 2.0;
     }
 }

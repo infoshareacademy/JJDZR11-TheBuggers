@@ -27,6 +27,7 @@ public class TrainingController {
 
     @GetMapping("/trainings")
     public String showTrainingsPage(Model model) {
+        resetFlags();
         model.addAttribute("userData", new UserData());
         model.addAttribute("showWeights", showWeights);
         model.addAttribute("showFileContent", showFileContent);
@@ -48,5 +49,9 @@ public class TrainingController {
 
         return "trainings";
     }
-}
 
+    private void resetFlags() {
+        showWeights = false;
+        showFileContent = false;
+    }
+}
