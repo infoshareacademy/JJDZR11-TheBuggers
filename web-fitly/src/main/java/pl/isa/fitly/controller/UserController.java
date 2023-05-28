@@ -59,8 +59,7 @@ public class UserController {
     private List<UserData> readUsers() {
         ObjectMapper objectMapper = new ObjectMapper();
         Path pathJson = Path.of("web-fitly", "src", "main", "resources", "UserData.json");
-        TypeReference<List<UserData>> typeReference = new TypeReference<>() {
-        };
+        TypeReference<List<UserData>> typeReference = new TypeReference<>() {};
         try {
             return objectMapper.readValue(Files.readString(pathJson), typeReference);
         } catch (Exception e) {
@@ -90,9 +89,7 @@ public class UserController {
         USER_EXISTS("User exists"),
         NOT_FOUND_USER("Not found user"),
         INCORRECT_PASSWORD("Incorrect password");
-
         String text;
-
         formError(String text) {
             this.text = text;
         }

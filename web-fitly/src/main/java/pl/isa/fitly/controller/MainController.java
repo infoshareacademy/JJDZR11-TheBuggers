@@ -37,7 +37,6 @@ public class MainController {
     public String bmiSubmit(UserData userData, Model model) {
         model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
         model.addAttribute("bmiNS", userData.nutritionalStatus());
-
         return "bmi";
     }
 
@@ -66,7 +65,6 @@ public class MainController {
     public String register(UserData userData, Model model) {
         this.userData = userData;
         model.addAttribute("Error", userController.addUser(userData).text);
-        System.out.println(userData);
         return "usersite";
     }
 
@@ -89,6 +87,5 @@ public class MainController {
         }
         return "usersite";
     }
-
 
 }
