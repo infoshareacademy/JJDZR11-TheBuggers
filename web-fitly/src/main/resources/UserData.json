@@ -25,4 +25,22 @@
   "activityLevel" : "Lightly active",
   "whatGender" : true,
   "height" : 193
+}, {
+  "email" : "grzegorz.lozio@enerko.pl",
+  "password" : "321",
+  "name" : "Grzegorz Lozio",
+  "age" : 25,
+  "weight" : 80.0,
+  "activityLevel" : "Moderately active",
+  "whatGender" : true,
+  "height" : 199
+}, {
+  "email" : "grzes1616@gmail.pl",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 25,
+  "weight" : 80.0,
+  "activityLevel" : "Lightly active",
+  "whatGender" : true,
+  "height" : 193
 } ]

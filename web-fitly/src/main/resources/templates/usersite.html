@@ -130,32 +130,27 @@
             <div class="inputs">
                 <label for="disabledEmailLogin" class="form-label">Email</label>
                 <input type="email" th:field="*{email}" id="disabledEmailLogin" class="form-control"
-                       placeholder="Email">
-                <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>
+                       placeholder="Email" minlength="5"required>
             </div>
             <div class="inputs">
                 <label for="disabledPasswordLogin" class="form-label">Password</label>
                 <input type="password" th:field="*{password}" id="disabledPasswordLogin" class="form-control"
-                       placeholder="Password">
-                <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>
+                       placeholder="Password" minlength="5" required>
             </div>
             <div class="inputs">
                 <label for="disabledNameInput" class="form-label">Name</label>
                 <input type="text" th:field="*{name}" id="disabledNameInput" class="form-control"
-                       placeholder="Name">
-                <span th:if="${#fields.hasErrors('name')}" class="error">Please enter a valid name</span>
+                       placeholder="Name" minlength="3" required>
             </div>
             <div class="inputs">
                 <label for="disabledAgeInput" class="form-label">Age</label>
                 <input type="number" th:field="*{age}" id="disabledAgeInput" class="form-control"
-                       placeholder="Age">
-                <span th:if="${#fields.hasErrors('age')}" class="error">Please enter a valid age</span>
+                       placeholder="Age" min="1" required>
             </div>
             <div class="inputs">
                 <label for="disabledWightInput" class="form-label">Weight [kg]</label>
                 <input type="number" th:field="*{weight}" id="disabledWightInput" class="form-control"
-                       placeholder="Weight" step="any">
-                <span th:if="${#fields.hasErrors('weight')}" class="error">Please enter a valid weight</span>
+                       placeholder="Weight" step="any" min="1" required>
             </div>
             <div class="inputs">
                 <label for="disabledActivityInput" class="form-label">Activity Level</label>
@@ -166,8 +161,6 @@
                     <option value="Very active">Very active</option>
                     <option value="Super active">Super active</option>
                 </select>
-                <span th:if="${#fields.hasErrors('activityLevel')}"
-                      class="error">Please enter a valid activity level</span>
             </div>
             <div class="inputs">
                 <p>Gender
@@ -177,13 +170,11 @@
                     <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions"
                            id="inlineRadio2" value="false">
                     <label class="form-check-label" for="inlineRadio1">F</label></p>
-                <!--                <span th:if="${#fields.hasErrors('whatGender')}">Please enter a valid Gender</span>-->
             </div>
             <div class="inputs">
                 <label for="disabledHeightInput" class="form-label">Height [cm]</label>
                 <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control"
-                       placeholder="Height">
-                <span th:if="${#fields.hasErrors('height')}" class="error">Please enter a valid height</span>
+                       placeholder="Height" min="1" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -195,20 +186,21 @@
         <div class="inputs">
             <label for="disabledEmailInput" class="form-label">Email</label>
             <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"
-                   placeholder="Email">
-            <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>
+                   placeholder="Email" minlength="5"required>
+<!--            <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>-->
         </div>
         <div class="inputs">
             <label for="disabledPasswordInput" class="form-label">Password</label>
             <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"
-                   placeholder="Password">
-            <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>
+                   placeholder="Password" minlength="5"required>
+<!--            <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>-->
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
-
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
     <div class="content">
-
     </div>
     <footer class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>

@@ -13,8 +13,14 @@ import pl.isa.fitly.model.UserData;
 
 @Controller
 public class MainController {
-    UserData userData = new UserData();
-    UserController userController = new UserController();
+    UserData userData;
+    UserController userController;
+    boolean userLoggedIn;
+
+    public MainController(UserData userData, UserController userController) {
+        this.userData = userData;
+        this.userController = userController;
+    }
 
     @GetMapping("/")
     public String mainSide() {
@@ -28,25 +34,11 @@ public class MainController {
     }
 
     @PostMapping("/bmi")
-    public String bmiSubmit(@Valid UserData userData, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            if (!errorInputBmi(bindingResult)) {
-                model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
-                model.addAttribute("bmiNS", userData.nutritionalStatus());
-            } else {
-                model.addAttribute("bmi", "Incorrect data");
-            }
-        }
-        return "bmi";
-    }
+    public String bmiSubmit(UserData userData, Model model) {
+        model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
+        model.addAttribute("bmiNS", userData.nutritionalStatus());
 
-    static boolean errorInputBmi(BindingResult bindingResult) {
-        for (FieldError fieldError : bindingResult.getFieldErrors()) {
-            if (fieldError.getField().equals("height") || fieldError.getField().equals("weight")) {
-                return true;
-            }
-        }
-        return false;
+        return "bmi";
     }
 
     @GetMapping("/calories")
@@ -71,45 +63,32 @@ public class MainController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid UserData userData, BindingResult bindingResult, Model model) {
-        if (!bindingResult.hasErrors()) {
-            this.userData = userData;
-            model.addAttribute("Error", userController.addUser(userData).text);
-            System.out.println(userData);
-        }
+    public String register(UserData userData, Model model) {
+        this.userData = userData;
+        model.addAttribute("Error", userController.addUser(userData).text);
+        System.out.println(userData);
+        return "usersite";
+    }
+
+    @PostMapping("/logout")
+    public String logout(UserData userData, Model model) {
+        this.userData = new UserData();
         return "usersite";
     }
 
     @PostMapping("/login")
-    public String login(@Valid UserData userData, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            if (!errorInputLogin(bindingResult)) {
-                int error = userController.userLogin(userData.getEmail(), userData.getPassword()).ordinal();
-                switch (UserController.formError.values()[error]) {
-                    case OK ->{
-                        this.userData = userController.getUserByEmail(userData.getEmail());
-                        model.addAttribute("Info", "Logged in correctly");
-                    }
-                    case INCORRECT_PASSWORD ->
-                            model.addAttribute("Info", UserController.formError.INCORRECT_PASSWORD.text);
-                    case NOT_FOUND_USER ->
-                            model.addAttribute("Info", UserController.formError.NOT_FOUND_USER.text);
-                }
-            } else {
-                model.addAttribute("Info", "Incorrect data");
+    public String login(UserData userData, Model model) {
+        int error = userController.userLogin(userData.getEmail(), userData.getPassword()).ordinal();
+        switch (UserController.formError.values()[error]) {
+            case OK -> {
+                this.userData = userController.getUserByEmail(userData.getEmail());
+                model.addAttribute("Info", "Logged in correctly");
             }
-            System.out.println(this.userData);
+            case INCORRECT_PASSWORD -> model.addAttribute("Info", UserController.formError.INCORRECT_PASSWORD.text);
+            case NOT_FOUND_USER -> model.addAttribute("Info", UserController.formError.NOT_FOUND_USER.text);
         }
         return "usersite";
     }
 
-    static boolean errorInputLogin(BindingResult bindingResult) {
-        for (FieldError fieldError : bindingResult.getFieldErrors()) {
-            if (fieldError.getField().equals("email") || fieldError.getField().equals("password")) {
-                return true;
-            }
-        }
-        return false;
-    }
 
 }

@@ -1,25 +1,18 @@
 package pl.isa.fitly.model;
 
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserData {
-    @NotEmpty
+
     private String email;
-    @NotEmpty
     private String password;
-    @NotEmpty
     private String name;
-    @Min(1)
     private int age;
-    @Min(1)
     private double weight;
     private String activityLevel;
     private boolean whatGender;
-    @Min(1)
     private int height;
 
     public UserData() {

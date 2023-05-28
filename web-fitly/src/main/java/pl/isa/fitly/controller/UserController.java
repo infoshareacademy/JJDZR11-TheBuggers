@@ -2,13 +2,14 @@ package pl.isa.fitly.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 import pl.isa.fitly.model.UserData;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class UserController {
     private List<UserData> usersData;
 
@@ -32,20 +33,16 @@ public class UserController {
         return !users.isEmpty();
     }
 
-    public formError userLogin(String email, String password){
-        if(userExists(email)){
-            if(getUserByEmail(email).getPassword().equals(password)){
+    public formError userLogin(String email, String password) {
+        if (userExists(email)) {
+            if (getUserByEmail(email).getPassword().equals(password)) {
                 return formError.OK;
-
-            }else {
+            } else {
                 return formError.INCORRECT_PASSWORD;
-
             }
-        }else{
+        } else {
             return formError.NOT_FOUND_USER;
-
         }
-
     }
 
     public UserData getUserByEmail(String email) {
