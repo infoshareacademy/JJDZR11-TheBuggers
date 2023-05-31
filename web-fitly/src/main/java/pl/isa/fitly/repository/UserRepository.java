@@ -59,6 +59,10 @@ public class UserRepository {
         }
     }
 
+    public List<UserData> getUsersData(){
+        return usersData;
+    }
+
     private List<UserData> readUsers() {
         ObjectMapper objectMapper = new ObjectMapper();
         Path pathJson = Path.of("web-fitly", "src", "main", "resources", "UserData.json");

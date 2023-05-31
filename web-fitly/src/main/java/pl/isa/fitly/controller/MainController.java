@@ -20,7 +20,7 @@ public class MainController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/m")
     public String mainSide() {
         return "main";
     }

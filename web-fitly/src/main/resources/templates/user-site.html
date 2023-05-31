@@ -180,23 +180,37 @@
         </form>
     </div>
     <h1>Login</h1>
-    <form th:action="@{/login}" th:object="${userData}" method="post">
-        <legend>-----</legend>
-        <span th:text="${info}"></span>
-        <div class="inputs">
-            <label for="disabledEmailInput" class="form-label">Email</label>
-            <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"
-                   placeholder="Email" minlength="5"required>
-<!--            <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>-->
-        </div>
-        <div class="inputs">
-            <label for="disabledPasswordInput" class="form-label">Password</label>
-            <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"
-                   placeholder="Password" minlength="5"required>
-<!--            <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>-->
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+<!--    <form th:action="@{/login}" th:object="${userData}" method="post">-->
+<!--        <legend>-&#45;&#45;&#45;&#45;</legend>-->
+<!--        <span th:text="${info}"></span>-->
+<!--        <div class="inputs">-->
+<!--            <label for="disabledEmailInput" class="form-label">Email</label>-->
+<!--            <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"-->
+<!--                   placeholder="Email" minlength="5"required>-->
+<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="inputs">-->
+<!--            <label for="disabledPasswordInput" class="form-label">Password</label>-->
+<!--            <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"-->
+<!--                   placeholder="Password" minlength="5"required>-->
+<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <button type="submit" class="btn btn-primary">Login</button>-->
+<!--    </form>-->
+
+
+<!--    <div th:if="${param.error}">-->
+<!--        Invalid username and password.-->
+<!--    </div>-->
+<!--    <div th:if="${param.logout}">-->
+<!--        You have been logged out.-->
+<!--    </div>-->
+<!--    <form th:action="@{/login}" method="post">-->
+<!--        <div><label> User Name : <input type="text" name="username"/> </label></div>-->
+<!--        <div><label> Password: <input type="password" name="password"/> </label></div>-->
+<!--        <div><input type="submit" value="Sign In"/></div>-->
+<!--    </form>-->
+
     <form th:action="@{/logout}" method="post">
         <button type="submit" class="btn btn-primary">Logout</button>
     </form>

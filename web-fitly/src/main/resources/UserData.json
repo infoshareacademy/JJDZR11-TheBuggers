@@ -43,4 +43,13 @@
   "activityLevel" : "Lightly active",
   "whatGender" : true,
   "height" : 193
+}, {
+  "email" : "dominika08@o2.pl",
+  "password" : "12345",
+  "name" : "123",
+  "age" : 12312,
+  "weight" : 123.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 1231
 } ]
