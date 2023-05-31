@@ -1,19 +1,22 @@
-package pl.isa.fitly.controller;
+package pl.isa.fitly.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import pl.isa.fitly.model.UserData;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-@Component
-public class UserController {
+@Repository
+public class UserRepository {
     private List<UserData> usersData;
+    private boolean userLoggedIn;
 
-    public UserController() {
+
+    public UserRepository() {
         usersData = readUsers();
     }
 
@@ -83,13 +86,21 @@ public class UserController {
         }
     }
 
+    public boolean isUserLoggedIn() {
+        return userLoggedIn;
+    }
+
+    public void setUserLoggedIn(boolean userLoggedIn) {
+        this.userLoggedIn = userLoggedIn;
+    }
+
     public enum formError {
         OK(""),
         WRITE_ERROR("Write error"),
         USER_EXISTS("User exists"),
         NOT_FOUND_USER("Not found user"),
         INCORRECT_PASSWORD("Incorrect password");
-        String text;
+        public String text;
         formError(String text) {
             this.text = text;
         }

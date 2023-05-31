@@ -129,7 +129,7 @@
             <div class="inputs">
                 <label for="disabledHeightInput" class="form-label">Height [cm]</label>
                 <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control"
-                       placeholder="Height" min="1"  required>
+                       placeholder="Height" min="1" required>
             </div>
             <div class="inputs">
                 <label for="disabledWightInput" class="form-label">Weight [kg]</label>
@@ -137,11 +137,11 @@
                        placeholder="Weight" step="any" min="1" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <div class="results">
-                <p th:text="${bmi}"></p>
-                <p th:text="${bmiNS}"></p>
-            </div>
         </form>
+        <div class="results">
+            <p th:text="${bmi}"></p>
+            <p th:text="${bmiNS}"></p>
+        </div>
     </div>
     <div class="content">
         <img src="sciezka/do/zdjecia2.jpg" alt="Zdjęcie">
@@ -160,7 +160,6 @@
             <li> > 40 Obesity class III</li>
         </ul>
     </div>
-
     <footer class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
     </footer>

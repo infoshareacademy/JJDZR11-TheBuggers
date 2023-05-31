@@ -126,7 +126,7 @@
         <h1>Registration</h1>
         <form th:action="@{/register}" th:object="${userData}" method="post">
             <legend>-----</legend>
-            <span class="error" th:text="${Error}"></span>
+            <span class="error" th:text="${error}"></span>
             <div class="inputs">
                 <label for="disabledEmailLogin" class="form-label">Email</label>
                 <input type="email" th:field="*{email}" id="disabledEmailLogin" class="form-control"
@@ -182,7 +182,7 @@
     <h1>Login</h1>
     <form th:action="@{/login}" th:object="${userData}" method="post">
         <legend>-----</legend>
-        <span th:text="${Info}"></span>
+        <span th:text="${info}"></span>
         <div class="inputs">
             <label for="disabledEmailInput" class="form-label">Email</label>
             <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"
