@@ -9,52 +9,58 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
+
+import java.security.Principal;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-	UserRepository userRepository;
+    UserRepository userRepository;
 
 
-	public WebSecurityConfig(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
-			.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/", "/home","/diets","/bmi","/register","/m").permitAll()
-				.anyRequest().authenticated()
-			)
-			.formLogin((form) -> form
-				.loginPage("/login")
-				.permitAll()
-			)
-			.logout((logout) -> logout.permitAll());
+    public WebSecurityConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-		return http.build();
-	}
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/", "/home").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin((form) -> form
+                        .loginPage("/login")
+                        .permitAll()
+                )
+                .logout((logout) -> logout.permitAll());
+
+        return http.build();
+    }
 
 
-	@Bean
-	public UserDetailsService userDetailsService() {
-		InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
-		for(UserData userData :userRepository.getUsersData()){
-			UserDetails user =
-					User.withDefaultPasswordEncoder()
-							.username(userData.getEmail())
-							.password(userData.getPassword())
-							.roles("USER")
-							.build();
-			inMemoryUserDetailsManager.createUser(user);
-		}
-
-		return inMemoryUserDetailsManager;
-	}
+    @Bean
+    public UserDetailsService userDetailsService() {
+        InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
+        for (UserData userData : userRepository.getUsersData()) {
+            UserDetails user =
+                    User.withDefaultPasswordEncoder()
+                            .username(userData.getEmail())
+                            .password(userData.getPassword())
+                            .roles("USER")
+                            .build();
+            inMemoryUserDetailsManager.createUser(user);
+        }
+        return inMemoryUserDetailsManager;
+    }
 
 
 

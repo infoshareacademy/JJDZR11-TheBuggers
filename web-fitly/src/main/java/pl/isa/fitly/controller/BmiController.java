@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
+import java.security.Principal;
+
 @Controller
 public class BmiController {
     UserData userData;
@@ -18,7 +20,12 @@ public class BmiController {
     }
 
     @GetMapping("/bmi")
-    public String bmi(Model model) {
+    public String bmi(Model model, Principal principal) {
+        if (principal != null) {
+            this.userData = userRepository.getUserByEmail(principal.getName());
+            model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
+            model.addAttribute("bmiNS", userData.nutritionalStatus());
+        }
         model.addAttribute("userData", userData);
         return "bmi";
     }
