@@ -17,13 +17,15 @@ import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.function.Function;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
     UserRepository userRepository;
-
+    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/register"};
 
 
     public WebSecurityConfig(UserRepository userRepository) {
@@ -34,7 +36,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home").permitAll()
+                        .requestMatchers(UNAUTHORIZED_DOMAINS).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -42,7 +44,6 @@ public class WebSecurityConfig {
                         .permitAll()
                 )
                 .logout((logout) -> logout.permitAll());
-
         return http.build();
     }
 
@@ -51,18 +52,15 @@ public class WebSecurityConfig {
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
         for (UserData userData : userRepository.getUsersData()) {
-            UserDetails user =
-                    User.withDefaultPasswordEncoder()
-                            .username(userData.getEmail())
-                            .password(userData.getPassword())
-                            .roles("USER")
-                            .build();
+            UserDetails user = User.withDefaultPasswordEncoder()
+                    .username(userData.getEmail())
+                    .password(userData.getPassword())
+                    .roles("USER")
+                    .build();
             inMemoryUserDetailsManager.createUser(user);
         }
         return inMemoryUserDetailsManager;
     }
-
-
 
 
 }

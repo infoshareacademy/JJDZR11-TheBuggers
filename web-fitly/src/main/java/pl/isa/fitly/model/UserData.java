@@ -15,6 +15,10 @@ public class UserData {
     private boolean whatGender;
     private int height;
 
+    public static UserData createUserData() {
+        return new UserData();
+    }
+
     public UserData() {
     }
 

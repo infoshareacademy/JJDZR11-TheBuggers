@@ -10,11 +10,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
 @Repository
 public class UserRepository {
     private List<UserData> usersData;
-    private boolean userLoggedIn;
-
 
     public UserRepository() {
         usersData = readUsers();
@@ -59,14 +58,15 @@ public class UserRepository {
         }
     }
 
-    public List<UserData> getUsersData(){
+    public List<UserData> getUsersData() {
         return usersData;
     }
 
     private List<UserData> readUsers() {
         ObjectMapper objectMapper = new ObjectMapper();
         Path pathJson = Path.of("web-fitly", "src", "main", "resources", "UserData.json");
-        TypeReference<List<UserData>> typeReference = new TypeReference<>() {};
+        TypeReference<List<UserData>> typeReference = new TypeReference<>() {
+        };
         try {
             return objectMapper.readValue(Files.readString(pathJson), typeReference);
         } catch (Exception e) {
@@ -90,14 +90,6 @@ public class UserRepository {
         }
     }
 
-    public boolean isUserLoggedIn() {
-        return userLoggedIn;
-    }
-
-    public void setUserLoggedIn(boolean userLoggedIn) {
-        this.userLoggedIn = userLoggedIn;
-    }
-
     public enum formError {
         OK(""),
         WRITE_ERROR("Write error"),
@@ -105,6 +97,7 @@ public class UserRepository {
         NOT_FOUND_USER("Not found user"),
         INCORRECT_PASSWORD("Incorrect password");
         public String text;
+
         formError(String text) {
             this.text = text;
         }

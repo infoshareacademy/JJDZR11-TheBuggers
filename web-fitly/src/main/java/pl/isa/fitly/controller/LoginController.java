@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
+import java.security.Principal;
+
 @Controller
 public class LoginController {
     UserData userData;
@@ -36,35 +38,37 @@ public class LoginController {
 //        }
 //        return "user-site";
 //    }
+
+    @GetMapping("/login")
+    public String userSite(Model model, Principal principal) {
+        if (principal != null) {
+            model.addAttribute("userName", "Current user: " + principal.getName());
+        }
+        return "login";
+    }
+
     @PostMapping("/logout")
     public String logout(UserData userData, Model model) {
         this.userData = new UserData();
-        userRepository.setUserLoggedIn(false);
         return "user-site";
     }
+
     @PostMapping("/register")
     public String register(UserData userData, Model model) {
         UserRepository.formError formError = userRepository.addUser(userData);
-        if(formError== UserRepository.formError.OK){
+        if (formError == UserRepository.formError.OK) {
             this.userData = userData;
-            userRepository.setUserLoggedIn(true);
             model.addAttribute("error", "Registration successful");
-        }else {
+        } else {
             model.addAttribute("error", formError.text);
         }
         return "user-site";
     }
 
     @GetMapping("/register")
-    public String registerGet(UserData userData, Model model){
+    public String registerGet(UserData userData, Model model) {
         return "user-site";
     }
 
-    public UserData getUserData() {
-        return userData;
-    }
 
-    public void setUserData(UserData userData) {
-        this.userData = userData;
-    }
 }

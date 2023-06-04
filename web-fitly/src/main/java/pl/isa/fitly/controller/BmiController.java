@@ -1,5 +1,9 @@
 package pl.isa.fitly.controller;
 
+import org.springframework.security.access.method.P;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +25,17 @@ public class BmiController {
 
     @GetMapping("/bmi")
     public String bmi(Model model, Principal principal) {
-        if (principal != null) {
-            this.userData = userRepository.getUserByEmail(principal.getName());
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && principal != null) {
+            userData = userRepository.getUserByEmail(principal.getName());
             model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
             model.addAttribute("bmiNS", userData.nutritionalStatus());
+            model.addAttribute("userData", userData);
+        } else {
+            model.addAttribute("userData", UserData.createUserData());
         }
-        model.addAttribute("userData", userData);
+
         return "bmi";
     }
 

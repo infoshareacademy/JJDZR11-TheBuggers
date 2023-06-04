@@ -1,27 +1,145 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Spring Security Example </title>
-    </head>
-    <body>
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
-        </form>
-        <nav class="menu">
-            <button style="margin-right: 0;"><a href="/"><img src="grafika1.jpg" alt="MAIN"></a></button>
-            <button style="margin-right: 0;"><a href="bmi"><img src="grafika1.jpg" alt="BMI"></a></button>
-            <button style="margin-right: 0;"><a href="calories"><img src="grafika1.jpg" alt="CALORIES"></a></button>
-            <button style="margin-right: 0;"><a href="diets"><img src="grafika1.jpg" alt="DIETS"></a></button>
-            <button style="margin-right: 0;"><a href="trainings"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
-            <button style="margin-left: auto;"><a href="login"><img src="grafika1.jpg" alt="LOGIN"></a></button>
-        </nav>
-    </body>
+<head>
+    <title>Spring Security Example </title>
+    <style>
+        /* style dla elementów strony */
+        body {
+            background-color: #eee;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .header {
+            height: 200px;
+            background-image: url("#");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .menu {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .menu button:last-child {
+            margin-right: 0;
+        }
+
+        .menu button:first-child {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .content img {
+            width: 40%;
+            height: auto;
+        }
+
+        .content p {
+            width: 50%;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            text-align: justify;
+            margin-right: 15px;
+        }
+
+        .content ul {
+            width: 50%;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-top: 0;
+        }
+
+        .content ul p {
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 2px;
+        }
+
+        .footer {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ccc;
+        }
+
+        .form_bmi {
+            display: block;
+            margin-left: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .inputs {
+            margin: 10px 0px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--<nav class="menu">-->
+<!--    <button style="margin-right: 0;"><a href="/"><img src="grafika1.jpg" alt="MAIN"></a></button>-->
+<!--    <button style="margin-right: 0;"><a href="bmi"><img src="grafika1.jpg" alt="BMI"></a></button>-->
+<!--    <button style="margin-right: 0;"><a href="calories"><img src="grafika1.jpg" alt="CALORIES"></a></button>-->
+<!--    <button style="margin-right: 0;"><a href="diets"><img src="grafika1.jpg" alt="DIETS"></a></button>-->
+<!--    <button style="margin-right: 0;"><a href="trainings"><img src="grafika1.jpg" alt="TRAININGS"></a></button>-->
+<!--    <button style="margin-left: auto;"><a href="login"><img src="grafika1.jpg" alt="LOGIN"></a></button>-->
+<!--</nav>-->
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <!--            <div><input type="submit" value="Sign In"/></div>-->
+    <button type="submit">Sign In</button>
+</form>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit" class="btn btn-primary">Logout</button>
+</form>
+
+<div>
+    <span th:text="${userName}"></span>
+</div>
+<button style="margin-left: auto;"><a href="register">Register</a></button>
+
+</body>
 </html>
