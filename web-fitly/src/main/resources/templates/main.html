@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
 
     <title>Main</title>
@@ -12,26 +12,21 @@
 <div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
 
 
-<div class="contents">
-    <div class="row">
+<div class="text-block">
 
-             FIT YOUR MUSCLES
+    <h1>FIT YOUR MUSCLES</h1>
 
-             Choose from hundreds of workouts, healthy recipes, relaxing meditations,<br>
-        and expert articles, for a whole body and mind approach to feeling great.<br>
-        Professionally designed programs take the guesswork out of exercising.<br>
-        Exercise with certified personal trainers whether you're at home or on the road.<br>
+    Choose from hundreds of workouts, healthy recipes, relaxing meditations,<br>
+    and expert articles, for a whole body and mind approach to feeling great.<br>
+    Professionally designed programs take the guesswork out of exercising.<br>
+    Exercise with certified personal trainers whether you're at home or on the road.<br>
 
 
-        <a href="joinUs.html" class="joinUs-link">
+         <a th:href="@{/joinUs}" class="joinUs-link">
             <button class="joinUs-button">
                 <span class="button-text">JOIN US</span>
             </button>
         </a>
-    </div>
-    </div>
-
-</div>
 </div>
 
 <footer>

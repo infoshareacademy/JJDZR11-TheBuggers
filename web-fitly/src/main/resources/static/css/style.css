@@ -97,6 +97,10 @@ a:hover {
     /*opacity: 0.5;*/
 }
 
+.nav-button:active {
+    opacity: 0.5;
+}
+
 .joinUs-link {
     display: inline-block;
     text-decoration: none;
@@ -117,6 +121,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 50px;
 }
 
 .joinUs-button:hover {
@@ -130,19 +135,22 @@ a:hover {
     border: 1px solid #bba674;
 }
 
-.contents {
-    background-image: url("../img/background/bg-transparent.png");
-    width: 85%;
-    margin: auto;
-    ;
-}
+/*.contents {*/
+/*    background-image: url("../img/background/bg-transparent.png");*/
+/*    width: 85%;*/
+/*    margin: auto;*/
+/*    ;*/
+/*}*/
 
 .text-block {
+    width: 85%;
+    margin: auto;
     font-family: "Noto Sans", serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 55%;
     position: absolute;
     left: 35%;
+    padding: 15px;
 }
 
 .contents img {

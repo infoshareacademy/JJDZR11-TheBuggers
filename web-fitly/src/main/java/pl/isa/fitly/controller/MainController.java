@@ -13,7 +13,7 @@ import pl.isa.fitly.model.UserData;
 public class MainController {
 
     @GetMapping("/")
-    public String main() {
+    public String mainSide() {
         return "main";
     }
 
