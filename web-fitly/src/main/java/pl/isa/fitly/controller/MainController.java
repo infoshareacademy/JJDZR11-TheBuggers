@@ -13,7 +13,7 @@ import pl.isa.fitly.model.UserData;
 public class MainController {
 
     @GetMapping("/")
-    public String mainSide() {
+    public String main() {
         return "main";
     }
 
@@ -42,9 +42,9 @@ public class MainController {
         return "diets";
     }
 
-    @GetMapping("/error")
-    public String error() {
-        return "error";
+    @GetMapping("/fail")
+    public String fail() {
+        return "fail";
     }
 
 }

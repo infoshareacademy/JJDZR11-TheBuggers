@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
-    <title>Main Template</title>
+
+    <title>Main Templates</title>
 </head>
 
 <body>
 
-    <div th:fragment="mainTemplateElement" th:remove="tag">
+    <div th:fragment="mainTemplate" th:remove="tag">
         <div class="container">
             <header class="header"></header>
             <nav class="menu">
@@ -55,44 +56,44 @@
                     </div>
                 </div>
             </nav>
-
-
-<!--            <div th:replace="~{templates/main :: content}"></div>-->
-
-            <footer class="footer">
-                <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-            </footer>
         </div>
         <div class="shader"></div>
-
-        <script>
-            function openForm() {
-                var formPopup = document.getElementById("myForm");
-                var shader = document.querySelector('.shader');
-                formPopup.classList.add('active');
-                shader.classList.add('active');
-            }
-
-            function closeForm() {
-                var formPopup = document.getElementById("myForm");
-                var shader = document.querySelector('.shader');
-                formPopup.classList.remove('active');
-                shader.classList.remove('active');
-            }
-
-            const formPopup = document.querySelector('.form-popup');
-            const openFormButton = document.querySelector('.nav-button');
-            const shader = document.querySelector('.shader');
-
-            function handleClickOutsideForm(event) {
-                if (!formPopup.contains(event.target) && event.target !== openFormButton) {
-                    closeForm();
-                }
-            }
-
-            document.addEventListener('click', handleClickOutsideForm);
-        </script>
     </div>
+
+
+    <footer>
+        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+    </footer>
+
+
+
+    <script>
+        function openForm() {
+            var formPopup = document.getElementById("myForm");
+            var shader = document.querySelector('.shader');
+            formPopup.classList.add('active');
+            shader.classList.add('active');
+        }
+
+        function closeForm() {
+            var formPopup = document.getElementById("myForm");
+            var shader = document.querySelector('.shader');
+            formPopup.classList.remove('active');
+            shader.classList.remove('active');
+        }
+    </script>
+    <script>
+        const formPopup = document.querySelector('.form-popup');
+        const openFormButton = document.querySelector('.nav-button');
+        const shader = document.querySelector('.shader');
+
+        function handleClickOutsideForm(event) {
+            if (!formPopup.contains(event.target) && event.target !== openFormButton) {
+                closeForm();
+            }
+        }
+        document.addEventListener('click', handleClickOutsideForm);
+    </script>
 
 
 </body>

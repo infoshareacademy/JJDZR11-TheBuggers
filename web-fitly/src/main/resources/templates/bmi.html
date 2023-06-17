@@ -4,18 +4,49 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
-    <title>Main</title>
+
+    <title>B M I</title>
 </head>
+
 <body>
-<div th:replace="~{fragments/mainTemplate :: mainTemplateElement}">
-    <div> <!--th:fragment="content" th:remove="tag"-->
-        <div class="content">
-            <div class="text-block">
-                <h1>BMI CONTENT</h1>
-            </div>
-        </div>
-    </div>
+
+<div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
+
+<div class="text-block">
+    <h1>BMI CONTENTS</h1>
 </div>
+
+<footer class="footer">
+    <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+</footer>
+
+<script>
+    function openForm() {
+        var formPopup = document.getElementById("myForm");
+        var shader = document.querySelector('.shader');
+        formPopup.classList.add('active');
+        shader.classList.add('active');
+    }
+
+    function closeForm() {
+        var formPopup = document.getElementById("myForm");
+        var shader = document.querySelector('.shader');
+        formPopup.classList.remove('active');
+        shader.classList.remove('active');
+    }
+</script>
+<script>
+    const formPopup = document.querySelector('.form-popup');
+    const openFormButton = document.querySelector('.nav-button');
+    const shader = document.querySelector('.shader');
+
+    function handleClickOutsideForm(event) {
+        if (!formPopup.contains(event.target) && event.target !== openFormButton) {
+            closeForm();
+        }
+    }
+    document.addEventListener('click', handleClickOutsideForm);
+</script>
 
 </body>
 </html>
