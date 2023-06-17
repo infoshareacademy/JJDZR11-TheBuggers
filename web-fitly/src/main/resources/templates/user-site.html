@@ -115,17 +115,16 @@
 <div class="container">
     <header class="header"></header>
     <nav class="menu">
-        <button style="margin-right: 0;"><a href="/"><img src="grafika1.jpg" alt="MAIN"></a></button>
-        <button style="margin-right: 0;"><a href="bmi"><img src="grafika1.jpg" alt="BMI"></a></button>
-        <button style="margin-right: 0;"><a href="calories"><img src="grafika1.jpg" alt="CALORIES"></a></button>
-        <button style="margin-right: 0;"><a href="diets"><img src="grafika1.jpg" alt="DIETS"></a></button>
-        <button style="margin-right: 0;"><a href="trainings"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
-        <button style="margin-left: auto;"><a href="login"><img src="grafika1.jpg" alt="LOGIN"></a></button>
+        <button style="margin-right: 0;"><a href="/"><img src="#" alt="MAIN"></a></button>
+        <button style="margin-right: 0;"><a href="bmi"><img src="#" alt="BMI"></a></button>
+        <button style="margin-right: 0;"><a href="calories"><img src="#" alt="CALORIES"></a></button>
+        <button style="margin-right: 0;"><a href="diets"><img src="#" alt="DIETS"></a></button>
+        <button style="margin-right: 0;"><a href="trainings"><img src="#" alt="TRAININGS"></a></button>
+        <button style="margin-left: auto;"><a href="login"><img src="#" alt="LOGIN"></a></button>
     </nav>
     <div class="form_bmi">
         <h1>Registration</h1>
         <form th:action="@{/register}" th:object="${userData}" method="post">
-            <legend>-----</legend>
             <span class="error" th:text="${error}"></span>
             <div class="inputs">
                 <label for="disabledEmailLogin" class="form-label">Email</label>
@@ -179,7 +178,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-    <h1>Login</h1>
+<!--    <h1>Login</h1>-->
 <!--    <form th:action="@{/login}" th:object="${userData}" method="post">-->
 <!--        <legend>-&#45;&#45;&#45;&#45;</legend>-->
 <!--        <span th:text="${info}"></span>-->
@@ -211,11 +210,11 @@
 <!--        <div><input type="submit" value="Sign In"/></div>-->
 <!--    </form>-->
 
-    <form th:action="@{/logout}" method="post">
-        <button type="submit" class="btn btn-primary">Logout</button>
-    </form>
-    <div class="content">
-    </div>
+<!--    <form th:action="@{/logout}" method="post">-->
+<!--        <button type="submit" class="btn btn-primary">Logout</button>-->
+<!--    </form>-->
+<!--    <div class="content">-->
+<!--    </div>-->
     <footer class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
     </footer>

@@ -43,7 +43,10 @@ public class WebSecurityConfig {
                         .loginPage("/login")
                         .permitAll()
                 )
-                .logout((logout) -> logout.permitAll());
+                .logout((logout) -> {
+                    logout.permitAll().logoutSuccessUrl("/");
+                    userRepository.setCurrentUser(UserData.createUserData());
+                });
         return http.build();
     }
 

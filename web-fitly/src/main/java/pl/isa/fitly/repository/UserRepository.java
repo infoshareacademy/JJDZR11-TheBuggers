@@ -14,6 +14,7 @@ import java.util.List;
 @Repository
 public class UserRepository {
     private List<UserData> usersData;
+    private UserData currentUser;
 
     public UserRepository() {
         usersData = readUsers();
@@ -79,6 +80,7 @@ public class UserRepository {
         ObjectMapper objectMapper = new ObjectMapper();
         Path pathJson = Path.of("web-fitly", "src", "main", "resources", "UserData.json");
         try {
+            System.out.println(usersData);
             String json = objectMapper
                     .writerWithDefaultPrettyPrinter()
                     .writeValueAsString(usersData);
@@ -88,6 +90,14 @@ public class UserRepository {
             System.out.println(e.getMessage() + " - " + e);
             return formError.WRITE_ERROR;
         }
+    }
+
+    public UserData getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(UserData currentUser) {
+        this.currentUser = currentUser;
     }
 
     public enum formError {

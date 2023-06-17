@@ -1,55 +1,46 @@
 [ {
   "email" : "grzes1616@gmail.com",
-  "password" : "123",
-  "name" : "asd",
-  "age" : 22,
-  "weight" : 55.0,
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 55,
+  "weight" : 555.0,
   "activityLevel" : "Sedentary",
   "whatGender" : false,
-  "height" : 555
+  "height" : 5555
 }, {
-  "email" : "123@exp.com",
-  "password" : "123",
-  "name" : "asd",
+  "email" : "grzes1616@gmail.com123",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
   "age" : 123,
   "weight" : 123.0,
   "activityLevel" : "Sedentary",
   "whatGender" : false,
   "height" : 123
 }, {
-  "email" : "985@abc.com",
-  "password" : "321",
-  "name" : "Grzegorz",
-  "age" : 25,
-  "weight" : 80.0,
-  "activityLevel" : "Lightly active",
-  "whatGender" : true,
-  "height" : 193
-}, {
-  "email" : "grzegorz.lozio@enerko.pl",
-  "password" : "321",
-  "name" : "Grzegorz Lozio",
-  "age" : 25,
-  "weight" : 80.0,
-  "activityLevel" : "Moderately active",
-  "whatGender" : true,
-  "height" : 199
-}, {
-  "email" : "grzes1616@gmail.pl",
+  "email" : "grzes1616@gmail.com321",
   "password" : "12345",
   "name" : "Grzegorz Lozio",
-  "age" : 25,
-  "weight" : 80.0,
-  "activityLevel" : "Lightly active",
-  "whatGender" : true,
-  "height" : 193
-}, {
-  "email" : "dominika08@o2.pl",
-  "password" : "12345",
-  "name" : "123",
-  "age" : 12312,
-  "weight" : 123.0,
+  "age" : 333,
+  "weight" : 333.0,
   "activityLevel" : "Sedentary",
   "whatGender" : false,
-  "height" : 1231
+  "height" : 333
+}, {
+  "email" : "grzes1616@gmail.com5",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 333,
+  "weight" : 25.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 555
+}, {
+  "email" : "grzes1616@gmail.com6",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 3566,
+  "weight" : 35.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 36
 } ]

@@ -19,44 +19,26 @@ public class LoginController {
         this.userRepository = userRepository;
     }
 
-//    @GetMapping("/login1")
-//    public String usersite(Model model) {
-//        model.addAttribute("userData", userData);
-//        userRepository.setUserLoggedIn(true);
-//        return "user-site";
-//    }
-//    @PostMapping("/login1")
-//    public String login(UserData userData, Model model) {
-//        int error = userRepository.userLogin(userData.getEmail(), userData.getPassword()).ordinal();
-//        switch (UserRepository.formError.values()[error]) {
-//            case OK -> {
-//                this.userData = userRepository.getUserByEmail(userData.getEmail());
-//                model.addAttribute("info", "Logged in correctly");
-//            }
-//            case INCORRECT_PASSWORD -> model.addAttribute("info", UserRepository.formError.INCORRECT_PASSWORD.text);
-//            case NOT_FOUND_USER -> model.addAttribute("info", UserRepository.formError.NOT_FOUND_USER.text);
-//        }
-//        return "user-site";
-//    }
-
     @GetMapping("/login")
-    public String userSite(Model model, Principal principal) {
-        if (principal != null) {
-            model.addAttribute("userName", "Current user: " + principal.getName());
+    public String userSite(Model model) {
+        if (userRepository.getCurrentUser() != null && !userRepository.getCurrentUser().emptyUser()) {
+            model.addAttribute("userName", "Current user: " + userRepository.getCurrentUser().getEmail());
         }
         return "login";
     }
 
     @PostMapping("/logout")
     public String logout(UserData userData, Model model) {
-        this.userData = new UserData();
-        return "user-site";
+        this.userData = UserData.createUserData();
+        userRepository.setCurrentUser(UserData.createUserData());
+        return "login";
     }
 
     @PostMapping("/register")
     public String register(UserData userData, Model model) {
+        System.out.println(userData);
         UserRepository.formError formError = userRepository.addUser(userData);
-        if (formError == UserRepository.formError.OK) {
+        if (formError == formError.OK) {
             this.userData = userData;
             model.addAttribute("error", "Registration successful");
         } else {

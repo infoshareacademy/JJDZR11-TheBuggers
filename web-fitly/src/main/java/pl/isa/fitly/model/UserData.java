@@ -129,6 +129,10 @@ public class UserData {
         }
     }
 
+    public boolean emptyUser(){
+        return (this.email==null || this.password==null || this.weight ==0 ||this.height==0 || this.age==0 );
+    }
+
     @Override
     public String toString() {
         return "UserData{" +

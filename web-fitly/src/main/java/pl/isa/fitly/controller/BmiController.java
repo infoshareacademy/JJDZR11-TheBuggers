@@ -1,9 +1,5 @@
 package pl.isa.fitly.controller;
 
-import org.springframework.security.access.method.P;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,24 +21,24 @@ public class BmiController {
 
     @GetMapping("/bmi")
     public String bmi(Model model, Principal principal) {
-        SecurityContext context = SecurityContextHolder.getContext();
-        Authentication authentication = context.getAuthentication();
-        if (authentication != null && authentication.isAuthenticated() && principal != null) {
-            userData = userRepository.getUserByEmail(principal.getName());
-            model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
-            model.addAttribute("bmiNS", userData.nutritionalStatus());
+        if (userRepository.getCurrentUser() != null && !userRepository.getCurrentUser().emptyUser()) {
+            userData = userRepository.getCurrentUser();
             model.addAttribute("userData", userData);
+            addBmiToModel(model, userData);
         } else {
             model.addAttribute("userData", UserData.createUserData());
         }
-
         return "bmi";
     }
 
     @PostMapping("/bmi")
     public String bmiSubmit(UserData userData, Model model) {
+        addBmiToModel(model, userData);
+        return "bmi";
+    }
+
+    private static void addBmiToModel(Model model, UserData userData) {
         model.addAttribute("bmi", "Your BMI value: " + String.format("%.2f", userData.bmiValue()));
         model.addAttribute("bmiNS", userData.nutritionalStatus());
-        return "bmi";
     }
 }

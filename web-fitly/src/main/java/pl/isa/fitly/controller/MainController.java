@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
+import java.security.Principal;
+
 
 @Controller
 public class MainController {
@@ -21,7 +23,12 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String mainSide() {
+    public String mainSide(Principal principal) {
+        if (principal != null) {
+            userRepository.setCurrentUser(userRepository.getUserByEmail(principal.getName()));
+        } else{
+            userRepository.setCurrentUser(UserData.createUserData());
+        }
         return "main";
     }
 
