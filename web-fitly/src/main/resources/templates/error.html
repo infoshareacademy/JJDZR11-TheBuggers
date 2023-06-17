@@ -1,28 +1,11 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
   <meta charset="UTF-8">
   <title>Error</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-<div class="container">
-  <header class="header"></header>
-  <nav class="menu">
-    <button style="margin-right: 0;"><a href="main.html"><img src="grafika1.jpg" alt="MAIN"></a></button>
-    <button style="margin-right: 0;"><a href="bmi.html"><img src="grafika1.jpg" alt="BMI"></a></button>
-    <button style="margin-right: 0;"><a href="calories.html"><img src="grafika1.jpg" alt="CALORIES"></a></button>
-    <button style="margin-right: 0;"><a href="diets.html"><img src="grafika1.jpg" alt="DIETS"></a></button>
-    <button style="margin-right: 0;"><a href="trainings.html"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
-    <button style="margin-left: auto;"><a href="login.html"><img src="grafika1.jpg" alt="LOGIN"></a></button>
-  </nav>
-  <div class="content">
-    <h2>Error</h2>
-    <p>An unexpected error occurred.</p>
-  </div>
-  <footer class="footer">
-    <p>&copy; The Buggers. All rights reserved!</p>
-  </footer>
-</div>
+<div th:replace="~{fragments/mainTemplate :: mainTemplateElement}"></div>
 </body>
 </html>

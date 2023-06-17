@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-image: url("../img/background/pattern.png");
+    background-image: url("static/img/background/pattern.png");
     background-color: black;
 }
 
@@ -11,17 +11,31 @@ body {
     box-sizing: border-box;
 }
 
+
 a, div, H1 {
     color: #bba674;
     text-decoration: none;
     font-family: Oswald, serif, "Noto Sans";
 }
+
 a:hover {
     opacity: 0.5;
 }
 
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
 .header {
-    background-image: url("../img/background/header_background.png");
+    background-image: url("static/img/background/header_background.png");
     height: 156px;
     position: relative;
     background-size: cover;
@@ -38,10 +52,10 @@ a:hover {
     height: 100%;
     border: 2px solid black;
     box-sizing: border-box;
-} /* header:after to cover white (transparent) border around an image may delete later */
+}
 
 .menu {
-    background-image: url("../img/background/menu_background.png");
+    background-image: url("static/img/background/menu_background.png");
     height: 80px;
     padding-left: 1%;
     display: flex;
@@ -70,7 +84,7 @@ a:hover {
     text-decoration: none;
     font-family: Oswald, serif;
     font-size: 1.6rem;
-    background-image: url("../img/buttons/button_off.png");
+    background-image: url("static/img/buttons/button_off.png");
     background-size: cover;
     background-position: center;
     width: 100px;
@@ -83,13 +97,7 @@ a:hover {
 }
 
 .nav-button:hover {
-    background-image: url("../img/buttons/button_on.png");
-    background-size: cover;
-    background-position: center;
-    width: 100px;
-    height: 40px;
-    cursor: pointer;
-    /*opacity: 0.5;*/
+    background-image: url("static/img/buttons/button_on.png");
 }
 
 .joinUs-link {
@@ -102,7 +110,7 @@ a:hover {
     text-decoration: none;
     font-family: Oswald, serif;
     font-size: 1.6rem;
-    background-image: url("../img/buttons/sm_button_off.png");
+    background-image: url("static/img/buttons/sm_button_off.png");
     width: 115px;
     height: 40px;
     border: none;
@@ -115,11 +123,12 @@ a:hover {
 }
 
 .joinUs-button:hover {
-    background-image: url("../img/buttons/sm_button_on.png");
+    background-image: url("static/img/buttons/sm_button_on.png");
 }
 
 .container {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid #bba674;
@@ -128,6 +137,7 @@ a:hover {
 .content {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
@@ -136,9 +146,9 @@ a:hover {
 .text-block {
     font-family: "Noto Sans", serif;
     font-size: 2rem;
-    width: 55%;
-    position: absolute;
-    left: 35%;
+    width: 100%;
+    max-width: 55%;
+    margin-bottom: 20px;
 }
 
 .content img {
@@ -152,11 +162,12 @@ a:hover {
     align-items: center;
     justify-content: flex-end;
     padding: 0 20px;
-    background-image: url("../img/background/pattern.png");
+    background-image: url("static/img/background/pattern.png");
     background-color: #333333;
     border-top: 1px solid #bba674;
     font-size: small;
 }
+
 /*********************************** POP-UP FORM BELOW */
 
 .form-popup {
@@ -170,8 +181,9 @@ a:hover {
     border: 3px solid #bba674;
     z-index: 10;
 }
+
 .form-popup.active {
-    display: block;
+    display: flex;
 }
 
 .form-container {
@@ -181,7 +193,8 @@ a:hover {
     background-color: black;
 }
 
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text],
+.form-container input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -189,7 +202,8 @@ a:hover {
     background: #f1f1f1;
 }
 
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
