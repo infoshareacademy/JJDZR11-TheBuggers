@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
-import java.security.Principal;
-
 @Controller
 public class LoginController {
     UserData userData;

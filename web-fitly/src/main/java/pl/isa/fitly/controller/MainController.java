@@ -2,9 +2,7 @@ package pl.isa.fitly.controller;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
@@ -26,7 +24,7 @@ public class MainController {
     public String mainSide(Principal principal) {
         if (principal != null) {
             userRepository.setCurrentUser(userRepository.getUserByEmail(principal.getName()));
-        } else{
+        } else {
             userRepository.setCurrentUser(UserData.createUserData());
         }
         return "main";
