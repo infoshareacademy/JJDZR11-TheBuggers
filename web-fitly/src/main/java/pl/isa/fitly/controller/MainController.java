@@ -37,11 +37,12 @@ public class MainController {
         return "calories";
     }
 
+    /*
     @GetMapping("/diets")
     public String diets() {
         return "diets";
     }
-
+     */
     @GetMapping("/error")
     public String error() {
         return "error";

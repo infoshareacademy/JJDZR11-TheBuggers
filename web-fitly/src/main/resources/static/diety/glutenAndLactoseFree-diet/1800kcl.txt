@@ -1,0 +1,33 @@
+Breakfast:
+    Scrambled tofu with sautéed vegetables and gluten-free toast:
+        Scrambled tofu (200g)
+        Sautéed vegetables (bell peppers, spinach, onions)
+        Gluten-free toast (1 slice)
+
+Mid-Morning Snack:
+    Dairy-free yogurt (150g)
+    Handful of mixed nuts (30g)
+
+Lunch:
+    Quinoa salad with mixed vegetables, diced grilled chicken, and a lemon-tahini dressing:
+        Quinoa salad with mixed vegetables (200g)
+        Diced grilled chicken (150g)
+        Lemon-tahini dressing
+
+Afternoon Snack:
+    Rice cakes with almond butter:
+        Rice cakes (30g)
+        Almond butter (20g)
+        Sliced apple (1 medium-sized)
+
+Dinner:
+    Grilled shrimp skewers with brown rice, roasted zucchini and squash, and a side of mixed greens with balsamic vinaigrette:
+        Grilled shrimp skewers (150g)
+        Brown rice (100g)
+        Roasted zucchini and squash (150g)
+        Mixed greens (100g)
+        Balsamic vinaigrette
+
+Evening Snack:
+    Dairy-free chocolate pudding (150g)
+    Sliced almonds (20g)

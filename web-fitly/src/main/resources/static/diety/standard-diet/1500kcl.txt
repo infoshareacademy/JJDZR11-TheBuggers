@@ -1,0 +1,32 @@
+Breakfast:
+    Scrambled eggs made with 2 eggs, served with 1 slice of whole wheat toast and 1 small apple.
+    2 eggs
+    1 slice of whole wheat toast
+    1 small apple
+
+Mid-Morning Snack:
+    1 small Greek yogurt and a handful of mixed nuts.
+    1 small Greek yogurt
+    Handful of mixed nuts
+
+Lunch:
+    Grilled chicken breast (approx. 120g) with a mixed green salad (lettuce, cucumbers, tomatoes) dressed with 1 tablespoon of vinaigrette.
+    Approx. 120g grilled chicken breast
+    Mixed green salad (lettuce, cucumbers, tomatoes)
+    1 tablespoon of vinaigrette
+
+Afternoon Snack:
+    Carrot sticks with 2 tablespoons of hummus.
+    Carrot sticks
+    2 tablespoons of hummus
+
+Dinner:
+    Baked salmon (approx. 120g) with 1/2 cup of quinoa and steamed broccoli.
+    Approx. 120g baked salmon
+    1/2 cup of quinoa
+    Steamed broccoli
+
+Evening Snack:
+    1 small orange and 1 hard-boiled egg.
+    1 small orange
+    1 hard-boiled egg
