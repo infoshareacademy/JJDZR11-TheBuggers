@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
     <title>Main</title>
 </head>
+
 <body>
-<div th:replace="~{fragments/mainTemplate :: mainTemplateElement}"></div>
+
+    <div th:replace="~{fragments/mainTemplate :: mainTemplateElement}">
+<!--        <div th:fragment="contents" th:remove="tag">-->
+            <div class="text-block">
+                <h1>FIT YOUR MUSCLES</h1>
+
+                Choose from hundreds of workouts, healthy recipes, relaxing meditations,
+                and expert articles, for a whole body and mind approach to feeling great.<br><br>
+                Professionally designed programs take the guesswork out of exercising.<br><br>
+                Exercise with certified personal trainers whether you're at home or on the road.<br><br>
+
+                <a href="joinUs.html" class="joinUs-link">
+                    <button class="joinUs-button">
+                        <span class="button-text">JOIN US</span>
+                    </button>
+                </a>
+            </div>
+<!--        </div>-->
+    </div>
+
+    <script th:replace="fragments/mainTemplate :: script"></script>
 
 </body>
 </html>
