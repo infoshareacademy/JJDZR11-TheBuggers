@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-
 <head>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+    <title>Main Template</title>
 </head>
 <body>
 <div th:fragment="mainTemplateElement" th:remove="tag">
@@ -10,7 +12,7 @@
         <div class="shader"></div>
 
 
-        <header class="header"><img th:src="@{img/background/header_background.png}"></header>
+        <header class="header"></header>
 
 
         <nav class="menu">
@@ -58,8 +60,8 @@
             </div>
 
         </nav>
-        <div>
-        <p><h1>TU MIEJSCE NA ZMIENNĄ</h1></p>
+        <div th:insert="fragments/variableMain :: variableElement">
+            <p><h1>TU MIEJSCE NA ZMIENNĄ</h1></p>
         </div>
 
         <footer class="footer">
