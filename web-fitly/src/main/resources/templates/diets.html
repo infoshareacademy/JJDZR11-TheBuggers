@@ -1,86 +1,9 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Diets</title>
-    <style>
-        /* style dla elementów strony */
-        body {
-            background-color: #eee;
-        }
-
-        .container {
-            width: 1200px;
-            margin: 0 auto;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-        }
-
-        .header {
-            height: 200px;
-            background-image: url("#");
-            background-size: cover;
-            background-position: center;
-        }
-
-        .menu {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            background-color: #f9f9f9;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .menu button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .menu button:last-child {
-            margin-right: 0;
-        }
-
-        .menu button:first-child {
-            margin-right: auto;
-            margin-left: 0;
-        }
-
-        .content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content img {
-            width: 40%;
-            height: auto;
-        }
-
-        .content p {
-            width: 50%;
-            font-size: 1.2rem;
-            line-height: 1.5;
-        }
-
-        .footer {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 0 20px;
-            background-color: #f9f9f9;
-            border-top: 1px solid #ccc;
-        }
-    </style>
+    <title>diets</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="container">
@@ -94,13 +17,34 @@
         <button style="margin-left: auto;"><a href="login"><img src="grafika1.jpg" alt="LOGIN"></a></button>
     </nav>
     <div class="content">
-        <img src="#" alt="Zdjęcie">
-        <p>tu będzie co nieco o jedzonku, podobno zdrowym i smacznym,
-            tak twiedzi Bartek, ale nikt mu nie wierzy, bo jeszcze nikt tego jedzonka nie widzial,
-            a tylko pizze wcina</p>
+        <a href="/diets/standard">
+            <div class="diet-tile">
+                <h2>Standard Diet</h2>
+                <p>Example description of standard diet.</p>
+            </div>
+        </a>
+        <a href="/diets/vege">
+            <div class="diet-tile">
+                <h2>Vegetarian Diet</h2>
+                <p>Example description of vegetarian diet.</p>
+            </div>
+        </a>
+        <a href="/diets/glutenAndLactoseFree">
+            <div class="diet-tile">
+                <h2>Gluten and Lactose Free Diet</h2>
+                <p>Example description of gluten and lactose free diet.</p>
+            </div>
+        </a>
+        <a href="/diets/pescetarian">
+            <div class="diet-tile">
+                <h2>Pescetarian Diet</h2>
+                <p>Example description of pescetarian diet.</p>
+            </div>
+        </a>
     </div>
     <footer class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
     </footer>
 </div>
 </body>
+</html>
