@@ -1,0 +1,36 @@
+Breakfast:
+    Scrambled tofu with sautéed vegetables and gluten-free toast:
+        Scrambled tofu (350g)
+        Sautéed vegetables (bell peppers, spinach, onions)
+        Gluten-free toast (3 slices)
+
+Mid-Morning Snack:
+    Rice cakes with almond butter and sliced apple:
+        Rice cakes (100g)
+        Almond butter (90g)
+        Sliced apple (1 medium-sized)
+
+Lunch:
+    Grilled chicken breast with quinoa, roasted vegetables, and a side of mixed greens with balsamic vinaigrette:
+        Grilled chicken breast (500g)
+        Quinoa (450g)
+        Roasted vegetables (carrots, zucchini, bell peppers) (450g)
+        Mixed greens (400g)
+        Balsamic vinaigrette
+
+Afternoon Snack:
+    Gluten-free crackers with dairy-free cream cheese and cherry tomatoes:
+        Gluten-free crackers (100g)
+        Dairy-free cream cheese (100g)
+        Cherry tomatoes (450g)
+
+Dinner:
+    Baked salmon fillet with sweet potato fries, steamed asparagus, and a side of lemon-dill sauce:
+        Baked salmon fillet (500g)
+        Sweet potato fries (500g)
+        Steamed asparagus (450g)
+        Lemon-dill sauce
+
+Evening Snack:
+    Dairy-free chocolate pudding (350g)
+    Sliced almonds (60g)

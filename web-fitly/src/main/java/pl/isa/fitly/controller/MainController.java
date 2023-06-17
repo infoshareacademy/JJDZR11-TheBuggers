@@ -35,14 +35,17 @@ public class MainController {
         return "calories";
     }
 
+    /*
     @GetMapping("/diets")
     public String diets() {
         return "diets";
     }
 
-    @GetMapping("/trainings")
-    public String trainings() {
-        return "trainings";
+     */
+
+    @GetMapping("/error")
+    public String error() {
+        return "error";
     }
 
 }
