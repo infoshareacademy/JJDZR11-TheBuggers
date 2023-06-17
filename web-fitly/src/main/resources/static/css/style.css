@@ -11,27 +11,13 @@ body {
     box-sizing: border-box;
 }
 
-
 a, div, H1 {
     color: #bba674;
     text-decoration: none;
     font-family: Oswald, serif, "Noto Sans";
 }
-
 a:hover {
     opacity: 0.5;
-}
-
-@media screen and (max-width: 500px) {
-    .header a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-
-    .header-right {
-        float: none;
-    }
 }
 
 .header {
@@ -52,9 +38,9 @@ a:hover {
     height: 100%;
     border: 2px solid black;
     box-sizing: border-box;
-}
+} /* header:after to cover white (transparent) border around an image may delete later */
 
-.navbar {
+.menu {
     background-image: url("../img/background/menu_background.png");
     height: 80px;
     padding-left: 1%;
@@ -63,7 +49,7 @@ a:hover {
     justify-content: space-between;
 }
 
-.navbar button {
+.menu button {
     font-size: 160%;
     background-color: black;
     border: none;
@@ -98,13 +84,12 @@ a:hover {
 
 .nav-button:hover {
     background-image: url("../img/buttons/button_on.png");
-}
-
-.variableContent {
-    width: auto;
-    height: 60%;
-    border-color: #bba674;
-    border-width: 2px;
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    /*opacity: 0.5;*/
 }
 
 .joinUs-link {
@@ -134,18 +119,15 @@ a:hover {
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid #bba674;
 }
 
 .content {
-    background-image: url("../img/background/bg-transparent.png");
     position: relative;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
@@ -154,9 +136,9 @@ a:hover {
 .text-block {
     font-family: "Noto Sans", serif;
     font-size: 2rem;
-    width: 100%;
-    max-width: 55%;
-    margin-bottom: 20px;
+    width: 55%;
+    position: absolute;
+    left: 35%;
 }
 
 .content img {
@@ -175,7 +157,6 @@ a:hover {
     border-top: 1px solid #bba674;
     font-size: small;
 }
-
 /*********************************** POP-UP FORM BELOW */
 
 .form-popup {
@@ -189,9 +170,8 @@ a:hover {
     border: 3px solid #bba674;
     z-index: 10;
 }
-
 .form-popup.active {
-    display: flex;
+    display: block;
 }
 
 .form-container {
@@ -201,8 +181,7 @@ a:hover {
     background-color: black;
 }
 
-.form-container input[type=text],
-.form-container input[type=password] {
+.form-container input[type=text], .form-container input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -210,8 +189,7 @@ a:hover {
     background: #f1f1f1;
 }
 
-.form-container input[type=text]:focus,
-.form-container input[type=password]:focus {
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
