@@ -1,19 +1,30 @@
 package pl.isa.fitly.model;
 
 
-import jakarta.validation.constraints.Min;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserData {
+
+    private String email;
+    private String password;
     private String name;
     private int age;
-    @Min(1)
     private double weight;
     private String activityLevel;
     private boolean whatGender;
-    @Min(1)
     private int height;
 
+    public static UserData createUserData() {
+        return new UserData();
+    }
+
     public UserData() {
+    }
+
+    public UserData(double weight, int height) {
+        this.weight = weight;
+        this.height = height;
     }
 
     public UserData(String name, int age, double weight, String activityLevel, boolean whatGender, int height) {
@@ -41,8 +52,12 @@ public class UserData {
         return activityLevel;
     }
 
-    public boolean getGender() {
+    public boolean getWhatGender() {
         return whatGender;
+    }
+
+    public void setWhatGender(boolean whatGender) {
+        this.whatGender = whatGender;
     }
 
     public int getHeight() {
@@ -53,13 +68,36 @@ public class UserData {
         this.activityLevel = activityLevel;
     }
 
-
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public static double bmiValue(double weight, int height) {
@@ -89,6 +127,23 @@ public class UserData {
         } else {
             return "Obesity class III";
         }
+    }
+
+    public boolean emptyUser(){
+        return (this.email==null || this.password==null || this.weight ==0 ||this.height==0 || this.age==0 );
+    }
+
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", activityLevel='" + activityLevel + '\'' +
+                ", whatGender=" + whatGender +
+                ", height=" + height +
+                '}';
     }
 
 }

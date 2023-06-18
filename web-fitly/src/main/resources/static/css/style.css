@@ -269,10 +269,13 @@ a:hover {
     opacity: 1;
 }
 
+<<<<<<< HEAD
 .form-popup.active {
     display: flex;
 }
 
+=======
+>>>>>>> merge-branch
 .shader {
     display: none;
     position: fixed;
@@ -284,8 +287,18 @@ a:hover {
     z-index: 8;
 }
 
+<<<<<<< HEAD
+=======
+.form-popup.active {
+    display: flex;
+}
+
+>>>>>>> merge-branch
 .shader.active {
     display: block;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> merge-branch

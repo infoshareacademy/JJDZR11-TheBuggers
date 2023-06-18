@@ -1,0 +1,55 @@
+[ {
+  "email" : "grzes1616@gmail.com",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 55,
+  "weight" : 555.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 5555
+}, {
+  "email" : "grzes1616@gmail.com123",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 123,
+  "weight" : 123.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 123
+}, {
+  "email" : "grzes1616@gmail.com321",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 333,
+  "weight" : 333.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 333
+}, {
+  "email" : "grzes1616@gmail.com5",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 333,
+  "weight" : 25.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 555
+}, {
+  "email" : "grzes1616@gmail.com6",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 3566,
+  "weight" : 35.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : false,
+  "height" : 36
+}, {
+  "email" : "grzes1616@gmail.com88",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 4568,
+  "weight" : 22.0,
+  "activityLevel" : "Lightly active",
+  "whatGender" : false,
+  "height" : 1555
+} ]

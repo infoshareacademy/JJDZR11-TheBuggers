@@ -1,0 +1,35 @@
+Breakfast:
+    Vegetable omelette:
+        3 eggs
+        Assorted vegetables (200g)
+        2 slices of whole wheat toast (60g)
+        1 medium-sized orange
+
+Mid-Morning Snack:
+    Greek yogurt (200g)
+    Mixed berries (100g)
+    Granola (30g)
+
+Lunch:
+    Quinoa and black bean burrito bowl:
+        Quinoa (150g)
+        Black beans (150g)
+        Avocado (100g)
+        Salsa (50g)
+        Shredded cheese (50g)
+
+Afternoon Snack:
+    Rice cakes (40g)
+    Almond butter (30g)
+    Sliced banana (1 medium-sized)
+
+Dinner:
+    Grilled tofu steak:
+        Grilled tofu steak (200g)
+        Assorted roasted vegetables (200g)
+        Sweet potato fries (150g)
+
+Evening Snack:
+    Greek yogurt (200g)
+    Honey (20g)
+    Handful of mixed nuts (30g)

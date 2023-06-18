@@ -11,6 +11,7 @@
 <body>
 
     <div th:fragment="mainTemplate" th:remove="tag">
+<<<<<<< HEAD
         <div class="container">
             <header class="header"><img src="/img/logo/logo.png" class="logo" alt="logo"/> </header>
             <nav class="menu">
@@ -18,11 +19,21 @@
                     <a th:href="@{./}" class="nav-button"><span class="button-text">MAIN</span></a>
                     <a th:href="@{/bmi}" class="nav-button"><span class="button-text">BMI</span></a>
                     <a th:href="@{/calories}" class="nav-button"><span class="button-text">CALORIES</span></a>
+=======
+        <div th:fragment="container" class="container">
+            <header class="header"><img src="/img/logo/logo.png" class="logo" alt="logo"/> </header>
+            <nav class="menu">
+                <div class="nav-left">
+                    <a th:href="@{/}" class="nav-button"><span class="button-text">MAIN</span></a>
+                    <a th:href="@{/bmi}" class="nav-button"><span class="button-text">BMI</span></a>
+<!--                    <a th:href="@{/calories}" class="nav-button"><span class="button-text">CALORIES</span></a>-->
+>>>>>>> merge-branch
                     <a th:href="@{/diets}" class="nav-button"><span class="button-text">DIETS</span></a>
                     <a th:href="@{/trainings}" class="nav-button"><span class="button-text">TRAININGS</span></a>
                 </div>
 
                 <div class="nav-right">
+<<<<<<< HEAD
                     <button class="nav-button" onclick="openForm()">LOGIN</button>
                     <div class="form-popup" id="myForm">
                         <form class="form-container">
@@ -32,6 +43,20 @@
 
                             <label for="password"><b>Password</b></label>
                             <input type="password" id="password" placeholder="Enter Password" name="psw" required>
+=======
+<!--                    <button th:href="@{/login}" class="nav-button" onclick="openForm()">LOGIN</button>-->
+<!--                    <button th:href="@{/login}" class="nav-button" >LOGIN</button>-->
+                    <a th:href="@{/login}" class="nav-button"><span class="button-text">LOGIN</span></a>
+
+                    <div class="form-popup" id="myForm">
+                        <form class="form-container">
+
+                            <label><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" required>
+
+                            <label><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+>>>>>>> merge-branch
 
                             <div style="padding-bottom: 5px; padding-top: 5px; display: flex; justify-content: space-between;">
                                 <div class="col-6">
@@ -70,31 +95,56 @@
 
 
     <script>
+<<<<<<< HEAD
         const formPopup = document.querySelector('.form-popup');
         const openFormButton = document.querySelector('.nav-button');
         const shader = document.querySelector('.shader');
 
         function openForm() {
+=======
+        function openForm() {
+            var formPopup = document.getElementById("myForm");
+            var shader = document.querySelector('.shader');
+>>>>>>> merge-branch
             formPopup.classList.add('active');
             shader.classList.add('active');
         }
 
         function closeForm() {
+<<<<<<< HEAD
             formPopup.classList.remove('active');
             shader.classList.remove('active');
         }
+=======
+            var formPopup = document.getElementById("myForm");
+            var shader = document.querySelector('.shader');
+            formPopup.classList.remove('active');
+            shader.classList.remove('active');
+        }
+    </script>
+    <script>
+        const formPopup = document.querySelector('.form-popup');
+        const openFormButton = document.querySelector('.nav-button');
+        const shader = document.querySelector('.shader');
+>>>>>>> merge-branch
 
         function handleClickOutsideForm(event) {
             if (!formPopup.contains(event.target) && event.target !== openFormButton) {
                 closeForm();
             }
         }
+<<<<<<< HEAD
 
         openFormButton.addEventListener('click', openForm);
+=======
+>>>>>>> merge-branch
         document.addEventListener('click', handleClickOutsideForm);
     </script>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> merge-branch
 </body>
 </html>

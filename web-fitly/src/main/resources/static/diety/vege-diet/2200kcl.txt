@@ -1,0 +1,38 @@
+Breakfast:
+    Tofu scramble:
+        150g tofu
+        1/2 bell pepper
+        1/2 onion
+        1/2 tomato
+        1 slice of whole wheat bread
+        1 small apple
+
+Mid-Morning Snack:
+    1 small Greek yogurt
+    Handful of mixed nuts
+
+Lunch:
+    Vegetable couscous:
+        3/4 cup of couscous
+        Bell peppers (as desired)
+        Zucchini (as desired)
+        Onion (as desired)
+        Tomato (as desired)
+        Mixed salad (lettuce, cucumber, tomato)
+        2 tablespoons of vinaigrette dressing
+
+Afternoon Snack:
+    Carrot sticks
+    2 tablespoons of hummus
+
+Dinner:
+    Grilled tofu with brown:
+        150g grilled tofu
+        3/4 cup of brown rice
+        Roasted vegetables (broccoli, cauliflower)
+        Side salad (mixed greens, cherry tomatoes)
+        2 tablespoons of vinaigrette dressing
+
+Evening Snack:
+    1 small orange
+    1 hard-boiled egg

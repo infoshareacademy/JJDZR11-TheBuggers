@@ -1,0 +1,36 @@
+Breakfast:
+    Gluten-free oats cooked in almond milk:
+        Gluten-free oats (50g)
+        Almond milk (200ml)
+        Mixed berries (100g)
+        Sliced almonds (20g)
+
+Mid-Morning Snack:
+    Rice cakes with almond butter:
+        Rice cakes (30g)
+        Almond butter (20g)
+        Sliced cucumber (1/2 medium-sized)
+
+Lunch:
+    Grilled chicken breast with quinoa, steamed broccoli, and a side of mixed greens dressed with olive oil and lemon juice:
+        Grilled chicken breast (150g)
+        Quinoa (100g)
+        Steamed broccoli (150g)
+        Mixed greens (100g)
+        Olive oil
+        Lemon juice
+
+Afternoon Snack:
+    Carrot sticks (100g)
+    Dairy-free hummus (2 tablespoons)
+
+Dinner:
+    Baked salmon fillet with roasted sweet potatoes and grilled asparagus:
+        Baked salmon fillet (150g)
+        Roasted sweet potatoes (150g)
+        Grilled asparagus (150g)
+
+Evening Snack:
+    Dairy-free yogurt (150g)
+    Sliced strawberries (100g)
+    Gluten-free granola (30g)

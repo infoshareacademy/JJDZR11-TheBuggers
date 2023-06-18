@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+
+    <title>Usersite</title>
+</head>
+<body>
+<div th:replace="~{fragments/Fragments :: container}"></div>
+
+<div class="container">
+    <div class="form_bmi">
+        <h1>Registration</h1>
+        <form th:action="@{/register}" th:object="${userData}" method="post">
+            <span class="error" th:text="${error}"></span>
+            <div class="inputs">
+                <label for="disabledEmailLogin" class="form-label">Email</label>
+                <input type="email" th:field="*{email}" id="disabledEmailLogin" class="form-control"
+                       placeholder="Email" minlength="5"required>
+            </div>
+            <div class="inputs">
+                <label for="disabledPasswordLogin" class="form-label">Password</label>
+                <input type="password" th:field="*{password}" id="disabledPasswordLogin" class="form-control"
+                       placeholder="Password" minlength="5" required>
+            </div>
+            <div class="inputs">
+                <label for="disabledNameInput" class="form-label">Name</label>
+                <input type="text" th:field="*{name}" id="disabledNameInput" class="form-control"
+                       placeholder="Name" minlength="3" required>
+            </div>
+            <div class="inputs">
+                <label for="disabledAgeInput" class="form-label">Age</label>
+                <input type="number" th:field="*{age}" id="disabledAgeInput" class="form-control"
+                       placeholder="Age" min="1" required>
+            </div>
+            <div class="inputs">
+                <label for="disabledWightInput" class="form-label">Weight [kg]</label>
+                <input type="number" th:field="*{weight}" id="disabledWightInput" class="form-control"
+                       placeholder="Weight" step="any" min="1" required>
+            </div>
+            <div class="inputs">
+                <label for="disabledActivityInput" class="form-label">Activity Level</label>
+                <select th:field="*{activityLevel}" id="disabledActivityInput" class="form-select">
+                    <option value="Sedentary">Sedentary</option>
+                    <option value="Lightly active">Lightly active</option>
+                    <option value="Moderately active">Moderately active</option>
+                    <option value="Very active">Very active</option>
+                    <option value="Super active">Super active</option>
+                </select>
+            </div>
+            <div class="inputs">
+                <p>Gender
+                    <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions"
+                           id="inlineRadio1" value="true">
+                    <label class="form-check-label" for="inlineRadio1">M</label>
+                    <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions"
+                           id="inlineRadio2" value="false">
+                    <label class="form-check-label" for="inlineRadio1">F</label></p>
+            </div>
+            <div class="inputs">
+                <label for="disabledHeightInput" class="form-label">Height [cm]</label>
+                <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control"
+                       placeholder="Height" min="1" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+<!--    <h1>Login</h1>-->
+<!--    <form th:action="@{/login}" th:object="${userData}" method="post">-->
+<!--        <legend>-&#45;&#45;&#45;&#45;</legend>-->
+<!--        <span th:text="${info}"></span>-->
+<!--        <div class="inputs">-->
+<!--            <label for="disabledEmailInput" class="form-label">Email</label>-->
+<!--            <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"-->
+<!--                   placeholder="Email" minlength="5"required>-->
+<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="inputs">-->
+<!--            <label for="disabledPasswordInput" class="form-label">Password</label>-->
+<!--            <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"-->
+<!--                   placeholder="Password" minlength="5"required>-->
+<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <button type="submit" class="btn btn-primary">Login</button>-->
+<!--    </form>-->
+
+
+<!--    <div th:if="${param.error}">-->
+<!--        Invalid username and password.-->
+<!--    </div>-->
+<!--    <div th:if="${param.logout}">-->
+<!--        You have been logged out.-->
+<!--    </div>-->
+<!--    <form th:action="@{/login}" method="post">-->
+<!--        <div><label> User Name : <input type="text" name="username"/> </label></div>-->
+<!--        <div><label> Password: <input type="password" name="password"/> </label></div>-->
+<!--        <div><input type="submit" value="Sign In"/></div>-->
+<!--    </form>-->
+
+<!--    <form th:action="@{/logout}" method="post">-->
+<!--        <button type="submit" class="btn btn-primary">Logout</button>-->
+<!--    </form>-->
+<!--    <div class="content">-->
+<!--    </div>-->
+    <footer class="footer">
+        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+    </footer>
+</div>
+</body>
+</html>
+
