@@ -269,6 +269,10 @@ a:hover {
     opacity: 1;
 }
 
+.form-popup.active {
+    display: flex;
+}
+
 .shader {
     display: none;
     position: fixed;
@@ -280,11 +284,8 @@ a:hover {
     z-index: 8;
 }
 
-.form-popup.active {
-    display: flex;
-}
-
 .shader.active {
     display: block;
 }
+
 

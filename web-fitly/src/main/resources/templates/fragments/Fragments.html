@@ -27,11 +27,11 @@
                     <div class="form-popup" id="myForm">
                         <form class="form-container">
 
-                            <label><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" required>
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" id="email" placeholder="Enter Email" name="email" required>
 
-                            <label><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <label for="password"><b>Password</b></label>
+                            <input type="password" id="password" placeholder="Enter Password" name="psw" required>
 
                             <div style="padding-bottom: 5px; padding-top: 5px; display: flex; justify-content: space-between;">
                                 <div class="col-6">
@@ -70,32 +70,30 @@
 
 
     <script>
+        const formPopup = document.querySelector('.form-popup');
+        const openFormButton = document.querySelector('.nav-button');
+        const shader = document.querySelector('.shader');
+
         function openForm() {
-            var formPopup = document.getElementById("myForm");
-            var shader = document.querySelector('.shader');
             formPopup.classList.add('active');
             shader.classList.add('active');
         }
 
         function closeForm() {
-            var formPopup = document.getElementById("myForm");
-            var shader = document.querySelector('.shader');
             formPopup.classList.remove('active');
             shader.classList.remove('active');
         }
-    </script>
-    <script>
-        const formPopup = document.querySelector('.form-popup');
-        const openFormButton = document.querySelector('.nav-button');
-        const shader = document.querySelector('.shader');
 
         function handleClickOutsideForm(event) {
             if (!formPopup.contains(event.target) && event.target !== openFormButton) {
                 closeForm();
             }
         }
+
+        openFormButton.addEventListener('click', openForm);
         document.addEventListener('click', handleClickOutsideForm);
     </script>
+
 
 
 </body>
