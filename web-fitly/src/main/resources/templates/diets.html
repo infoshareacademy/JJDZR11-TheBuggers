@@ -4,67 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
-
-    <style>
-        .content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content img {
-            width: 40%;
-            height: auto;
-        }
-
-        .content p {
-            width: 50%;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            text-align: justify;
-            margin-right: 15px;
-        }
-
-        .content ul {
-            width: 50%;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            margin-top: 0;
-        }
-
-        .content ul p {
-            width: 100%;
-            margin-top: 0;
-            margin-bottom: 2px;
-        }
-
-        .footer {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 0 20px;
-            background-color: #f9f9f9;
-            border-top: 1px solid #ccc;
-        }
-
-        .form_bmi {
-            display: block;
-            margin-left: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .inputs {
-            margin: 10px 0px;
-        }
-
-        .inputs span {
-            color: red;
-        }
-    </style>
-
+    <title>Diets</title>
 </head>
 
 <body>
@@ -72,9 +12,9 @@
 <div th:replace="~{fragments/Fragments :: container}"></div>
 
 
-<div class="container">
-    <div class="content">
-        <a href="/diets/standard">
+<div class="content-container">
+    <div class="diet-content">
+        <a href="/diets/standard" class="a-diet">
             <div class="diet-tile">
                 <h2>Standard Diet</h2>
                 <p>Example description of standard diet.</p>

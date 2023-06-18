@@ -52,4 +52,13 @@
   "activityLevel" : "Lightly active",
   "whatGender" : false,
   "height" : 1555
+}, {
+  "email" : "piotrek.fiuk@gmail.com",
+  "password" : "password",
+  "name" : "Piotr",
+  "age" : 34,
+  "weight" : 75.0,
+  "activityLevel" : "Sedentary",
+  "whatGender" : true,
+  "height" : 180
 } ]

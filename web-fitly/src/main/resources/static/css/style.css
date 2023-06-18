@@ -76,7 +76,8 @@ a:hover {
 }
 
 @media (max-width: 767px) {
-    .menu {
+    .menu,
+    .diet-tile {
         flex-direction: column;
     }
 
@@ -188,12 +189,19 @@ a:hover {
 }
 
 .container {
-    align-content: center;
-    text-align: center;
     margin: auto;
     width: 85%;
     padding: 50px;
     border: 1px solid #bba674;
+    font-family: "Noto Sans", serif;
+    font-size: 1.5rem;
+}
+
+.content-container {
+    text-align: center;
+    margin: auto;
+    width: 85%;
+    padding: 50px;
     font-family: "Noto Sans", serif;
     font-size: 1.5rem;
 }
@@ -219,8 +227,6 @@ ul {
     margin-bottom: 100px;
 }
 
-
-
 input {
     background-color: darkgray;
 }
@@ -230,7 +236,7 @@ input {
     left: auto;
     right: 70%;
     bottom: 0;
-    top: 300px;
+    top: 370px;
     height: calc(100vh - 300px);
     transform: translateX(30%);
 }
@@ -265,4 +271,19 @@ input {
     border-top: 1px solid #bba674;
     font-size: small;
     padding-right: 8rem;
+}
+
+.diet-tile {
+    border-style: groove;
+    padding: 30px;
+    margin: 30px;
+    max-width: 300px;
+    display: inline-block;
+}
+
+.diet-content {
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+    display: inline-block;
 }
