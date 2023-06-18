@@ -4,121 +4,60 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
-<<<<<<< HEAD
-
-=======
->>>>>>> merge-branch
     <title>Trainings</title>
 </head>
 
 <body>
-<<<<<<< HEAD
-=======
-<div th:replace="~{fragments/Fragments :: container}"></div>
 
-<div class="container">
+    <div th:replace="~{fragments/Fragments :: container}"></div>
 
-    <main>
-        <h2>Calculate Training Weights</h2>
-        <form  th:action="@{/training}" th:object="${userData}" method="post">
-            <label for="weight">Enter your weight:</label>
-            <input type="number"  th:field="*{weight}" id="weight" name="weight" required min="0.5" step="0.1" pattern="[0-9]+([.,][0-9]+)?"
-                   title="Enter a number greater than 0.5">
-            <button type="submit">Calculate Training</button>
-        </form>
->>>>>>> merge-branch
+    <div class="container">
+        <main>
+            <h2>Calculate Training Weights</h2>
+            <form action="/training" method="post">
+                <label for="weight">Enter your weight:</label>
+                <input type="number" id="weight" name="weight" required min="0.5" step="0.1" pattern="[0-9]+([.,][0-9]+)?"
+                       title="Enter a number greater than 0.5">
+                <button type="submit">Calculate Training</button>
+            </form>
 
-    <div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
-
-    <div class="content">
-        <div class="text-block">
-            <main>
-                <h2>Calculate Training Weights</h2>
-                <form action="/training" method="post">
-                    <label for="weight">Enter your weight:</label>
-                    <input type="number" id="weight" name="weight" required min="0.5" step="0.1" pattern="[0-9]+([.,][0-9]+)?"
-                           title="Enter a number greater than 0.5">
-                    <button type="submit">Calculate Training</button>
-                </form>
-
-                <div th:if="${showFlag}">
-                    <h2>Training Weights</h2>
-                    <div>
-                        <h3>Bench Press Weight: <span th:text="${benchPressWeight}"></span> kg</h3>
-                    </div>
-                    <div>
-                        <h3>Squat Weight: <span th:text="${squatWeight}"></span> kg</h3>
-                    </div>
-                    <div>
-                        <h3>Deadlift Weight: <span th:text="${deadliftWeight}"></span> kg</h3>
-                    </div>
-                    <div>
-                        <h3>Dumbbell Curls Weight: <span th:text="${dumbbellCurlsWeight}"></span> kg</h3>
-                    </div>
-                    <div>
-                        <h3>Dumbbell Rows Weight: <span th:text="${dumbbellRowsWeight}"></span> kg</h3>
-                    </div>
-                    <div>
-                        <h3>Dumbbell Shoulder Press Weight: <span th:text="${dumbbellShoulderPressWeight}"></span> kg</h3>
-                    </div>
-
-                    <h2>Training Weights Based on Repetitions:</h2>
-                    <ul>
-                        <li th:each="weight : ${weights}" th:text="${weight}"></li>
-                    </ul>
+            <div th:if="${showFlag}">
+                <h2>Training Weights</h2>
+                <div>
+                    <h3>Bench Press Weight: <span th:text="${benchPressWeight}"></span> kg</h3>
+                </div>
+                <div>
+                    <h3>Squat Weight: <span th:text="${squatWeight}"></span> kg</h3>
+                </div>
+                <div>
+                    <h3>Deadlift Weight: <span th:text="${deadliftWeight}"></span> kg</h3>
+                </div>
+                <div>
+                    <h3>Dumbbell Curls Weight: <span th:text="${dumbbellCurlsWeight}"></span> kg</h3>
+                </div>
+                <div>
+                    <h3>Dumbbell Rows Weight: <span th:text="${dumbbellRowsWeight}"></span> kg</h3>
+                </div>
+                <div>
+                    <h3>Dumbbell Shoulder Press Weight: <span th:text="${dumbbellShoulderPressWeight}"></span> kg</h3>
                 </div>
 
-                <div th:if="${showFlag}">
-                    <h2>Training File Content:</h2>
-                    <pre th:utext="${fileContent}"></pre>
-                </div>
-            </main>
+                <h2>Training Weights Based on Repetitions:</h2>
+                <ul>
+                    <li th:each="weight : ${weights}" th:text="${weight}"></li>
+                </ul>
+            </div>
+
+            <div th:if="${showFlag}">
+                <h2>Training File Content:</h2>
+                <pre th:utext="${fileContent}"></pre>
+            </div>
+        </main>
+
+        <div class="footer">
+            <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
         </div>
     </div>
 
-    <div class="footer">
-        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-    </div>
-
-    <script>
-        function openForm() {
-            var formPopup = document.getElementById("myForm");
-            var shader = document.querySelector('.shader');
-            formPopup.classList.add('active');
-            shader.classList.add('active');
-        }
-
-        function closeForm() {
-            var formPopup = document.getElementById("myForm");
-            var shader = document.querySelector('.shader');
-            formPopup.classList.remove('active');
-            shader.classList.remove('active');
-        }
-    </script>
-    <script>
-        const formPopup = document.querySelector('.form-popup');
-        const openFormButton = document.querySelector('.nav-button');
-        const shader = document.querySelector('.shader');
-
-        function handleClickOutsideForm(event) {
-            if (!formPopup.contains(event.target) && event.target !== openFormButton) {
-                closeForm();
-            }
-        }
-        document.addEventListener('click', handleClickOutsideForm);
-    </script>
-
-<<<<<<< HEAD
-=======
-        <div th:if="${showFlag}">
-            <h2>Training File Content:</h2>
-            <pre th:utext="${fileContent}"></pre>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; The Buggers. All rights reserved!</p>
-    </footer>
-</div>
->>>>>>> merge-branch
 </body>
 </html>

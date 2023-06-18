@@ -4,82 +4,32 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
-
     <title>Main</title>
 </head>
 
 <body>
-<div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
 
-<<<<<<< HEAD
+    <div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
 
-=======
->>>>>>> merge-branch
-<div class="text-block">
+    <div class="text-block">
 
-    <h1>FIT YOUR MUSCLES</h1>
+        <h1>FIT YOUR MUSCLES</h1>
 
-    Choose from hundreds of workouts, healthy recipes, relaxing meditations,<br>
-    and expert articles, for a whole body and mind approach to feeling great.<br>
-    Professionally designed programs take the guesswork out of exercising.<br>
-    Exercise with certified personal trainers whether you're at home or on the road.<br>
+        Choose from hundreds of workouts, healthy recipes, relaxing meditations,<br>
+        and expert articles, for a whole body and mind approach to feeling great.<br>
+        Professionally designed programs take the guesswork out of exercising.<br>
+        Exercise with certified personal trainers whether you're at home or on the road.<br>
 
-<<<<<<< HEAD
-
-         <a th:href="@{./joinUs}" class="joinUs-link">
+        <a th:href="@{/register}" class="joinUs-link">
             <button class="joinUs-button">
                 <span class="button-text">JOIN US</span>
             </button>
         </a>
+    </div>
 
-=======
-    <a th:href="@{/register}" class="joinUs-link">
-        <button class="joinUs-button">
-            <span class="button-text">JOIN US</span>
-        </button>
-    </a>
-
-</div>
-    <footer class="footer">
+    <div class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-    </footer>
->>>>>>> merge-branch
-</div>
-
-<div class="footer">
-    <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-</div>
-
-
-
-<script>
-    function openForm() {
-        var formPopup = document.getElementById("myForm");
-        var shader = document.querySelector('.shader');
-        formPopup.classList.add('active');
-        shader.classList.add('active');
-    }
-
-    function closeForm() {
-        var formPopup = document.getElementById("myForm");
-        var shader = document.querySelector('.shader');
-        formPopup.classList.remove('active');
-        shader.classList.remove('active');
-    }
-</script>
-<script>
-    const formPopup = document.querySelector('.form-popup');
-    const openFormButton = document.querySelector('.nav-button');
-    const shader = document.querySelector('.shader');
-
-    function handleClickOutsideForm(event) {
-        if (!formPopup.contains(event.target) && event.target !== openFormButton) {
-            closeForm();
-        }
-    }
-
-    document.addEventListener('click', handleClickOutsideForm);
-</script>
+    </div>
 
 </body>
 </html>
