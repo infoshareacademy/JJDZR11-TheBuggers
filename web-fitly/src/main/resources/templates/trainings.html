@@ -14,9 +14,9 @@
     <div class="container">
         <main>
             <h2>Calculate Training Weights</h2>
-            <form action="/training" method="post">
+            <form  th:action="@{/training}" th:object="${userData}" method="post">
                 <label for="weight">Enter your weight:</label>
-                <input type="number" id="weight" name="weight" required min="0.5" step="0.1" pattern="[0-9]+([.,][0-9]+)?"
+                <input type="number"  th:field="*{weight}" id="weight" name="weight" required min="0.5" step="0.1" pattern="[0-9]+([.,][0-9]+)?"
                        title="Enter a number greater than 0.5">
                 <button type="submit">Calculate Training</button>
             </form>
@@ -53,10 +53,10 @@
                 <pre th:utext="${fileContent}"></pre>
             </div>
         </main>
+    </div>
 
-        <div class="footer">
-            <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-        </div>
+    <div class="footer">
+        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
     </div>
 
 </body>
