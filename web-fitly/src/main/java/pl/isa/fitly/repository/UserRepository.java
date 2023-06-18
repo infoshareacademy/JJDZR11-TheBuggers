@@ -100,6 +100,10 @@ public class UserRepository {
         this.currentUser = currentUser;
     }
 
+    public boolean isCurrentUser(){
+        return (this.getCurrentUser() != null && !this.getCurrentUser().emptyUser());
+    }
+
     public enum formError {
         OK(""),
         WRITE_ERROR("Write error"),

@@ -21,7 +21,7 @@ public class BmiController {
 
     @GetMapping("/bmi")
     public String bmi(Model model, Principal principal) {
-        if (userRepository.getCurrentUser() != null && !userRepository.getCurrentUser().emptyUser()) {
+        if (userRepository.isCurrentUser()) {
             userData = userRepository.getCurrentUser();
             model.addAttribute("userData", userData);
             addBmiToModel(model, userData);

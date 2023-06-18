@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.isa.fitly.model.UserData;
+import pl.isa.fitly.repository.UserRepository;
 
 import java.io.*;
 import java.util.HashMap;
@@ -14,6 +16,12 @@ import java.util.Map;
 
 @Controller
 public class DietController {
+
+    UserRepository userRepository;
+
+    public DietController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     private static final double MALE_BMR_CONSTANT = 88.362;
     private static final double MALE_BMR_WEIGHT_COEFFICIENT = 13.397;
@@ -72,23 +80,35 @@ public class DietController {
     }
 
     @GetMapping("/diets/glutenAndLactoseFree")
-    public String showGlutenAndLactoseFreeDietForm() {
-        return "glutenAndLactoseFree-diet";
+    public String showGlutenAndLactoseFreeDietForm(Model model) {
+//        if (userRepository.isCurrentUser()){
+//            UserData user = userRepository.getCurrentUser();
+//            return processDiet(user.getAge(),
+//                    user.getHeight(),
+//                    user.getWeight(),
+//                    dtoGender(user.getWhatGender()),
+//                    user.getActivityLevel(),
+//                    "glutenAndLactoseFree-diet", model);
+//        }
+//        return "glutenAndLactoseFree-diet";
+        return dietCurrentUser("glutenAndLactoseFree-diet", model);
     }
 
     @GetMapping("/diets/pescetarian")
-    public String showPescetarianDietForm() {
-        return "pescetarian-diet";
+    public String showPescetarianDietForm(Model model) {
+        return dietCurrentUser("pescetarian-diet", model);
     }
 
     @GetMapping("/diets/standard")
-    public String showStandardDietForm() {
-        return "standard-diet";
+    public String showStandardDietForm(Model model) {
+        return dietCurrentUser("standard-diet", model);
+//        return "standard-diet";
     }
 
     @GetMapping("/diets/vege")
-    public String showVegeDietForm() {
-        return "vege-diet";
+    public String showVegeDietForm(Model model) {
+        return dietCurrentUser("vege-diet", model);
+//        return "vege-diet";
     }
 
     private String processDiet(int age, double height, double weight, String gender, String activityLevel, String dietTemplateName, Model model) {
@@ -183,6 +203,27 @@ public class DietController {
         }
 
         return dietContent.toString();
+    }
+
+    private String dietCurrentUser(String dietTemplateName, Model model) {
+        if (userRepository.isCurrentUser()) {
+            UserData user = userRepository.getCurrentUser();
+            return processDiet(user.getAge(),
+                    user.getHeight(),
+                    user.getWeight(),
+                    dtoGender(user.getWhatGender()),
+                    user.getActivityLevel(),
+                    dietTemplateName, model);
+        }
+        return dietTemplateName;
+    }
+
+    public static String dtoGender(boolean gender) {
+        if (gender) {
+            return "male";
+        } else {
+            return "female";
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package pl.isa.fitly.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -25,7 +26,7 @@ import java.util.function.Function;
 public class WebSecurityConfig {
 
     UserRepository userRepository;
-    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/register"};
+    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/diets", "/register"};
 
 
     public WebSecurityConfig(UserRepository userRepository) {
@@ -37,7 +38,10 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(UNAUTHORIZED_DOMAINS).permitAll()
-                        .anyRequest().authenticated()
+//                        .requestMatchers(HttpMethod.POST,"/").permitAll()
+//                        .requestMatchers(HttpMethod.GET,"/").permitAll()
+//                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")
