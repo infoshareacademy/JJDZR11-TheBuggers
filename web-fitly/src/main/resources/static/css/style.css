@@ -92,6 +92,8 @@ a:hover {
     background-image: url("../img/buttons/button_off.png");
     background-size: cover;
     background-position: center;
+    border: #bba674;
+    border-;
     width: 100px;
     height: 40px;
     cursor: pointer;
@@ -116,6 +118,36 @@ a:hover {
 
 .btn:hover {
     opacity: 1;
+}
+
+.login-buttons {
+    color: #bba674;
+    text-decoration: none;
+    font-family: Oswald, serif;
+    font-size: 1.6rem;
+    background-image: url("../img/buttons/button_off.png");
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-buttons:active {
+    opacity: 0.5;
+}
+
+.login-buttons:hover {
+    background-image: url("../img/buttons/button_on.png");
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
 }
 
 .joinUs-link {
@@ -146,8 +178,9 @@ a:hover {
 }
 
 .container {
+    text-align: center;
+    margin: auto;
     width: 85%;
-    margin: 0 auto;
     padding: 10px;
     border: 1px solid #bba674;
 }

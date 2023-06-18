@@ -30,9 +30,6 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/joinUs")
-    public String joinUs() { return "joinUs"; }
-
     @GetMapping("/calories")
     public String calories() {
         return "calories";
