@@ -12,7 +12,7 @@
 
     <div th:fragment="mainTemplate" th:remove="tag">
         <div class="container">
-            <header class="header"></header>
+            <header class="header"><img src="/img/logo/logo.png" class="logo" alt="logo"/> </header>
             <nav class="menu">
                 <div class="nav-left">
                     <a th:href="@{./}" class="nav-button"><span class="button-text">MAIN</span></a>
@@ -21,6 +21,7 @@
                     <a th:href="@{/diets}" class="nav-button"><span class="button-text">DIETS</span></a>
                     <a th:href="@{/trainings}" class="nav-button"><span class="button-text">TRAININGS</span></a>
                 </div>
+
                 <div class="nav-right">
                     <button class="nav-button" onclick="openForm()">LOGIN</button>
                     <div class="form-popup" id="myForm">
@@ -58,12 +59,13 @@
             </nav>
         </div>
         <div class="shader"></div>
+        <img src="/img/photos/fitgirl1.png" alt="fit person photo" class="fit-person">
     </div>
 
 
-    <footer>
+    <div class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-    </footer>
+    </div>
 
 
 

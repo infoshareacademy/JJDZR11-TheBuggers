@@ -32,6 +32,9 @@ public class MainController {
         return "bmi";
     }
 
+    @GetMapping("/joinUs")
+    public String joinUs() { return "joinUs"; }
+
     @GetMapping("/calories")
     public String calories() {
         return "calories";
