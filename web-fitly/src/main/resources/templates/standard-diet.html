@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+
   <title>Standard Diet</title>
-  <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
+<div th:replace="~{fragments/Fragments :: container}"></div>
+
 <div class="container">
-  <header class="header"></header>
-  <nav class="menu">
-    <!-- Nawigacja -->
-  </nav>
   <div class="content">
     <h1>Standard Diet</h1>
     <form th:action="@{/diets/standard}" method="post">

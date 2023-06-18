@@ -1,133 +1,31 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>main</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        /* style dla elementów strony */
-        body {
-            background-color: #eee;
-        }
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
 
-        .container {
-            width: 1200px;
-            margin: 0 auto;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-        }
-
-        .header {
-            height: 200px;
-            background-image: url("#");
-            background-size: cover;
-            background-position: center;
-        }
-
-        .menu {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            background-color: #f9f9f9;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .menu button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .menu button:last-child {
-            margin-right: 0;
-        }
-
-        .menu button:first-child {
-            margin-right: auto;
-            margin-left: 0;
-        }
-
-        .content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content img {
-            width: 40%;
-            height: auto;
-        }
-
-        .content p {
-            width: 50%;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            text-align: justify;
-            margin-right: 15px;
-        }
-
-        .content ul {
-            width: 50%;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            margin-top: 0;
-        }
-
-        .content ul p {
-            width: 100%;
-            margin-top: 0;
-            margin-bottom: 2px;
-        }
-
-        .footer {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 0 20px;
-            background-color: #f9f9f9;
-            border-top: 1px solid #ccc;
-        }
-
-        .form_bmi {
-            display: block;
-            margin-left: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .inputs {
-            margin: 10px 0px;
-        }
-
-        .inputs span {
-            color: red;
-        }
-    </style>
-
+    <title>Main</title>
 </head>
 <body>
-<div class="container">
-    <header class="header"></header>
-    <nav class="menu">
-        <button style="margin-right: 0;"><a href="/"><img src="#" alt="MAIN"></a></button>
-        <button style="margin-right: 0;"><a href="bmi"><img src="#" alt="BMI"></a></button>
-        <button style="margin-right: 0;"><a href="calories"><img src="#" alt="CALORIES"></a></button>
-        <button style="margin-right: 0;"><a href="diets"><img src="#" alt="DIETS"></a></button>
-        <button style="margin-right: 0;"><a href="trainings"><img src="#" alt="TRAININGS"></a></button>
-        <button style="margin-left: auto;"><a href="login"><img src="#" alt="LOGIN"></a></button>
-    </nav>
-    <div class="content">
-        <img src="#" alt="Zdjęcie">
-        <p>To jest ogromna strona main, cos tu napiszemy, całkiem ciekawego ale może nie teraz</p>
-    </div>
+<div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
+
+<div class="text-block">
+
+    <h1>FIT YOUR MUSCLES</h1>
+
+    Choose from hundreds of workouts, healthy recipes, relaxing meditations,<br>
+    and expert articles, for a whole body and mind approach to feeling great.<br>
+    Professionally designed programs take the guesswork out of exercising.<br>
+    Exercise with certified personal trainers whether you're at home or on the road.<br>
+
+    <a th:href="@{/register}" class="joinUs-link">
+        <button class="joinUs-button">
+            <span class="button-text">JOIN US</span>
+        </button>
+    </a>
+
+</div>
     <footer class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
     </footer>

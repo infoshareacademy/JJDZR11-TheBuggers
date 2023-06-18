@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+
+    <title>Main Templates</title>
+</head>
+
+<body>
+
+    <div th:fragment="mainTemplate" th:remove="tag">
+        <div th:fragment="container" class="container">
+            <header class="header"><img src="/img/logo/logo.png" class="logo" alt="logo"/> </header>
+            <nav class="menu">
+                <div class="nav-left">
+                    <a th:href="@{/}" class="nav-button"><span class="button-text">MAIN</span></a>
+                    <a th:href="@{/bmi}" class="nav-button"><span class="button-text">BMI</span></a>
+<!--                    <a th:href="@{/calories}" class="nav-button"><span class="button-text">CALORIES</span></a>-->
+                    <a th:href="@{/diets}" class="nav-button"><span class="button-text">DIETS</span></a>
+                    <a th:href="@{/trainings}" class="nav-button"><span class="button-text">TRAININGS</span></a>
+                </div>
+
+                <div class="nav-right">
+<!--                    <button th:href="@{/login}" class="nav-button" onclick="openForm()">LOGIN</button>-->
+<!--                    <button th:href="@{/login}" class="nav-button" >LOGIN</button>-->
+                    <a th:href="@{/login}" class="nav-button"><span class="button-text">LOGIN</span></a>
+
+                    <div class="form-popup" id="myForm">
+                        <form class="form-container">
+
+                            <label><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" required>
+
+                            <label><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+
+                            <div style="padding-bottom: 5px; padding-top: 5px; display: flex; justify-content: space-between;">
+                                <div class="col-6">
+                                    <input type="checkbox" value="" id="form2Example3">
+                                    <label class="form-check-label" for="form2Example3">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="forgot-password">Forgot password?</a>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: center;">
+                                <button type="submit" class="btn" style="margin-right: 10px;">Login</button>
+                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                            </div>
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <p class="small fw-bold mt-2 pt-1 mb-0">
+                                    Don't have an account? <a href="#" style="color: darkred">Register</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="shader"></div>
+        <img src="/img/photos/fitgirl1.png" alt="fit person photo" class="fit-person">
+    </div>
+
+
+    <div class="footer">
+        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+    </div>
+
+
+
+    <script>
+        function openForm() {
+            var formPopup = document.getElementById("myForm");
+            var shader = document.querySelector('.shader');
+            formPopup.classList.add('active');
+            shader.classList.add('active');
+        }
+
+        function closeForm() {
+            var formPopup = document.getElementById("myForm");
+            var shader = document.querySelector('.shader');
+            formPopup.classList.remove('active');
+            shader.classList.remove('active');
+        }
+    </script>
+    <script>
+        const formPopup = document.querySelector('.form-popup');
+        const openFormButton = document.querySelector('.nav-button');
+        const shader = document.querySelector('.shader');
+
+        function handleClickOutsideForm(event) {
+            if (!formPopup.contains(event.target) && event.target !== openFormButton) {
+                closeForm();
+            }
+        }
+        document.addEventListener('click', handleClickOutsideForm);
+    </script>
+
+
+</body>
+</html>

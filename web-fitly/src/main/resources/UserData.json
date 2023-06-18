@@ -43,4 +43,13 @@
   "activityLevel" : "Sedentary",
   "whatGender" : false,
   "height" : 36
+}, {
+  "email" : "grzes1616@gmail.com88",
+  "password" : "12345",
+  "name" : "Grzegorz Lozio",
+  "age" : 4568,
+  "weight" : 22.0,
+  "activityLevel" : "Lightly active",
+  "whatGender" : false,
+  "height" : 1555
 } ]
