@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+<head th:replace="layout :: head">
     <title>Main</title>
+
+    <style>
+        .fit-person {
+            position: fixed;
+            left: auto;
+            right: 70%;
+            bottom: 0;
+            top: 370px;
+            height: calc(100vh - 300px);
+            transform: translateX(30%);
+        }
+    </style>
 </head>
 
 <body>
 
-    <div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
+    <div th:replace="~{layout :: container}"></div>
+
+    <img src="/img/photos/fitgirl1.png" alt="fit person photo" class="fit-person">
 
     <div class="text-block">
 

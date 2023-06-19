@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-<head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
-
+<head th:replace="layout :: head">
     <title>Calories</title>
 </head>
 
@@ -13,7 +9,7 @@
     <h1>CALORIES CONTENT</h1>
 </div>
 
-<div th:replace="~{fragments/Fragments :: mainTemplate}"></div>
+<div th:replace="~{layout :: mainTemplate}"></div>
 
 <div class="footer">
     <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>

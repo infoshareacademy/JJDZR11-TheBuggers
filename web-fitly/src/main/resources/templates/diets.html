@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-<head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+<head th:replace="layout :: head">
     <title>Diets</title>
 </head>
 
 <body>
 
-<div th:replace="~{fragments/Fragments :: container}"></div>
+<div th:replace="~{layout :: container}"></div>
 
 
 <div class="content-container">

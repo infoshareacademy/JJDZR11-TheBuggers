@@ -1,0 +1,14 @@
+.nav-left {
+    display: flex;
+}
+
+.nav-right {
+    display: flex;
+    margin-right: 1%;
+}
+
+@media (max-width: 767px) {
+    .nav-right {
+        margin-top: 10px;
+    }
+}
