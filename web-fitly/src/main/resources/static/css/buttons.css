@@ -1,7 +1,5 @@
 .nav-button {
     color: #bba674;
-    text-decoration: none;
-    font-family: Oswald, serif;
     font-size: 1.6rem;
     background-image: url("../img/buttons/button_off.png");
     background-size: cover;
@@ -29,52 +27,9 @@
     opacity: 0.5;
 }
 
-.btn:hover {
-    opacity: 1;
-}
-
-.btn-body {
+.button {
     color: #bba674;
     text-decoration: none;
-    font-family: Oswald, serif;
-    font-size: 1.6rem;
-    background-image: url("../img/buttons/button_off.png");
-    background-size: cover;
-    background-position: center;
-    width: 100px;
-    height: 40px;
-    cursor: pointer;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: #bba674;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-}
-
-.btn-body:active {
-    opacity: 0.5;
-}
-
-.btn-body:hover {
-    background-image: url("../img/buttons/button_on.png");
-    background-size: cover;
-    background-position: center;
-    width: 100px;
-    height: 40px;
-    cursor: pointer;
-}
-
-.joinUs-link {
-    display: inline-block;
-    text-decoration: none;
-}
-
-.joinUs-button {
-    color: #bba674;
-    text-decoration: none;
-    font-family: Oswald, serif;
     font-size: 1.6rem;
     background-image: url("../img/buttons/sm_button_off.png");
     width: 115px;
@@ -82,13 +37,11 @@
     border: none;
     cursor: pointer;
     background-color: black;
-    background-blend-mode: normal;
-    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 10px;
 }
 
-.joinUs-button:hover {
+.button:hover {
     background-image: url("../img/buttons/sm_button_on.png");
 }

@@ -10,7 +10,7 @@
 
 <body>
 
-    <div>
+
         <div th:fragment="container" class="container">
             <header>
                 <div class="header">
@@ -19,7 +19,7 @@
                 </div>
             </header>
 
-            <nav class="menu">
+            <nav class="navbar">
                 <div class="nav-left">
                     <a th:href="@{/}" class="nav-button"><span class="button-text">MAIN</span></a>
                     <a th:href="@{/bmi}" class="nav-button"><span class="button-text">BMI</span></a>
@@ -27,11 +27,11 @@
                     <a th:href="@{/trainings}" class="nav-button"><span class="button-text">TRAININGS</span></a>
                 </div>
                 <div class="nav-right">
-                <a th:href="@{/login}" class="nav-button"><span class="button-text">LOGIN</span></a>
+                <a th:href="@{/login}" class="button">LOGIN</a>
                 </div>
             </nav>
         </div>
-    </div>
+
 
     <div class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>

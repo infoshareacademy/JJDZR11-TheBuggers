@@ -9,7 +9,6 @@
     <div th:replace="~{layout :: container}"></div>
 
     <div class="container">
-        <main>
             <h2>Calculate Training Weights</h2>
             <form  th:action="@{/training}" th:object="${userData}" method="post">
                 <label for="weight">Enter your weight:</label>
@@ -47,9 +46,9 @@
 
             <div th:if="${showFlag}">
                 <h2>Training File Content:</h2>
-                <pre th:utext="${fileContent}"></pre>
+                <p th:utext="${fileContent}"></p>
             </div>
-        </main>
+
     </div>
 
     <div class="footer">

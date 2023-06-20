@@ -7,25 +7,30 @@
 
     <div th:replace="~{layout :: container}"></div>
 
-    <div class="content-container">
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name :<br><input type="text" name="username"/> </label></div><br>
-            <div><label> Password: <br><input type="password" name="password"/> </label></div><br><br>
-            <button class="btn-body" type="submit">Sign In</button>
-        </form>
-        <form th:action="@{/logout}" method="post">
-            <button type="submit" class="btn-body">Logout</button>
-        </form>
-            <button class="btn-body"><a href="/register">Register</a></button>
-
+    <div class="container">
         <div>
-            <span th:text="${userName}"></span>
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <form th:action="@{/login}" method="post">
+                <div><label> User Name :<br><input type="text" name="username"/> </label></div><br>
+                <div><label> Password: <br><input type="password" name="password"/> </label></div><br><br>
+                <button class="button" type="submit">Sign In</button>
+            </form>
+        </div>
+        <div>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="button">Logout</button>
+            </form>
+
+            <button class="button"><a href="/register">Register</a></button>
+
+            <div>
+                <span th:text="${userName}"></span>
+            </div>
         </div>
     </div>
 
