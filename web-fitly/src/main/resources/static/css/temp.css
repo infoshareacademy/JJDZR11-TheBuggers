@@ -1,0 +1,72 @@
+.grid-diet-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
+    margin: 0 500px;
+}
+
+.diet-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    border-style: groove;
+    padding: 30px;
+    margin: 30px;
+    width: 300px;
+    height: 300px;
+}
+
+.diet-tile h2 {
+    text-align: center;
+}
+.diet-tile p {
+    text-align: left;
+    font-weight: lighter;
+}
+
+
+@media (max-width: 767px) {
+    .diet-tile {
+        flex-direction: column;
+    }
+}
+
+
+
+.inputs {
+    margin: 5px;
+    width: 350px;
+}
+.registration-container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+}
+
+.trainings-container {
+    text-align: right;
+    margin: 5%;
+    width: 85%;
+    font-size: 1.5rem;
+}
+
+ul {
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+
+.main-page {
+    color: #bba674;
+    margin: auto;
+    font-size: 1.5rem;
+    position: absolute;
+    display: inline-block;
+    top: 350px;
+    right: 200px;
+    left: 55%;
+    transform: translateX(-20%);
+    padding-bottom: 30px;
+}

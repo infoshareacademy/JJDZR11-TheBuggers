@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-<head th:replace="layout :: head">
+<head>
+    <script th:replace="layout :: head"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bmi.css"/>
+
     <title>B M I</title>
+
 </head>
 
 <body>
     <div th:replace="~{layout :: container}"></div>
 
-<!--        <div class="bmi-container">-->
-        <div class="grid-bmi-container">
+        <div class="grid-container bmi">
             <div class="first-bmi-column">
-                <p>BMI stands for Body Mass Index, which is a measure of body fat based on a person's weight and height. It is a commonly used tool to assess whether an individual's weight is within a healthy range or not. BMI is calculated by dividing a person's weight (in kilograms) by their height (in meters) squared. BMI can be used to categorize a person's weight as underweight, normal weight, overweight, or obese.</p>
+                <p style="justify-content: inherit">BMI stands for Body Mass Index, which is a measure of body fat based on a person's weight and height. It is a commonly used tool to assess whether an individual's weight is within a healthy range or not. BMI is calculated by dividing a person's weight (in kilograms) by their height (in meters) squared. BMI can be used to categorize a person's weight as underweight, normal weight, overweight, or obese.</p>
                 <p>There are several levels of BMI Index:</p>
                 <ul>
                     <li>< 18.5 Underweight</li>
@@ -43,11 +46,10 @@
                             <label for="disabledWightInput" class="form-label">Weight [kg]</label><br>
                             <input type="number" th:field="*{weight}" id="disabledWightInput" class="form-control" placeholder="Weight" step="any" min="1" required>
                         </div>
-                        <button type="submit" class="button">Submit</button>
+                        <button type="submit" class="button" style="float: right">Submit</button>
                     </form>
                 </div>
             </div>
-<!--            </div>-->
 
 
     </div>

@@ -1,9 +1,11 @@
+* {
+    box-sizing: border-box;
+}
 html {
     font-family: Oswald, sans-serif;
     font-size: 12px;
     color: #bba674;
 }
-
 body {
     background: linear-gradient(to left,
     rgba(0, 0, 0, 0.9) 0%,
@@ -20,14 +22,36 @@ body {
     overflow-x: hidden;
 }
 
+.layout {
+    position: fixed;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.header {
+    background-image: url("../img/background/header_background.png");
+    background-position: center right;
+    background-size: cover;
+    height: 156px;
+    position: relative;
+    margin-left: auto;
+    right: 0;
+    padding: 1px;
+}
+
 input {
-    width: 300px;
+    width: 90%;
     line-height: 30px;
     margin: 10px;
     text-align: center;
     background-color: darkgrey;
 }
 
+/*<SELECT> PROPERTIES*/
 #disabledActivityInput {
     height: 30px;
     width: 300px;
@@ -35,7 +59,7 @@ input {
     margin: 10px;
 }
 
-
+/*SCROLLBAR PROPERTIES*/
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -61,31 +85,12 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-
-}
-
-* {
-    box-sizing: border-box;
-}
-
+/*IMAGES PROPERTIES*/
 .logo {
     position: absolute;
     left: 100px;
     padding-top: 30px;
 }
-
-.header {
-    background-image: url("../img/background/header_background.png");
-    background-position: center right;
-    background-size: cover;
-    height: 156px;
-    position: relative;
-    margin-left: auto;
-    right: 0;
-    padding: 1px;
-}
-
 .fit-person {
     position: fixed;
     left: auto;
@@ -96,143 +101,23 @@ a:hover {
     transform: translateX(30%);
 }
 
-@media (max-width: 767px) {
-    .menu,
-    .diet-tile {
-        flex-direction: column;
-    }
-}
-
-.container {
-    justify-content: center;
-    text-align: center;
-    margin: auto;
-    width: 85%;
-    padding: 50px;
-    font-size: 1.5rem;
-}
-
-.inputs {
-    background-color: white;
-    margin: 5px;
-    width: 350px;
-}
-
-.registration-container {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-}
-
-.trainings-container {
-    text-align: right;
-    margin: 5%;
-    width: 85%;
-    font-size: 1.5rem;
-
-}
-
-.results {
-    align-content: center;
-    text-align: center;
-    margin: auto;
-    width: 85%;
-    padding: 50px;
-    border: 1px solid #bba674;
-    font-size: 1.5rem;
-}
-
-ul {
-    text-align: left;
-    margin-bottom: 100px;
-}
-
-
-.text-block {
-    color: #bba674;
-    margin: auto;
-    font-size: 1.5rem;
-    position: absolute;
-    display: inline-block;
-    top: 350px;
-    right: 200px;
-    left: 55%;
-    transform: translateX(-20%);
-    padding-bottom: 30px;
+/*CONTAINERS*/
+.grid-container {
+    position: fixed;
+    top: 300px;
+    left: 15%;
+    right: 15%;
+    bottom: 200px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-gap: 50px;
 }
 
 form {
     width: 350px;
 }
 
-.grid-bmi-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-gap: 50px;
-    margin: 0 500px;
-}
 
-.first-bmi-column,
-.second-bmi-column,
-.third-bmi-column {
-    font-size: 20px;
-}
-
-.second-bmi-column {
-    font-size: x-large;
-    height: 400px;
-    justify-content: center;
-    align-items: center;
-}
-
-.third-bmi-column {
-    display: flex;
-    justify-content: center;
-}
-
-.results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.results-value {
-    font-size: 2em;
-}
-
-.diets.container {
-    display: flex;
-    height: 100vh;
-}
-
-.grid-diet-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 50px;
-    margin: 0 500px;
-}
-
-.diet-tile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.5em;
-    border-style: groove;
-    padding: 30px;
-    margin: 30px;
-    width: 300px;
-    height: 300px;
-}
-
-.diet-tile h2 {
-    text-align: center;
-}
-
-.diet-tile p {
-    text-align: left;
-    font-weight: lighter;
-}
 
 .footer {
     position: fixed;

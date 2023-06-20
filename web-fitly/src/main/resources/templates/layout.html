@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-<head th:fragment="head">
+<head>
+    <script th:fragment="head" th:remove="tag">
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/global.css"/>
     <link rel="stylesheet" type="text/css" href="/css/navbar.css"/>
     <link rel="stylesheet" type="text/css" href="/css/buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/temp.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+</script>
 </head>
+
 
 <body>
 
 
-        <div th:fragment="container" class="container">
+        <div th:fragment="container" class="layout">
             <header>
                 <div class="header">
                     <div class="background-image"></div>
