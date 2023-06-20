@@ -21,9 +21,29 @@ public class LoginController {
     public String userSite(Model model) {
         if (userRepository.getCurrentUser() != null && !userRepository.getCurrentUser().emptyUser()) {
             model.addAttribute("userName", "Current user: " + userRepository.getCurrentUser().getEmail());
+            model.addAttribute("loggedIn", true);
+        } else {
+            model.addAttribute("loggedIn", false);
         }
         return "login";
+
+//        TODO - zrobić tak, żeby button LOGOUT wyświetlał się na layout.html a nie tylko na login.html jak to sugeruje return "login";
+
     }
+
+//    @GetMapping("/logoutButton")
+//    public String logoutButton(Model model) {
+//        model.addAttribute("logoutButton", true);
+//        return "layout";
+//    }
+//
+//    @GetMapping("/logoutButton")
+//    public String logoutButton(Model model) {
+//        if (userRepository.getCurrentUser() != null && !userRepository.getCurrentUser().emptyUser()) {
+//            model.addAttribute("logoutButton", true);
+//        }
+//        return "layout";
+//    }
 
     @PostMapping("/logout")
     public String logout(UserData userData, Model model) {

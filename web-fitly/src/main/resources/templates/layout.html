@@ -27,8 +27,11 @@
                     <a th:href="@{/trainings}" class="nav-button"><span class="button-text">TRAININGS</span></a>
                 </div>
                 <div class="nav-right">
-                <a th:href="@{/login}" class="button">LOGIN</a>
+                    <a th:if="${loggedIn}" th:href="@{/logout}" class="button">LOGOUT</a>
+                    <a th:unless="${loggedIn}" th:href="@{/login}" class="button">LOGIN</a>
                 </div>
+
+
             </nav>
         </div>
 

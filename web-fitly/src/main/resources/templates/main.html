@@ -14,6 +14,18 @@
             transform: translateX(30%);
         }
     </style>
+    <script>
+        const button = document.querySelector('.bounce');
+        const animationDelay = 5000;
+
+        function startAnimation() {
+            button.classList.remove('animated');
+            void button.offsetWidth;
+            button.classList.add('animated');
+        }
+
+        setInterval(startAnimation, animationDelay);
+    </script>
 </head>
 
 <body>
@@ -33,7 +45,7 @@
 
         <p>
             <a th:href="@{/register}">
-            <button class="button">
+            <button class="button bounce animated">
                 <span>JOIN US</span>
             </button>
             </a>
