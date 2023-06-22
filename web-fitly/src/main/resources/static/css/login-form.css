@@ -31,12 +31,12 @@
     grid-column-end: 3;
     grid-row: 3;
     justify-self: center;
-    align-self: end;
+    align-self: normal;
 }
 .grid-item-5 {
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row: 5;
+    grid-row: 4;
     justify-self: center;
     align-self: center;
 }
@@ -55,7 +55,7 @@ form {
     top: 300px;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px;
-    height: 280px;
+    width: 620px;
+    height: 260px;
     padding: 30px;
 }
