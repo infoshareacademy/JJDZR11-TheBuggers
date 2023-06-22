@@ -48,7 +48,14 @@
     align-self: end;
 }
 
+
 form {
+    background-color: RGBA(30, 30, 30, 0.3);
+    border-radius: 50px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 585px;
     height: 570px;
     padding: 20px;

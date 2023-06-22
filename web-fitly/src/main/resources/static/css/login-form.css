@@ -59,3 +59,12 @@ form {
     height: 260px;
     padding: 30px;
 }
+/*form {*/
+/*    background-color: RGBA(30, 30, 30, 0.3);*/
+/*    border-radius: 50px;*/
+/*    position: absolute;*/
+/*    top: 300px;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    width: 600px;*/
+/*}*/
