@@ -1,0 +1,66 @@
+/*.registration,*/
+.grid-container.registration {
+    grid-template-columns: 270px 270px;
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+.grid-item-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+.grid-item-2 {
+    grid-column: 2;
+    grid-row: 1;
+}
+.grid-item-3 {
+    grid-column: 1;
+    grid-row: 2;
+}
+.grid-item-4 {
+    grid-column: 2;
+    grid-row: 2;
+}
+.grid-item-5 {
+    grid-column: 1;
+    grid-row: 3;
+}
+.grid-item-6 {
+    grid-column: 2;
+    grid-row: 3;
+}
+.grid-item-7 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 4;
+    justify-self: center;
+}
+.grid-item-8 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 5;
+    align-self: center;
+    justify-self: center;
+}
+.grid-item-9 {
+    grid-column: 2;
+    grid-row: 6;
+    justify-self: end;
+    align-self: end;
+}
+
+form {
+    width: 585px;
+    height: 570px;
+    padding: 20px;
+}
+
+/*<SELECT> PROPERTIES*/
+#disabledActivityInput {
+    font-family: "Noto Sans", serif;
+    font-size: large;
+    height: 35px;
+    min-width: 266px;
+    background-color: darkgray;
+    text-align: center;
+    margin-top: 10px;
+}

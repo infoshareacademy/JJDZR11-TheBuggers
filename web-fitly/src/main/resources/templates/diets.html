@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <script th:replace="layout :: head"></script>
+<!--    <link rel="stylesheet" type="text/css" href="/css/diets-style.css"/>-->
+    <link rel="stylesheet" type="text/css" href="/css/diets-style2.css"/>
     <title>Diets</title>
 </head>
 
@@ -10,27 +12,43 @@
 <div th:replace="~{layout :: container}"></div>
 
 
-<div class="diets-container">
-    <div class="grid-diet-container">
+
+<div class="grid-container diets">
+    <div class="grid-item grid-item-1">
         <a href="/diets/standard" class="a-diet">
+            <img src="/img/diets-infographics/standard_diet_icon.png" alt="Standard diet infographic" class="infographic">
             <div class="diet-tile">
                 <h2>Standard Diet</h2>
                 <p>Example description of standard diet.</p>
             </div>
         </a>
-        <a href="/diets/vege">
+    </div>
+
+    <div class="grid-item grid-item-2">
+        <a href="/diets/vege" class="a-diet">
+            <img src="/img/diets-infographics/vege_diet_icon.png" alt="Vegetarian Diet infographic" class="infographic">
             <div class="diet-tile">
                 <h2>Vegetarian Diet</h2>
                 <p>Example description of vegetarian diet.</p>
             </div>
         </a>
-        <a href="/diets/glutenAndLactoseFree">
+    </div>
+
+
+    <div class="grid-item grid-item-3">
+        <a href="/diets/glutenAndLactoseFree" class="a-diet">
+            <img src="/img/diets-infographics/GluLacFree_diet_icon.png" alt="Gluten and Lactose Free diet infographic" class="infographic">
             <div class="diet-tile">
                 <h2>Gluten and Lactose Free Diet</h2>
                 <p>Example description of gluten and lactose free diet.</p>
             </div>
         </a>
-        <a href="/diets/pescetarian">
+    </div>
+
+
+    <div class="grid-item grid-item-4">
+        <a href="/diets/pescetarian" class="a-diet">
+            <img src="/img/diets-infographics/pescet_diet_icon.png" alt="Pescetarian diet infographic" class="infographic">
             <div class="diet-tile">
                 <h2>Pescetarian Diet</h2>
                 <p>Example description of pescetarian diet.</p>

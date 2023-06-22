@@ -1,6 +1,6 @@
 .nav-button {
     color: #bba674;
-    font-size: 1.6rem;
+    font-size: 20px;
     background-image: url("../img/buttons/button_off.png");
     background-size: cover;
     background-position: center;
@@ -29,8 +29,7 @@
     font-family: Oswald, sans-serif;
     color: #bba674;
     text-decoration: none;
-    font-size: 1.6rem;
-
+    font-size: 20px;
     background-image: url("../img/buttons/sm_button_off.png");
     width: 115px;
     height: 40px;
