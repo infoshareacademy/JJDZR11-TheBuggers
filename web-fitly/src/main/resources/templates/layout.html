@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-<head>
-    <script th:fragment="head" th:remove="tag">
+<head >
+    <meta th:fragment="head" th:remove="tag">
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/global.css"/>
     <link rel="stylesheet" type="text/css" href="/css/navbar.css"/>
     <link rel="stylesheet" type="text/css" href="/css/buttons.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
-</script>
 </head>
 
 
@@ -24,17 +23,15 @@
 
             <nav class="navbar">
                 <div class="nav-left">
-                    <a th:href="@{/}" class="nav-button"><span class="button-text">MAIN</span></a>
-                    <a th:href="@{/bmi}" class="nav-button"><span class="button-text">BMI</span></a>
-                    <a th:href="@{/diets}" class="nav-button"><span class="button-text">DIETS</span></a>
-                    <a th:href="@{/trainings}" class="nav-button"><span class="button-text">TRAININGS</span></a>
+                    <a th:href="@{/}" class="nav-button">MAIN</a>
+                    <a th:href="@{/bmi}" class="nav-button">BMI</a>
+                    <a th:href="@{/diets}" class="nav-button">DIETS</a>
+                    <a th:href="@{/trainings}" class="nav-button">TRAININGS</a>
                 </div>
                 <div class="nav-right">
                     <a th:if="${loggedIn}" th:href="@{/logout}" class="button">LOGOUT</a>
-                    <a th:unless="${loggedIn}" th:href="@{/login}" class="button">LOGIN</a>
+                    <a th:unless="${loggedIn}" th:href="@{/login}" class="login-button">LOGIN</a>
                 </div>
-
-
             </nav>
         </div>
 
@@ -42,6 +39,5 @@
     <div class="footer">
         <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
     </div>
-
 </body>
 </html>

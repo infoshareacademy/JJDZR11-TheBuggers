@@ -1,6 +1,6 @@
 * {
-    /*margin: 0;*/
-    /*padding: 0;*/
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -11,8 +11,9 @@ html {
 }
 
 body {
-    width: 100%;
+    /*width: 100%;*/
     min-height: 100vh;
+    width: 100vw;
     background: linear-gradient(to left,
     rgba(0, 0, 0, 0.9) 0%,
     rgba(0, 0, 0, 0.91) 30%,
@@ -28,30 +29,22 @@ body {
     overflow: auto;
 }
 
-@media (max-width: 768px) {
-    .div {
-        min-width: 100%;
-    }
-}
-
 .layout {
-    position: relative;
+    position: absolute;
     justify-content: center;
     text-align: center;
-    margin: auto;
+    margin-left: 5%;
     width: 90%;
-    max-width: 1600px;
-
 }
 .header {
+    width: 100%;
+    height: 156px;
+    position: relative;
     background-image: url("../img/background/header_background.png");
     background-position: center right;
     background-size: cover;
-    height: 156px;
-    position: relative;
-    margin-left: auto;
     right: 0;
-    padding: 1px;
+    /*padding: 1px;*/
 }
 
 .inputs {
@@ -104,13 +97,12 @@ a {
 /*CONTAINERS*/
 .main-page {
     color: #bba674;
-    margin: auto;
     font-size: 1.5rem;
     position: absolute;
     display: inline-block;
     top: 350px;
-    right: 200px;
-    left: 55%;
+    width: 45%;
+    margin-left: 55%;
     transform: translateX(-20%);
     padding-bottom: 30px;
 }
@@ -154,3 +146,20 @@ input {
     padding-right: 5rem;
 }
 
+
+@media (max-width: 1250px) {
+    .main-page {
+        font-size: 1.3rem;
+    }
+}
+@media (max-width: 786px) {
+    .main-page {
+        font-size: 1rem;
+    }
+
+    .nav-button,
+    .login-button {
+        width: 100%;
+        height: auto;
+    }
+}
