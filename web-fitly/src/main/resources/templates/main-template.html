@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans">
   <meta charset="UTF-8">
   <title>main</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
 <div class="container">
@@ -12,7 +12,7 @@
 
   <header class="header"></header>
 
-  <nav class="menu">
+  <nav th:fragment="navbar" class="menu">
     <div class="nav-left">
       <button class="nav-button"><a href="main.html"><span class="button-text">MAIN</span></a></button>
       <button class="nav-button"><a href="bmi.html"><span class="button-text">BMI</span></a></button>
@@ -58,7 +58,7 @@
   </nav>
 
   <div class="content">
-    <img src="../img/background/bg-transparent.png" alt="main image">
+    <img src="../static/img/background/bg-transparent.png" alt="main image">
     <div class="text-block">
       <div class="variable-content" th:fragment="variable-content">PUT VARIABLE CONTENT HERE</div>
     </div>

@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-image: url("../img/background/pattern.png");
+    background-image: url("static/img/background/pattern.png");
     background-color: black;
 }
 
@@ -21,7 +21,7 @@ a:hover {
 }
 
 .header {
-    background-image: url("../img/background/header_background.png");
+    background-image: url("static/img/background/header_background.png");
     height: 156px;
     position: relative;
     background-size: cover;
@@ -38,10 +38,12 @@ a:hover {
     height: 100%;
     border: 2px solid black;
     box-sizing: border-box;
-} /* header:after to cover white (transparent) border around an image may delete later */
+}
+
+/* header:after to cover white (transparent) border around an image may delete later */
 
 .menu {
-    background-image: url("../img/background/menu_background.png");
+    background-image: url("static/img/background/menu_background.png");
     height: 80px;
     padding-left: 1%;
     display: flex;
@@ -69,21 +71,17 @@ a:hover {
     color: #bba674;
     text-decoration: none;
     font-family: Oswald, serif;
-    font-size: 1.6rem;
-    background-image: url("../img/buttons/button_off.png");
+    background-image: url("static/img/buttons/sm_button_off.png");
     background-size: cover;
     background-position: center;
     width: 100px;
     height: 40px;
     cursor: pointer;
     border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .nav-button:hover {
-    background-image: url("../img/buttons/button_on.png");
+    background-image: url("static/img/buttons/sm_button_on.png");
     background-size: cover;
     background-position: center;
     width: 100px;
@@ -92,16 +90,8 @@ a:hover {
     /*opacity: 0.5;*/
 }
 
-.joinUs-link {
-    display: inline-block;
-    text-decoration: none;
-}
-
 .joinUs-button {
-    color: #bba674;
-    text-decoration: none;
-    font-family: Oswald, serif;
-    font-size: 1.6rem;
+    font-size: 100%;
     background-image: url("../img/buttons/sm_button_off.png");
     width: 115px;
     height: 40px;
@@ -109,9 +99,6 @@ a:hover {
     cursor: pointer;
     background-color: black;
     background-blend-mode: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .joinUs-button:hover {
@@ -152,11 +139,13 @@ a:hover {
     align-items: center;
     justify-content: flex-end;
     padding: 0 20px;
-    background-image: url("../img/background/pattern.png");
+    background-image: url("static/img/background/pattern.png");
     background-color: #333333;
     border-top: 1px solid #bba674;
     font-size: small;
 }
+
+
 /*********************************** POP-UP FORM BELOW */
 
 .form-popup {
