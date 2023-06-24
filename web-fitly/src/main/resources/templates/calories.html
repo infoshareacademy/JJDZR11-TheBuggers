@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>calories</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <script th:replace="layout :: head"></script>
+    <title>Calories</title>
 </head>
+
 <body>
-<div class="container">
-    <header class="header"></header>
-    <nav class="menu">
-        <button style="margin-right: 0;"><a href="main.html"><img src="grafika1.jpg" alt="MAIN"></a></button>
-        <button style="margin-right: 0;"><a href="bmi.html"><img src="grafika1.jpg" alt="BMI"></a></button>
-        <button style="margin-right: 0;"><a href="calories.html"><img src="grafika1.jpg" alt="CALORIES"></a></button>
-        <button style="margin-right: 0;"><a href="diets.html"><img src="grafika1.jpg" alt="DIETS"></a></button>
-        <button style="margin-right: 0;"><a href="trainings.html"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
-        <button style="margin-left: auto;"><a href="login.html"><img src="grafika1.jpg" alt="LOGIN"></a></button>
-    </nav>
-    <div class="content">
-        <img src="grafika2.jpg" alt="main image">
-        <p>Some main content here</p>
-    </div>
-    <footer class="footer">
-        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-    </footer>
+<div class="text-block">
+    <h1>CALORIES CONTENT</h1>
 </div>
+
+<div th:replace="~{layout :: mainTemplate}"></div>
+
+<div class="footer">
+    <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+</div>
+
 </body>
 </html>

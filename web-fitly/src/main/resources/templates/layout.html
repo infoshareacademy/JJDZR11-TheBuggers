@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <script th:fragment="head" th:remove="tag">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/temp.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans"/>
+</script>
+</head>
+
+
+<body>
+
+
+        <div th:fragment="container" class="layout">
+            <header>
+                <div class="header">
+                    <div class="background-image"></div>
+                <img class="logo" src="/img/logo/logo.png" alt="Logo">
+                </div>
+            </header>
+
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a th:href="@{/}" class="nav-button"><span class="button-text">MAIN</span></a>
+                    <a th:href="@{/bmi}" class="nav-button"><span class="button-text">BMI</span></a>
+                    <a th:href="@{/diets}" class="nav-button"><span class="button-text">DIETS</span></a>
+                    <a th:href="@{/trainings}" class="nav-button"><span class="button-text">TRAININGS</span></a>
+                </div>
+                <div class="nav-right">
+                    <a th:if="${loggedIn}" th:href="@{/logout}" class="button">LOGOUT</a>
+                    <a th:unless="${loggedIn}" th:href="@{/login}" class="button">LOGIN</a>
+                </div>
+
+
+            </nav>
+        </div>
+
+
+    <div class="footer">
+        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+    </div>
+
+</body>
+</html>

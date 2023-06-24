@@ -1,28 +1,48 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>diets</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <script th:replace="layout :: head"></script>
+    <title>Diets</title>
 </head>
+
 <body>
-<div class="container">
-    <header class="header"></header>
-    <nav class="menu">
-        <button style="margin-right: 0;"><a href="main.html"><img src="grafika1.jpg" alt="MAIN"></a></button>
-        <button style="margin-right: 0;"><a href="bmi.html"><img src="grafika1.jpg" alt="BMI"></a></button>
-        <button style="margin-right: 0;"><a href="calories.html"><img src="grafika1.jpg" alt="CALORIES"></a></button>
-        <button style="margin-right: 0;"><a href="diets.html"><img src="grafika1.jpg" alt="DIETS"></a></button>
-        <button style="margin-right: 0;"><a href="trainings.html"><img src="grafika1.jpg" alt="TRAININGS"></a></button>
-        <button style="margin-left: auto;"><a href="login.html"><img src="grafika1.jpg" alt="LOGIN"></a></button>
-    </nav>
-    <div class="content">
-        <img src="grafika2.jpg" alt="main image">
-        <p>Some main content here</p>
+
+<div th:replace="~{layout :: container}"></div>
+
+
+<div class="diets-container">
+    <div class="grid-diet-container">
+        <a href="/diets/standard" class="a-diet">
+            <div class="diet-tile">
+                <h2>Standard Diet</h2>
+                <p>Example description of standard diet.</p>
+            </div>
+        </a>
+        <a href="/diets/vege">
+            <div class="diet-tile">
+                <h2>Vegetarian Diet</h2>
+                <p>Example description of vegetarian diet.</p>
+            </div>
+        </a>
+        <a href="/diets/glutenAndLactoseFree">
+            <div class="diet-tile">
+                <h2>Gluten and Lactose Free Diet</h2>
+                <p>Example description of gluten and lactose free diet.</p>
+            </div>
+        </a>
+        <a href="/diets/pescetarian">
+            <div class="diet-tile">
+                <h2>Pescetarian Diet</h2>
+                <p>Example description of pescetarian diet.</p>
+            </div>
+        </a>
     </div>
-    <footer class="footer">
-        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-    </footer>
 </div>
+
+
+<div class="footer">
+    <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+</div>
+
 </body>
 </html>
