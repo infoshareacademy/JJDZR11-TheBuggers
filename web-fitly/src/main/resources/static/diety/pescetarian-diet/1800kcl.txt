@@ -1,0 +1,29 @@
+Breakfast:
+    Scrambled eggs:
+        3 eggs (210 g)
+        2 slices of whole wheat toast (60 g)
+        1 medium-sized banana (120 g)
+
+Mid-Morning Snack:
+    1 small Greek yogurt (150 g)
+    Handful of mixed nuts (30 g)
+
+Lunch:
+    Grilled salmon fillet with a mixed green salad dressed with vinaigrette:
+        180 g grilled salmon fillet
+        Mixed green salad (lettuce, cucumbers, tomatoes)
+        2 tablespoons of vinaigrette (30 g)
+
+Afternoon Snack:
+    180 g carrot sticks
+    3 tablespoons of hummus (45 g)
+
+Dinner:
+    Baked cod fillet with quinoa and steamed broccoli:
+        180 g baked cod fillet
+        3/4 cup of quinoa (135 g)
+        250 g steamed broccoli
+
+Evening Snack:
+    1 medium-sized orange (150 g)
+    1 hard-boiled egg (50 g)

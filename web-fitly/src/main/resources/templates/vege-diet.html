@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <script th:replace="layout :: head"></script>
+  <link rel="stylesheet" type="text/css" href="/css/diet-sub-style.css">
+  <title>Vege Diet</title>
+</head>
+<body>
+
+<div th:replace="~{layout :: container}"></div>
+
+
+<div class="grid-container">
+  <div>
+    <form th:action="@{/diets/vege}" method="post">
+      <div class="subDiet">
+
+        <div class="grid-item grid-item-1">
+          <h1>Vege Diet</h1>
+        </div>
+
+        <div class="grid-item grid-item-2">
+          <label for="age">Age:</label><br>
+          <input type="number" id="age" name="age" required>
+        </div>
+
+        <div class="grid-item grid-item-3">
+          <label for="height">Height (cm):</label><br>
+          <input type="number" id="height" name="height" required>
+        </div>
+
+        <div class="grid-item grid-item-4">
+          <label for="weight">Weight (kg):</label><br>
+          <input type="number" id="weight" name="weight" required>
+        </div>
+
+        <div class="grid-item grid-item-5">
+          <label for="activityLevel">Activity Level:</label><br>
+          <select id="activityLevel" name="activityLevel" required class="drop-menu">
+            <option value="Sedentary">Sedentary</option>
+            <option value="Lightly active">Lightly Active</option>
+            <option value="Moderately active">Moderately Active</option>
+            <option value="Very active">Very Active</option>
+            <option value="Super active">Super Active</option>
+          </select>
+        </div>
+
+        <div class="grid-item grid-item-6">
+          <label for="gender">Gender:</label><br>
+          <select id="gender" name="gender" required class="drop-menu">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="grid-item grid-item-7">
+          <input type="submit" value="Calculate" class="button">
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="scrollBox">
+    <div>
+      <pre th:utext="${selectedFile}"></pre>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
+</div>
+
+</body>
+</html>
