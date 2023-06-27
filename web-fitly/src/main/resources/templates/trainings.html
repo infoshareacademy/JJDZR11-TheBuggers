@@ -52,9 +52,11 @@
 
     </div>
 
-    <div class="footer">
-        <p>&copy; The Buggers. Wszelkie prawa zastrzeżone!</p>
-    </div>
+    <div th:replace="~{layout :: footer}"></div>
+
+    <p th:replace="~{layout :: scripts}"></p>
+
+
 
 </body>
 </html>

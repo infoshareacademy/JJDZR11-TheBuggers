@@ -8,6 +8,10 @@
     grid-gap: 10px;
 }
 
+h1 {
+    font-size: 22px;
+}
+
 .subDiet {
     height: 580px;
     grid-template-rows: 10% repeat(5, 12%) 10%;
