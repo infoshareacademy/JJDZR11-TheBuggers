@@ -1,4 +1,4 @@
-.nav-button {
+.nav-left-button {
     color: #bba674;
     font-size: 20px;
     background-image: url("../img/buttons/button_off.png");
@@ -9,12 +9,13 @@
     cursor: pointer;
     border: none;
     display: flex;
+    flex-direction: unset;
     justify-content: center;
     align-items: center;
     transition: background-image 0.6s;
 }
 
-.nav-button:hover {
+.nav-left-button:hover {
     background-image: url("../img/buttons/button_on.png");
     cursor: pointer;
 }
