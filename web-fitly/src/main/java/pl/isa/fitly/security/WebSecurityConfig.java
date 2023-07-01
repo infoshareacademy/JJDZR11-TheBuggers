@@ -17,7 +17,8 @@ import pl.isa.fitly.repository.UserRepository;
 public class WebSecurityConfig {
 
     UserRepository userRepository;
-    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/diets", "/register", "/css/*.css", "/img/**"};
+    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/diets", "/register",
+           "/diets/**", "/css/*.css", "/img/**"};
 
 
     public WebSecurityConfig(UserRepository userRepository) {

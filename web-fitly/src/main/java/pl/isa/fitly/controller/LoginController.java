@@ -8,6 +8,8 @@ import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 import pl.isa.fitly.service.UserService;
 
+import java.security.Principal;
+
 @Controller
 public class LoginController {
     UserData userData;
@@ -60,7 +62,7 @@ public class LoginController {
         UserRepository.formError formError = userService.createUser(userData);
         if (formError == formError.OK) {
             this.userData = userData;
-            model.addAttribute("error", "Registration successful");
+            return "login";
         } else {
             model.addAttribute("error", formError.text);
         }
@@ -73,9 +75,9 @@ public class LoginController {
     }
 
     @GetMapping("/userUpdate")
-    public String updateUserGet(Model model) {
-        if (userRepository.isCurrentUser()) {
-            userData = userRepository.getCurrentUser();
+    public String updateUserGet(Model model, Principal principal) {
+        if (principal != null) {
+            userData=userRepository.getUserFromPrincipal(principal);
             model.addAttribute("userData", userData);
         } else {
             model.addAttribute("userData", UserData.createUserData());
@@ -85,8 +87,15 @@ public class LoginController {
     }
 
     @PostMapping("/userUpdate")
-    public String updateUserPost(UserData userData, Model model) {
-
+    public String updateUserPost(UserData userData, Model model, Principal principal) {
+        String email = principal.getName();
+        UserRepository.formError formError = userService.userUpdate(email,userData);
+        if (formError == formError.OK) {
+            this.userData = userData;
+            return "main";
+        } else {
+            model.addAttribute("error", formError.text);
+        }
         return "userUpdate";
     }
 

@@ -7,6 +7,7 @@ import pl.isa.fitly.model.UserData;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,10 +24,16 @@ public class UserRepository {
         usersData = readUsers();
     }
 
-//    public void UserUpdate(String email){
-//        UserData user = getUserByEmail(email);
-//        usersData.remove(user);
-//    }
+    public formError userUpdate(String email, UserData userData) {
+        UserData user = getUserByEmail(email);
+        if (!usersData.remove(user)) {
+            return formError.UPDATE_ERROR;
+        }
+        if (!usersData.add(userData)) {
+            return formError.UPDATE_ERROR;
+        }
+        return saveUsersData();
+    }
 
     public formError addUser(UserData userData) {
         if (userExists(userData.getEmail())) {
@@ -65,6 +72,12 @@ public class UserRepository {
         } else {
             return users.get(0);
         }
+    }
+
+    public UserData getUserFromPrincipal(Principal principal) {
+        UserData userData = UserData.createUserData();
+        userData = getUserByEmail(principal.getName());
+        return userData;
     }
 
     public List<UserData> getUsersData() {
@@ -117,7 +130,8 @@ public class UserRepository {
         WRITE_ERROR("Write error"),
         USER_EXISTS("User exists"),
         NOT_FOUND_USER("Not found user"),
-        INCORRECT_PASSWORD("Incorrect password");
+        INCORRECT_PASSWORD("Incorrect password"),
+        UPDATE_ERROR("Update error");
         public String text;
 
         formError(String text) {

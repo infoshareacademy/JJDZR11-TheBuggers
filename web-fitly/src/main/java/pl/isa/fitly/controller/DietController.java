@@ -11,6 +11,7 @@ import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
 import java.io.*;
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -80,7 +81,7 @@ public class DietController {
     }
 
     @GetMapping("/diets/glutenAndLactoseFree")
-    public String showGlutenAndLactoseFreeDietForm(Model model) {
+    public String showGlutenAndLactoseFreeDietForm(Model model,Principal principal) {
 //        if (userRepository.isCurrentUser()){
 //            UserData user = userRepository.getCurrentUser();
 //            return processDiet(user.getAge(),
@@ -91,23 +92,23 @@ public class DietController {
 //                    "glutenAndLactoseFree-diet", model);
 //        }
 //        return "glutenAndLactoseFree-diet";
-        return dietCurrentUser("glutenAndLactoseFree-diet", model);
+        return dietCurrentUser("glutenAndLactoseFree-diet", model,principal);
     }
 
     @GetMapping("/diets/pescetarian")
-    public String showPescetarianDietForm(Model model) {
-        return dietCurrentUser("pescetarian-diet", model);
+    public String showPescetarianDietForm(Model model,Principal principal) {
+        return dietCurrentUser("pescetarian-diet", model,principal);
     }
 
     @GetMapping("/diets/standard")
-    public String showStandardDietForm(Model model) {
-        return dietCurrentUser("standard-diet", model);
+    public String showStandardDietForm(Model model,Principal principal) {
+        return dietCurrentUser("standard-diet", model,principal);
 //        return "standard-diet";
     }
 
     @GetMapping("/diets/vege")
-    public String showVegeDietForm(Model model) {
-        return dietCurrentUser("vege-diet", model);
+    public String showVegeDietForm(Model model,Principal principal) {
+        return dietCurrentUser("vege-diet", model,principal);
 //        return "vege-diet";
     }
 
@@ -205,9 +206,10 @@ public class DietController {
         return dietContent.toString();
     }
 
-    private String dietCurrentUser(String dietTemplateName, Model model) {
-        if (userRepository.isCurrentUser()) {
-            UserData user = userRepository.getCurrentUser();
+    private String dietCurrentUser(String dietTemplateName, Model model, Principal principal) {
+        if (principal != null) {
+            UserData user=userRepository.getUserFromPrincipal(principal);
+            model.addAttribute("userData",user);
             return processDiet(user.getAge(),
                     user.getHeight(),
                     user.getWeight(),
@@ -215,6 +217,7 @@ public class DietController {
                     user.getActivityLevel(),
                     dietTemplateName, model);
         }
+        model.addAttribute("userData", UserData.createUserData());
         return dietTemplateName;
     }
 

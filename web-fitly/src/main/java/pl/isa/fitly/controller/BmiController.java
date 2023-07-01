@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
+import pl.isa.fitly.service.UserService;
 
 import java.security.Principal;
 
@@ -21,8 +22,8 @@ public class BmiController {
 
     @GetMapping("/bmi")
     public String bmi(Model model, Principal principal) {
-        if (userRepository.isCurrentUser()) {
-            userData = userRepository.getCurrentUser();
+        if (principal != null) {
+            userData=userRepository.getUserFromPrincipal(principal);
             model.addAttribute("userData", userData);
             addBmiToModel(model, userData);
         } else {

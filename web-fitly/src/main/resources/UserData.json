@@ -70,12 +70,12 @@
   "role" : "USER"
 }, {
   "email" : "1234@exp.com",
-  "password" : "$2a$10$nKbpyIhrGw.yLRmPHVkx0.sE7uAGzEYHOC/Gz7IRdrIzbJsYBHz1e",
-  "name" : "12345",
-  "age" : 12345,
-  "weight" : 22.0,
+  "password" : "$2a$10$vcI0gt6U2BBWCRhQhuGeKe0cBkmbm17rZEJz/hvGCUZOGxLYmfWOi",
+  "name" : "Grzegorz",
+  "age" : 22,
+  "weight" : 80.0,
   "activityLevel" : "Sedentary",
   "whatGender" : false,
-  "height" : 22,
+  "height" : 193,
   "role" : "USER"
 } ]
