@@ -3,6 +3,8 @@ package pl.isa.fitly.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class UserData {
 
@@ -14,6 +16,7 @@ public class UserData {
     private String activityLevel;
     private boolean whatGender;
     private int height;
+    private String role;
 
     public static UserData createUserData() {
         return new UserData();
@@ -100,6 +103,14 @@ public class UserData {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public static double bmiValue(double weight, int height) {
         // height converted from centimeters to meters (/100)
         return (weight / Math.pow((double) height / 100, 2));
@@ -129,8 +140,8 @@ public class UserData {
         }
     }
 
-    public boolean emptyUser(){
-        return (this.email==null || this.password==null || this.weight ==0 ||this.height==0 || this.age==0 );
+    public boolean emptyUser() {
+        return (this.email == null || this.password == null || this.weight == 0 || this.height == 0 || this.age == 0);
     }
 
     @Override
@@ -146,4 +157,16 @@ public class UserData {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserData userData = (UserData) o;
+        return Objects.equals(email, userData.email) && Objects.equals(role, userData.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, role);
+    }
 }

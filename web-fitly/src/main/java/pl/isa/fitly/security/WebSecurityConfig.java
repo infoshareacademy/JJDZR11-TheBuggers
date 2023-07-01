@@ -2,31 +2,22 @@ package pl.isa.fitly.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
-
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.function.Function;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity(securedEnabled = true)
+
 public class WebSecurityConfig {
 
     UserRepository userRepository;
-    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/diets", "/register"};
+    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/diets", "/register", "/css/*.css", "/img/**"};
 
 
     public WebSecurityConfig(UserRepository userRepository) {
@@ -34,39 +25,40 @@ public class WebSecurityConfig {
     }
 
     @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((requests) -> requests
+        http.authorizeRequests(request -> request
                         .requestMatchers(UNAUTHORIZED_DOMAINS).permitAll()
-//                        .requestMatchers(HttpMethod.POST,"/").permitAll()
-//                        .requestMatchers(HttpMethod.GET,"/").permitAll()
-//                        .anyRequest().authenticated()
-                        .anyRequest().permitAll()
-                )
-                .formLogin((form) -> form
-                        .loginPage("/login")
-                        .permitAll()
-                )
-                .logout((logout) -> {
-                    logout.permitAll().logoutSuccessUrl("/");
-                    userRepository.setCurrentUser(UserData.createUserData());
-                });
+                        .anyRequest().authenticated())
+                .formLogin(form -> form
+                        .loginPage("/login").permitAll()
+                        .failureUrl("/login")
+                        .defaultSuccessUrl("/"))
+                .logout(logout -> logout.permitAll()
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/?logout=true"))
+//                        .logoutSuccessUrl("/logout"))
+                .csrf(csrf -> csrf.disable());
         return http.build();
     }
 
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
-        for (UserData userData : userRepository.getUsersData()) {
-            UserDetails user = User.withDefaultPasswordEncoder()
-                    .username(userData.getEmail())
-                    .password(userData.getPassword())
-                    .roles("USER")
-                    .build();
-            inMemoryUserDetailsManager.createUser(user);
-        }
-        return inMemoryUserDetailsManager;
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
+//        for (UserData userData : userRepository.getUsersData()) {
+//            UserDetails user = User.withDefaultPasswordEncoder()
+//                    .username(userData.getEmail())
+//                    .password(userData.getPassword())
+//                    .roles("USER")
+//                    .build();
+//            inMemoryUserDetailsManager.createUser(user);
+//        }
+//        return inMemoryUserDetailsManager;
+//    }
 
 }

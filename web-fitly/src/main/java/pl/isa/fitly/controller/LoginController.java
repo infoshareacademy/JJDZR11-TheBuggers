@@ -6,20 +6,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
+import pl.isa.fitly.service.UserService;
 
 @Controller
 public class LoginController {
     UserData userData;
     UserRepository userRepository;
+    UserService userService;
 
-    public LoginController(UserData userData, UserRepository userRepository) {
+    public LoginController(UserData userData, UserRepository userRepository, UserService userService) {
         this.userData = userData;
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     @GetMapping("/login")
     public String userSite(Model model) {
-        if (userRepository.getCurrentUser() != null && !userRepository.getCurrentUser().emptyUser()) {
+        if (userRepository.isCurrentUser()) {
             model.addAttribute("userName", "Current user: " + userRepository.getCurrentUser().getEmail());
             model.addAttribute("loggedIn", true);
         } else {
@@ -45,17 +48,16 @@ public class LoginController {
 //        return "layout";
 //    }
 
-    @PostMapping("/logout")
-    public String logout(UserData userData, Model model) {
-        this.userData = UserData.createUserData();
-        userRepository.setCurrentUser(UserData.createUserData());
-        return "login";
-    }
+//    @PostMapping("/logout")
+//    public String logout(UserData userData, Model model) {
+//        this.userData = UserData.createUserData();
+//        userRepository.setCurrentUser(UserData.createUserData());
+//        return "login";
+//    }
 
     @PostMapping("/register")
     public String register(UserData userData, Model model) {
-        System.out.println(userData);
-        UserRepository.formError formError = userRepository.addUser(userData);
+        UserRepository.formError formError = userService.createUser(userData);
         if (formError == formError.OK) {
             this.userData = userData;
             model.addAttribute("error", "Registration successful");
@@ -68,6 +70,24 @@ public class LoginController {
     @GetMapping("/register")
     public String registerGet(UserData userData, Model model) {
         return "user-site";
+    }
+
+    @GetMapping("/userUpdate")
+    public String updateUserGet(Model model) {
+        if (userRepository.isCurrentUser()) {
+            userData = userRepository.getCurrentUser();
+            model.addAttribute("userData", userData);
+        } else {
+            model.addAttribute("userData", UserData.createUserData());
+        }
+
+        return "userUpdate";
+    }
+
+    @PostMapping("/userUpdate")
+    public String updateUserPost(UserData userData, Model model) {
+
+        return "userUpdate";
     }
 
 

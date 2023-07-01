@@ -9,7 +9,7 @@
 
 <div th:replace="~{layout :: container}"></div>
 
-<form th:action="@{/register}" th:object="${userData}" method="post">
+<form th:action="@{/userUpdate}" th:object="${userData}" method="post">
     <h1>Registration</h1>
     <span class="error" th:text="${error}"></span>
     <div class="grid-container registration">

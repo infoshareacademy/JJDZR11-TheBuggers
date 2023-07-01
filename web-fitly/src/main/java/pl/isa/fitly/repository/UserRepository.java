@@ -2,7 +2,6 @@ package pl.isa.fitly.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import pl.isa.fitly.model.UserData;
 
@@ -16,9 +15,18 @@ public class UserRepository {
     private List<UserData> usersData;
     private UserData currentUser;
 
+//    public UserRepository() {
+//        usersData = readUsers();
+//    }
+
     public UserRepository() {
         usersData = readUsers();
     }
+
+//    public void UserUpdate(String email){
+//        UserData user = getUserByEmail(email);
+//        usersData.remove(user);
+//    }
 
     public formError addUser(UserData userData) {
         if (userExists(userData.getEmail())) {
@@ -100,7 +108,7 @@ public class UserRepository {
         this.currentUser = currentUser;
     }
 
-    public boolean isCurrentUser(){
+    public boolean isCurrentUser() {
         return (this.getCurrentUser() != null && !this.getCurrentUser().emptyUser());
     }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <script th:replace="layout :: head"></script>
+    <script th:replace="~{layout :: head}"></script>
     <link rel="stylesheet" type="text/css" href="/css/login-form.css">
     <title>Login</title>
 </head>
@@ -20,17 +20,17 @@
                 </div>
             </div>
             <div class="grid-item grid-item-2">
-                    <label>User Name:</label><br>
-                    <input type="text" name="username"/>
+                    <label>Email:</label><br>
+                    <input type="email" name="username" required/>
             </div>
             <div class="grid-item grid-item-3">
                     <label> Password: </label>
-                    <input type="password" name="password"/>
+                    <input type="password" name="password" min="5" required/>
             </div>
             <div class="grid-item grid-item-4">
                 <button class="button" type="submit">Sign In</button>
                 <form th:action="@{/logout}" method="post">
-                    <button type="submit" class="button">Logout</button>
+                    <button type="submit" class="button" value="value" >Logout</button>
                 </form>
                 <button class="button"><a href="/register">Register</a></button>
             </div>
