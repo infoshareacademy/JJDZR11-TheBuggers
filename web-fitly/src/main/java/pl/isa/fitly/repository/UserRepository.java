@@ -16,22 +16,19 @@ public class UserRepository {
     private List<UserData> usersData;
     private UserData currentUser;
 
-//    public UserRepository() {
-//        usersData = readUsers();
-//    }
-
     public UserRepository() {
         usersData = readUsers();
     }
 
     public formError userUpdate(String email, UserData userData) {
-        UserData user = getUserByEmail(email);
-        if (!usersData.remove(user)) {
-            return formError.UPDATE_ERROR;
-        }
-        if (!usersData.add(userData)) {
-            return formError.UPDATE_ERROR;
-        }
+        int userId = usersData.indexOf(getUserByEmail(email));
+        usersData.set(userId,userData);
+//        if (!usersData.remove(user)) {
+//            return formError.UPDATE_ERROR;
+//        }
+//        if (!usersData.add(userData)) {
+//            return formError.UPDATE_ERROR;
+//        }
         return saveUsersData();
     }
 
@@ -49,18 +46,6 @@ public class UserRepository {
                 .filter(user -> user.getEmail().equals(email))
                 .toList();
         return !users.isEmpty();
-    }
-
-    public formError userLogin(String email, String password) {
-        if (userExists(email)) {
-            if (getUserByEmail(email).getPassword().equals(password)) {
-                return formError.OK;
-            } else {
-                return formError.INCORRECT_PASSWORD;
-            }
-        } else {
-            return formError.NOT_FOUND_USER;
-        }
     }
 
     public UserData getUserByEmail(String email) {
@@ -101,7 +86,7 @@ public class UserRepository {
         ObjectMapper objectMapper = new ObjectMapper();
         Path pathJson = Path.of("web-fitly", "src", "main", "resources", "UserData.json");
         try {
-            System.out.println(usersData);
+//            System.out.println(usersData);
             String json = objectMapper
                     .writerWithDefaultPrettyPrinter()
                     .writeValueAsString(usersData);

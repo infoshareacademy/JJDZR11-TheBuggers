@@ -18,7 +18,7 @@ public class WebSecurityConfig {
 
     UserRepository userRepository;
     private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/diets", "/register",
-           "/diets/**", "/css/*.css", "/img/**"};
+           "/diets/*", "/css/*.css", "/img/**"};
 
 
     public WebSecurityConfig(UserRepository userRepository) {

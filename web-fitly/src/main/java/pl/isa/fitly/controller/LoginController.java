@@ -61,6 +61,7 @@ public class LoginController {
     public String register(UserData userData, Model model) {
         UserRepository.formError formError = userService.createUser(userData);
         if (formError == formError.OK) {
+
             this.userData = userData;
             return "login";
         } else {
@@ -77,7 +78,7 @@ public class LoginController {
     @GetMapping("/userUpdate")
     public String updateUserGet(Model model, Principal principal) {
         if (principal != null) {
-            userData=userRepository.getUserFromPrincipal(principal);
+            userData = userRepository.getUserFromPrincipal(principal);
             model.addAttribute("userData", userData);
         } else {
             model.addAttribute("userData", UserData.createUserData());
@@ -89,7 +90,7 @@ public class LoginController {
     @PostMapping("/userUpdate")
     public String updateUserPost(UserData userData, Model model, Principal principal) {
         String email = principal.getName();
-        UserRepository.formError formError = userService.userUpdate(email,userData);
+        UserRepository.formError formError = userService.userUpdate(email, userData);
         if (formError == formError.OK) {
             this.userData = userData;
             return "main";

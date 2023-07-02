@@ -1,81 +1,41 @@
 [ {
-  "email" : "grzes1616@gmail.com",
-  "password" : "12345",
-  "name" : "Grzegorz Lozio",
-  "age" : 55,
-  "weight" : 555.0,
-  "activityLevel" : "Sedentary",
-  "whatGender" : false,
-  "height" : 5555,
-  "role" : "USER"
-}, {
-  "email" : "grzes1616@gmail.com123",
-  "password" : "12345",
-  "name" : "Grzegorz Lozio",
-  "age" : 123,
-  "weight" : 123.0,
-  "activityLevel" : "Sedentary",
-  "whatGender" : false,
-  "height" : 123,
-  "role" : "USER"
-}, {
-  "email" : "grzes1616@gmail.com321",
-  "password" : "12345",
-  "name" : "Grzegorz Lozio",
-  "age" : 333,
-  "weight" : 333.0,
-  "activityLevel" : "Sedentary",
-  "whatGender" : false,
-  "height" : 333,
-  "role" : "USER"
-}, {
-  "email" : "grzes1616@gmail.com5",
-  "password" : "12345",
-  "name" : "Grzegorz Lozio",
-  "age" : 333,
-  "weight" : 25.0,
-  "activityLevel" : "Sedentary",
-  "whatGender" : false,
-  "height" : 555,
-  "role" : "USER"
-}, {
-  "email" : "grzes1616@gmail.com6",
-  "password" : "12345",
-  "name" : "Grzegorz Lozio",
-  "age" : 3566,
-  "weight" : 35.0,
-  "activityLevel" : "Sedentary",
-  "whatGender" : false,
-  "height" : 36,
-  "role" : "USER"
-}, {
-  "email" : "grzes1616@gmail.com88",
-  "password" : "12345",
-  "name" : "Grzegorz Lozio",
-  "age" : 4568,
-  "weight" : 22.0,
-  "activityLevel" : "Lightly active",
-  "whatGender" : false,
-  "height" : 1555,
-  "role" : "USER"
-}, {
   "email" : "user@user.pl",
   "password" : "$2a$10$WpJMWgWwV5Z8.LWUClqhqO/f1/wH8j4AnyzQMfCAYl3c98.GILxqq",
   "name" : "Grzegorz Lozio",
   "age" : 25,
   "weight" : 80.0,
   "activityLevel" : "Lightly active",
-  "whatGender" : true,
+  "gender" : "male",
   "height" : 193,
   "role" : "USER"
 }, {
   "email" : "1234@exp.com",
-  "password" : "$2a$10$vcI0gt6U2BBWCRhQhuGeKe0cBkmbm17rZEJz/hvGCUZOGxLYmfWOi",
+  "password" : "$2a$10$pGtfC/Rd3Rqax4Jb18wXX.fKU43dA4SwYlIxggWAsooRLx/PgpZ5i",
   "name" : "Grzegorz",
-  "age" : 22,
+  "age" : 25,
   "weight" : 80.0,
   "activityLevel" : "Sedentary",
-  "whatGender" : false,
+  "gender" : "male",
   "height" : 193,
+  "role" : "USER"
+}, {
+  "email" : "java@exp.com",
+  "password" : "$2a$10$lmSuEN7rZSzgtUghHRX32eXTp1oZoa4e4lIsyRPpv8MMa6wie/h/a",
+  "name" : "Grzegorz",
+  "age" : 11,
+  "weight" : 11.0,
+  "activityLevel" : "Sedentary",
+  "gender" : "male",
+  "height" : 11,
+  "role" : "USER"
+}, {
+  "email" : "grzegorz@exp.com",
+  "password" : "$2a$10$b.wBLRXexMlVW2nRGoKVSOleE7IcYsoEsVE3UcZc6G1y1ZDxLanQy",
+  "name" : "Grzegorz",
+  "age" : 33,
+  "weight" : 33.0,
+  "activityLevel" : "Moderately active",
+  "gender" : "male",
+  "height" : 33,
   "role" : "USER"
 } ]

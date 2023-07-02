@@ -9,8 +9,6 @@ import pl.isa.fitly.dto.CustomUserDetails;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
-import java.security.Principal;
-
 @Service(value = "userServiceDetails")
 public class UserService implements UserDetailsService {
     private UserRepository userRepository;
@@ -30,12 +28,11 @@ public class UserService implements UserDetailsService {
     public UserRepository.formError userUpdate(String email, UserData userData) {
         userData.setPassword(passwordEncoder.encode(userData.getPassword()));
         userData.setRole("USER");
-        return userRepository.userUpdate(email,userData);
+        return userRepository.userUpdate(email, userData);
     }
 
 
-
-        @Override
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return new CustomUserDetails(userRepository.getUserByEmail(username));
     }

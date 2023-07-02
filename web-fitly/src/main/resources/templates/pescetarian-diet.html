@@ -47,15 +47,9 @@
 
         <div class="grid-item grid-item-6">
           <label for="gender">Gender:</label><br>
-          <select id="gender" name="gender" required class="drop-menu">
+          <select id="gender" name="gender" th:field="*{gender}" required class="drop-menu">
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions"
-                   id="inlineRadio1" value="true">
-            <label class="form-check-label" for="inlineRadio1">M</label>
-            <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions"
-                   id="inlineRadio2" value="false">
-            <label class="form-check-label" for="inlineRadio1">F</label>
           </select>
         </div>
 

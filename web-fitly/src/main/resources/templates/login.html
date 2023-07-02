@@ -9,7 +9,7 @@
 
     <div th:replace="~{layout :: container}"></div>
 
-    <form th:action="@{/login}" method="post">
+    <form th:action="@{/login}" method="post" id="formLogin">
         <div class="grid-container login">
             <div class="grid-item grid-item-1">
                 <div th:if="${param.error}">
@@ -28,9 +28,9 @@
                     <input type="password" name="password" min="5" required/>
             </div>
             <div class="grid-item grid-item-4">
-                <button class="button" type="submit">Sign In</button>
-                <form th:action="@{/logout}" method="post">
-                    <button type="submit" class="button" value="value" >Logout</button>
+                <button class="button" form="formLogin" type="submit">Sign In</button>
+                <form th:action="@{/logout}" method="post" id="formLogout">
+                    <button type="submit" class="button" form="formLogout" value="value" >Logout</button>
                 </form>
                 <button class="button"><a href="/register">Register</a></button>
             </div>

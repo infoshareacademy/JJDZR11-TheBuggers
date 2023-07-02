@@ -71,3 +71,12 @@ form {
     text-align: center;
     margin-top: 10px;
 }
+#gender {
+    font-family: "Noto Sans", serif;
+    font-size: large;
+    height: 35px;
+    min-width: 266px;
+    background-color: darkgray;
+    text-align: center;
+    margin-top: 10px;
+}

@@ -14,7 +14,7 @@ public class UserData {
     private int age;
     private double weight;
     private String activityLevel;
-    private boolean whatGender;
+    private String gender;
     private int height;
     private String role;
 
@@ -30,13 +30,17 @@ public class UserData {
         this.height = height;
     }
 
-    public UserData(String name, int age, double weight, String activityLevel, boolean whatGender, int height) {
+    public UserData(String name, int age, double weight, String activityLevel, String gender, int height) {
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.activityLevel = activityLevel;
-        this.whatGender = whatGender;
+        this.gender = gender;
         this.height = height;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getName() {
@@ -55,12 +59,8 @@ public class UserData {
         return activityLevel;
     }
 
-    public boolean getWhatGender() {
-        return whatGender;
-    }
-
-    public void setWhatGender(boolean whatGender) {
-        this.whatGender = whatGender;
+    public String getGender() {
+        return gender;
     }
 
     public int getHeight() {
@@ -152,7 +152,7 @@ public class UserData {
                 ", age=" + age +
                 ", weight=" + weight +
                 ", activityLevel='" + activityLevel + '\'' +
-                ", whatGender=" + whatGender +
+                ", gender=" + gender +
                 ", height=" + height +
                 '}';
     }
