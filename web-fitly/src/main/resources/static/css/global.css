@@ -14,17 +14,16 @@ body {
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(to left,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.91) 30%,
-    rgba(0, 0, 0, 0.92) 31%,
-    rgba(0, 0, 0, 0.93) 32%,
-    rgba(0, 0, 0, 0.94) 33%,
-    rgba(0, 0, 0, 0.95) 34%,
-    rgba(0, 0, 0, 0.96) 35%,
-    rgba(0, 0, 0, 0.97) 56%,
-    rgba(0, 0, 0, 0.97) 67%,
-    rgba(0, 0, 0, 0.99) 70%,
-    rgba(0, 0, 0, 1) 80%);
+    rgba(0, 0, 0, 0.99) 10%,
+    rgba(0, 0, 0, 0.87) 20%,
+    rgba(0, 0, 0, 0.85) 30%,
+    rgba(0, 0, 0, 0.89) 40%,
+    rgba(0, 0, 0, 0.91) 50%,
+    rgba(0, 0, 0, 0.93) 60%,
+    rgba(0, 0, 0, 0.95) 70%,
+    rgba(0, 0, 0, 0.97) 80%,
+    rgba(0, 0, 0, 0.98) 90%,
+    rgba(0, 0, 0, 1) 100%);
     overflow: auto;
     color: #bba674;
     font-family: Oswald, sans-serif;

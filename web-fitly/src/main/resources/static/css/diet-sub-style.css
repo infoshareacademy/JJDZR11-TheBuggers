@@ -4,27 +4,35 @@
     top: 230px;
     margin-bottom: 300px;
     display: grid;
-    width: 70%;
-    margin-left: 15%;
+    width: 80%;
+    margin-left: 10%;
     margin-top: 30px;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 10px;
+    grid-template-columns: 30% 70%;
+    grid-gap: 70px;
 }
 
 h1 {
     font-size: 22px;
 }
 
+pre {
+    padding-bottom: 50px;
+}
+
 .formdiv {
     height: 630px;
+    justify-self: center;
+
 }
 
 .subDiet {
+    padding: 10px;
     grid-template-rows: 20% repeat(5, 22%) 20%;
     display: grid;
 }
 
 .grid-item-1 {
+    align-self: center;
     grid-row: 1;
 }
 .grid-item-2 {
