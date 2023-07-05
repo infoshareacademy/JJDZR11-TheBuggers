@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <script th:replace="layout :: head"></script>
+  <script th:replace="~{layout :: head}"></script>
   <link rel="stylesheet" type="text/css" href="/css/diet-sub-style.css">
   <title>Vege Diet</title>
 </head>
@@ -11,7 +11,7 @@
 
 
 <div class="grid-container">
-  <div>
+  <div class="formdiv grid-item-narrow-1">
     <form th:action="@{/diets/vege}" method="post">
       <div class="subDiet">
 
@@ -61,7 +61,7 @@
     </form>
   </div>
 
-  <div class="scrollBox">
+  <div class="scrollBox grid-item-narrow-2">
     <div>
       <pre th:utext="${selectedFile}"></pre>
     </div>
