@@ -80,7 +80,7 @@ form {
     height: 100%;
     padding: 20px;
     font-family: "Noto Sans", serif;
-    background-color: RGBA(30, 30, 30, 0.3);
+    /*background-color: RGBA(30, 30, 30, 0.3);*/
     -webkit-border-top-left-radius: 30px;
     -webkit-border-bottom-left-radius: 30px;
     overflow: auto;
