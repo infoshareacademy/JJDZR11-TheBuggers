@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <script th:replace="~{layout :: head}"></script>
+    <title>The Bug</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: "Noto Sans", serif;
+            color: #bba674;
+        }
+        .error {
+            border: 50px solid RGBA(30, 30, 30, 0.5);
+            padding: 50px;
+            width: 50%;
+            margin-left: 25%;
+            display: grid;
+            margin-top: 5%;
+            justify-content: center;
+        }
+        p {
+            text-align:right
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error">
+        <img src="/img/error.gif" alt="Bug crawling around">
+        <br>
+        <h1>We're in trouble...</h1>
+        <br>
+        <p><i>"We are sorry..." - The Buggers Team</i></p>
+    </div>
+
+
+<p th:replace="~{layout :: footer}"></p>
+</body>
+</html>
