@@ -117,13 +117,6 @@ a {
     display: grid;
 }
 
-
-ul {
-    text-align: left;
-    margin-bottom: 100px;
-}
-
-
 input {
     font-family: "Noto Sans", serif;
     font-size: 18px;
@@ -149,6 +142,7 @@ input {
     border-top: 1px solid #bba674;
     font-size: small;
     padding-right: 5rem;
+    z-index: 3;
 }
 
 

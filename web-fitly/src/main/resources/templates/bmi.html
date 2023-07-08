@@ -12,8 +12,29 @@
     <div th:replace="~{layout :: container}"></div>
 
 
-    <div class="grid-container bmi">
-        <div class="grid-item grid-item-1">
+    <div class="container bmi">
+
+        <div class="item calc">
+            <h1>BMI Calculator</h1>
+            <form th:action="@{/bmi}" th:object="${userData}" method="post" class="bmi-form">
+                <div class="inputs">
+                    <label for="disabledHeightInput" class="form-label">Height [cm]</label><br>
+                    <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control" placeholder="Height" min="1" required>
+                </div>
+                <div class="inputs">
+                    <label for="disabledWightInput" class="form-label">Weight [kg]</label><br>
+                    <input type="number" th:field="*{weight}" id="disabledWightInput" class="form-control" placeholder="Weight" step="any" min="1" required>
+                </div>
+                <button type="submit" class="button" style="float: right">Submit</button>
+            </form>
+        </div>
+
+        <div class="item result">
+            <span th:text="${bmi}"></span>
+            <span th:text="${bmiNS}"></span>
+        </div>
+
+        <div class="item info">
             <p>BMI stands for Body Mass Index, which is a measure of body fat based on a person's weight and height. It is a commonly used tool to assess whether an individual's weight is within a healthy range or not. BMI is calculated by dividing a person's weight (in kilograms) by their height (in meters) squared. BMI can be used to categorize a person's weight as underweight, normal weight, overweight, or obese.</p>
             <p>There are several levels of BMI Index:</p>
             <ul>
@@ -25,30 +46,9 @@
                 <li>> 40 Obesity class III</li>
             </ul>
         </div>
-        <div class="grid-item grid-item-2">
-            <p>Result:</p>
-            <div class="results">
-                <div class="results-value">
-                    <p th:text="${bmi}"></p>
-                    <p th:text="${bmiNS}"></p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item grid-item-3">
-                <h1>BMI Calculator</h1>
-                <form th:action="@{/bmi}" th:object="${userData}" method="post" class="bmi-form">
-                    <p>Your dimensions</p>
-                    <div class="inputs">
-                        <label for="disabledHeightInput" class="form-label">Height [cm]</label><br>
-                        <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control" placeholder="Height" min="1" required>
-                    </div>
-                    <div class="inputs">
-                        <label for="disabledWightInput" class="form-label">Weight [kg]</label><br>
-                        <input type="number" th:field="*{weight}" id="disabledWightInput" class="form-control" placeholder="Weight" step="any" min="1" required>
-                    </div>
-                    <button type="submit" class="button" style="float: right">Submit</button>
-                </form>
-        </div>
+
+<!--        <div class="item space"></div>-->
+
     </div>
 
 
