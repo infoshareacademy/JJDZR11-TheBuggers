@@ -7,7 +7,7 @@
     margin: 0 auto;
     grid-gap: 20px;
     grid-template-columns: repeat(4, minmax(150px, auto));
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) 100px;
 }
 
 .item.calc {
@@ -61,7 +61,7 @@ input {
 @Media (max-width: 960px) {
     .container.bmi {
         grid-template-columns: repeat(2, minmax(50%, fit-content));
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr) 100px;
     }
     .item.calc {
         max-width: 390px;
