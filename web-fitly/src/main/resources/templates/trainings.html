@@ -23,6 +23,12 @@
             <button type="submit" class="button" style="font-size: 15px" form="trainigs-form">Calculate Training</button>
         </div>
 
+        <div th:if="${showFlag}" class="result-3">
+            <h2>Training File Content:</h2>
+            <p th:utext="${fileContent}"></p>
+        </div>
+
+
         <div th:if="${showFlag}" class="result-1">
             <h2>Training Weights Based on Repetitions:</h2>
             <ul>
@@ -42,11 +48,6 @@
                 Dumbbell Shoulder Press Weight: <span th:text="${dumbbellShoulderPressWeight}"></span> kg
             </h3>
 
-        </div>
-
-        <div th:if="${showFlag}" class="result-3">
-            <h2>Training File Content:</h2>
-            <p th:utext="${fileContent}"></p>
         </div>
 
     </div>
