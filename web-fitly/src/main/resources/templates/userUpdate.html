@@ -8,58 +8,59 @@
 <body>
 
 <div th:replace="~{layout :: container}"></div>
-
-<form th:action="@{/userUpdate}" th:object="${userData}" method="post">
+<div class="reg-container">
     <h1>Registration</h1>
-    <span class="error" th:text="${error}"></span>
-    <div class="grid-container registration">
-        <div class="grid-item grid-item-1">
+    <form th:action="@{/userUpdate}" th:object="${userData}" method="post" class="form">
+
+        <div class="inputs">
+            <span class="error" th:text="${error}"></span>
+        </div>
+
+        <div class="column">
             <div class="inputs">
                 <label for="disabledEmailLogin" class="form-label">Email</label><br>
                 <input type="email" th:field="*{email}" id="disabledEmailLogin" class="form-control"
                        placeholder="Email" minlength="5" required>
             </div>
-        </div>
-        <div class="grid-item grid-item-2">
+
             <div class="inputs">
                 <label for="disabledPasswordLogin" class="form-label">Password</label><br>
                 <input type="password" th:field="*{password}" id="disabledPasswordLogin" class="form-control"
                        placeholder="Password" minlength="5" required>
             </div>
         </div>
-        <div class="grid-item grid-item-3">
+
+        <div class="column">
             <div class="inputs">
                 <label for="disabledNameInput" class="form-label">Name</label><br>
                 <input type="text" th:field="*{name}" id="disabledNameInput" class="form-control"
                        placeholder="Name" minlength="3" required>
             </div>
-        </div>
-        <div class="grid-item grid-item-4">
+
             <div class="inputs">
                 <label for="disabledAgeInput" class="form-label">Age</label><br>
                 <input type="number" th:field="*{age}" id="disabledAgeInput" class="form-control"
                        placeholder="Age" min="1" required>
-
             </div>
         </div>
-        <div class="grid-item grid-item-5">
+
+        <div class="column">
             <div class="inputs">
                 <label for="disabledWeightInput" class="form-label">Weight [kg]</label><br>
                 <input type="number" th:field="*{weight}" id="disabledWeightInput" class="form-control"
                        placeholder="Weight" step="any" min="1" required>
             </div>
-        </div>
-        <div class="grid-item grid-item-6">
+
             <div class="inputs">
                 <label for="disabledHeightInput" class="form-label">Height [cm]</label><br>
                 <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control"
                        placeholder="Height" min="1" required>
             </div>
         </div>
-        <div class="grid-item grid-item-7">
+        <div class="end-row">
             <div class="inputs">
                 <label for="disabledActivityInput" class="form-label">Activity Level</label><br>
-                <select th:field="*{activityLevel}" id="disabledActivityInput">
+                <select th:field="*{activityLevel}" id="disabledActivityInput" class="activity">
                     <option value="Sedentary">Sedentary</option>
                     <option value="Lightly active">Lightly active</option>
                     <option value="Moderately active">Moderately active</option>
@@ -67,138 +68,29 @@
                     <option value="Super active">Super active</option>
                 </select>
             </div>
-        </div>
-        <div class="grid-item grid-item-8">
+
             <div class="inputs">
                 <label for="gender" class="form-label">Gender</label><br>
-                <select id="gender" th:field="*{gender}">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
+                <div id="gender" class="gender">
+                   <select id="inlineRadio1" th:field="*{gender}" class="activity">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="grid-item grid-item-9">
-            <button type="submit" class="button">Submit</button>
+
+        <div style="text-align: end; margin-top: 30px">
+        <button type="submit" class="button">Submit</button>
         </div>
-    </div>
 
-</form>
-
-
-<!--<div class="container">-->
-<!--    <div class="registration-container">-->
-<!--        <h1>Registration</h1>-->
-<!--        <form th:action="@{/register}" th:object="${userData}" method="post">-->
-<!--            <span class="error" th:text="${error}"></span>-->
-<!--            <div class="inputs">-->
-<!--                <label for="disabledEmailLogin" class="form-label">Email</label><br>-->
-<!--                <input type="email" th:field="*{email}" id="disabledEmailLogin" class="form-control"-->
-<!--                       placeholder="Email" minlength="5"required>-->
-<!--            </div>-->
-<!--            <div class="inputs">-->
-<!--                <label for="disabledPasswordLogin" class="form-label">Password</label><br>-->
-<!--                <input type="password" th:field="*{password}" id="disabledPasswordLogin" class="form-control"-->
-<!--                       placeholder="Password" minlength="5" required>-->
-<!--            </div>-->
-<!--            <div class="inputs">-->
-<!--                <label for="disabledNameInput" class="form-label">Name</label><br>-->
-<!--                <input type="text" th:field="*{name}" id="disabledNameInput" class="form-control"-->
-<!--                       placeholder="Name" minlength="3" required>-->
-<!--            </div>-->
-<!--            <div class="inputs">-->
-<!--                <label for="disabledAgeInput" class="form-label">Age</label><br>-->
-<!--                <input type="number" th:field="*{age}" id="disabledAgeInput" class="form-control"-->
-<!--                       placeholder="Age" min="1" required>-->
-<!--            </div>-->
-<!--            <div class="inputs">-->
-<!--                <label for="disabledWightInput" class="form-label">Weight [kg]</label><br>-->
-<!--                <input type="number" th:field="*{weight}" id="disabledWightInput" class="form-control"-->
-<!--                       placeholder="Weight" step="any" min="1" required>-->
-<!--            </div>-->
-<!--            <div class="inputs">-->
-<!--                <label for="disabledHeightInput" class="form-label">Height [cm]</label><br>-->
-<!--                <input type="number"-->
-<!--                       th:field="*{height}"-->
-<!--                       id="disabledHeightInput"-->
-<!--                       class="form-control"-->
-<!--                       placeholder="Height"-->
-<!--                       min="1"-->
-<!--                       required>-->
-<!--            </div>-->
-<!--            <div class="inputs">-->
-<!--                <label for="disabledActivityInput" class="form-label">Activity Level</label><br>-->
-<!--                <select th:field="*{activityLevel}" id="disabledActivityInput">-->
-<!--                    <option value="Sedentary">Sedentary</option>-->
-<!--                    <option value="Lightly active">Lightly active</option>-->
-<!--                    <option value="Moderately active">Moderately active</option>-->
-<!--                    <option value="Very active">Very active</option>-->
-<!--                    <option value="Super active">Super active</option>-->
-<!--                </select>-->
-<!--            </div>-->
-<!--            <label for="inlineRadio1">Gender</label><br>-->
-<!--            <div class="box-container">-->
-<!--                <div class="box">-->
-<!--                    <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <input th:field="*{whatGender}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <label class="form-check-label" for="inlineRadio1">M</label>-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <label class="form-check-label" for="inlineRadio2">F</label>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <button type="submit" class="button">Submit</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--#########################################################################################-->
-
-<!--    <h1>Login</h1>-->
-<!--    <form th:action="@{/login}" th:object="${userData}" method="post">-->
-<!--        <legend>-&#45;&#45;&#45;&#45;</legend>-->
-<!--        <span th:text="${info}"></span>-->
-<!--        <div class="inputs">-->
-<!--            <label for="disabledEmailInput" class="form-label">Email</label>-->
-<!--            <input type="email" th:field="*{email}" id="disabledEmailInput" class="form-control"-->
-<!--                   placeholder="Email" minlength="5"required>-->
-<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('email')}" class="error">Please enter a valid email</span>&ndash;&gt;-->
-<!--        </div>-->
-<!--        <div class="inputs">-->
-<!--            <label for="disabledPasswordInput" class="form-label">Password</label>-->
-<!--            <input type="password" th:field="*{password}" id="disabledPasswordInput" class="form-control"-->
-<!--                   placeholder="Password" minlength="5"required>-->
-<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('password')}" class="error">Please enter a valid password</span>&ndash;&gt;-->
-<!--        </div>-->
-<!--        <button type="submit" class="btn btn-primary">Login</button>-->
-<!--    </form>-->
-
-
-<!--    <div th:if="${param.error}">-->
-<!--        Invalid username and password.-->
-<!--    </div>-->
-<!--    <div th:if="${param.logout}">-->
-<!--        You have been logged out.-->
-<!--    </div>-->
-<!--    <form th:action="@{/login}" method="post">-->
-<!--        <div><label> User Name : <input type="text" name="username"/> </label></div>-->
-<!--        <div><label> Password: <input type="password" name="password"/> </label></div>-->
-<!--        <div><input type="submit" value="Sign In"/></div>-->
-<!--    </form>-->
-
-<!--    <form th:action="@{/logout}" method="post">-->
-<!--        <button type="submit" class="btn btn-primary">Logout</button>-->
-<!--    </form>-->
-<!--    <div class="content">-->
-<!--    </div>-->
+    </form>
+</div>
 
 <div th:replace="~{layout :: footer}"></div>
 
 <p th:replace="~{layout :: scripts}"></p>
+
 
 
 </body>
