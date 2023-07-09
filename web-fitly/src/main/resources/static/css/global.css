@@ -9,30 +9,29 @@ html {
     font-size: 16px;
     color: #bba674;
 }
-a:hover {
-    color: #bba674;
-}
 
 body {
-    /*width: 100%;*/
+    width: 100%;
     min-height: 100vh;
-    width: 100vw;
     background: linear-gradient(to left,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.91) 30%,
-    rgba(0, 0, 0, 0.92) 31%,
-    rgba(0, 0, 0, 0.93) 32%,
-    rgba(0, 0, 0, 0.94) 33%,
-    rgba(0, 0, 0, 0.95) 34%,
-    rgba(0, 0, 0, 0.96) 35%,
-    rgba(0, 0, 0, 0.97) 56%,
-    rgba(0, 0, 0, 0.97) 67%,
-    rgba(0, 0, 0, 0.99) 70%,
-    rgba(0, 0, 0, 1) 80%);
+    rgba(0, 0, 0, 0.99) 10%,
+    rgba(0, 0, 0, 0.87) 20%,
+    rgba(0, 0, 0, 0.85) 30%,
+    rgba(0, 0, 0, 0.89) 40%,
+    rgba(0, 0, 0, 0.91) 50%,
+    rgba(0, 0, 0, 0.93) 60%,
+    rgba(0, 0, 0, 0.95) 70%,
+    rgba(0, 0, 0, 0.97) 80%,
+    rgba(0, 0, 0, 0.98) 90%,
+    rgba(0, 0, 0, 1) 100%);
     overflow: auto;
     color: #bba674;
     font-family: Oswald, sans-serif;
     font-size: 16px;
+}
+
+a:hover {
+    color: #bba674;
 }
 
 .layout {
@@ -118,18 +117,11 @@ a {
     display: grid;
 }
 
-
-ul {
-    text-align: left;
-    margin-bottom: 100px;
-}
-
 input {
     font-family: "Noto Sans", serif;
     font-size: 18px;
     line-height: 30px;
     text-align: center;
-    background-color: darkgrey;
     margin-top: 10px;
 }
 
@@ -150,6 +142,7 @@ input {
     border-top: 1px solid #bba674;
     font-size: small;
     padding-right: 5rem;
+    z-index: 3;
 }
 
 

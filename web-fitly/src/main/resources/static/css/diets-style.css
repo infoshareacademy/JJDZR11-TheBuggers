@@ -1,29 +1,31 @@
 .grid-container {
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 100px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 15% 20%;
+    display: grid;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 350px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
 }
 
 .grid-item {
     position: relative;
     width: 100%;
     min-height: 260px;
+    transition: margin-left 1s;
+}
+.grid-item:hover ~ .grid-item {
+    margin-left: 10px;
 }
 
 .a-diet {
     position: absolute;
     background-color: black;
     display: block;
-    min-height: 250px;
+    min-height: 260px;
     width: 100%;
     border: 1px solid #bba674;
     transition:
-            top 1s,
-            left 1s,
-            margin 1s,
+            margin 0.5s,
             background-color 2s,
             border 1s,
             color 0.5s,
@@ -31,9 +33,9 @@
             border-radius 0.5s;
 }
 .a-diet:hover {
-    top: -1px;
-    left: -1px;
-    margin: 5px;
+    top: -1.5px;
+    left: -1.5px;
+    margin: 10px;
     background-color: #333333;
     border: 1px solid #bba674;
     border-radius: 2px;
@@ -50,20 +52,19 @@
     top: -20%;
     left: 50%;
     transform: translateX(-50%);
-    transition: opacity 1s,
-                width 2s,
+    transition: opacity 3s,
                 top 2s;
 }
 .a-diet:hover .infographic {
-    opacity: 0;
+    opacity: 0.1;
     top: -30%;
 }
 .diet-tile {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    align-content: center;
     justify-content: center;
+    align-content: center;
+    padding: 15px;
     font-size: 20px;
     width: 100%;
     min-height: 260px;
@@ -78,25 +79,23 @@
     font-family: "Noto Sans", serif;
 }
 
-.grid-item-1 {
-    grid-column: 1;
-    grid-row: 1;
-}
-.grid-item-2 {
-    grid-column: 2;
-    grid-row: 1;
-}
-.grid-item-3 {
-    grid-column: 1;
-    grid-row: 2;
-}
-.grid-item-4 {
-    grid-column: 2;
-    grid-row: 2;
+@media (max-width: 1300px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-item {
+        min-height: 320px;
+    }
+    .a-diet:hover .infographic {
+        top: -35%;
+    }
+    .infographic {
+        min-width: 60px;
+        max-width: 70px;
+    }
 }
 
-
-@media (max-width: 1150px) {
+@media (max-width: 520px) {
     .grid-container {
         grid-template-columns: 1fr;
     }
@@ -105,7 +104,7 @@
         height: auto;
     }
     .infographic {
-        width: 15%;
+        width: 25%;
         min-width: 60px;
         max-width: 70px;
     }
