@@ -30,6 +30,33 @@ body {
     font-size: 16px;
 }
 
+.main-page h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #bba674;
+    text-shadow: 3px 7px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(187, 166, 116, 0.8);
+    animation: vibration 8s infinite;
+}
+
+@keyframes vibration {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+    97% {
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+    98% {
+        transform: translateX(-2px) translateY(-2px) rotate(-2deg);
+    }
+    99% {
+        transform: translateX(2px) translateY(2px) rotate(2deg);
+    }
+    100% {
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+}
+
 a:hover {
     color: #bba674;
 }
@@ -106,10 +133,18 @@ a {
     position: absolute;
     display: inline-block;
     top: 350px;
-    width: 45%;
+    width: 40%;
     margin-left: 55%;
     transform: translateX(-20%);
     padding-bottom: 30px;
+}
+.main-page p {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.main-info {
+    font-family: "Noto Sans", serif;
+    font-size: 20px;
 }
 
 .grid-container {
