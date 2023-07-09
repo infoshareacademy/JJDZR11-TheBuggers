@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="pl">
 <head>
     <title th:fragment="head" th:remove="tag">
 
@@ -32,9 +32,11 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"></span> menu
+                    <span class="navbar-toggler-icon" data-bs-toggle="collapse"
+                          data-bs-target=".navbar-collapse.show"></span> menu
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -45,11 +47,28 @@
                     <li class="nav-item"><a th:href="@{/trainings}" class="nav-left-button">TRAININGS</a></li>
                 </ul>
             </div>
+            <a sec:authorize="isAuthenticated()" >
+                <p>Authenticated username: <span sec:authentication="name"></span></p>
+            </a>
             <a th:href="@{/login}">
                 <button class="button">
-                    <span>LOGIN</span>
+                    <span sec:authorize="!isAuthenticated()">LOGIN</span>
+                    <span sec:authorize="isAuthenticated()">LOGOUT</span>
+
                 </button>
             </a>
+<!--            <a sec:authorize="isAuthenticated()" >-->
+<!--                <form th:action="@{/logout}" method="post">-->
+<!--                    <button type="submit" class="button">-->
+<!--                        <span>LOGOUT</span>-->
+<!--                    </button>-->
+<!--                </form>-->
+<!--                <form th:action="@{/userUpdate}" method="get">-->
+<!--                <button type="submit" class="button">-->
+<!--                    <span>UPDATE</span>-->
+<!--                </button>-->
+<!--                </form>-->
+<!--            </a>-->
         </div>
     </nav>
 

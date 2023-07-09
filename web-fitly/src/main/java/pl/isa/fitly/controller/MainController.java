@@ -21,12 +21,7 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String mainSide(Principal principal) {
-        if (principal != null) {
-            userRepository.setCurrentUser(userRepository.getUserByEmail(principal.getName()));
-        } else {
-            userRepository.setCurrentUser(UserData.createUserData());
-        }
+    public String mainSide() {
         return "main";
     }
 
