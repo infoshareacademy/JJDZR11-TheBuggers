@@ -10,7 +10,7 @@
   "role" : "USER"
 }, {
   "email" : "1234@exp.com",
-  "password" : "$2a$10$pGtfC/Rd3Rqax4Jb18wXX.fKU43dA4SwYlIxggWAsooRLx/PgpZ5i",
+  "password" : "$2a$10$esEBRccsCkiVURcDdyqDGOoCulc5nPK7v1t/OfrR9yUUt1EIfvVn6",
   "name" : "Grzegorz",
   "age" : 25,
   "weight" : 80.0,

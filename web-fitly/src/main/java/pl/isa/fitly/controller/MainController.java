@@ -21,7 +21,7 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String mainSide(Principal principal) {
+    public String mainSide() {
         return "main";
     }
 

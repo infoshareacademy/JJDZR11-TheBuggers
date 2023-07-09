@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <script th:replace="~{layout :: head}"></script>
     <link rel="stylesheet" type="text/css" href="/css/login-form.css">
@@ -7,43 +8,42 @@
 </head>
 <body>
 
-    <div th:replace="~{layout :: container}"></div>
+<div th:replace="~{layout :: container}"></div>
 
-    <form th:action="@{/login}" method="post" id="formLogin">
-        <div class="grid-container login">
-            <div class="grid-item grid-item-1">
-                <div th:if="${param.error}">
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}">
-                    You have been logged out.
-                </div>
+<form th:action="@{/login}" method="post" id="formLogin">
+    <div class="grid-container login">
+        <div class="grid-item grid-item-1">
+            <div th:if="${param.error}">
+                Invalid username and password.
             </div>
-            <div class="grid-item grid-item-2">
-                    <label>Email:</label><br>
-                    <input type="email" name="username" required/>
-            </div>
-            <div class="grid-item grid-item-3">
-                    <label> Password: </label>
-                    <input type="password" name="password" min="5" required/>
-            </div>
-            <div class="grid-item grid-item-4">
-                <button class="button" form="formLogin" type="submit">Sign In</button>
-                <form th:action="@{/logout}" method="post" id="formLogout">
-                    <button type="submit" class="button" form="formLogout" value="value" >Logout</button>
-                </form>
-                <button class="button"><a href="/register">Register</a></button>
-            </div>
-            <div class="grid-item grid-item-5">
-            <span th:text="${userName}"></span>
+            <div th:if="${param.logout}">
+                You have been logged out.
             </div>
         </div>
-    </form>
+        <div class="grid-item grid-item-2">
+            <label>Email:</label><br>
+            <input type="email" name="username" required/>
+        </div>
+        <div class="grid-item grid-item-3">
+            <label> Password: </label>
+            <input type="password" name="password" min="5" required/>
+        </div>
 
-    <div th:replace="~{layout :: footer}"></div>
+        <div class="grid-item grid-item-4">
+            <button class="button" form="formLogin" type="submit">Sign In</button>
+            <button type="submit" formaction="/logout" formmethod="post" class="button">Logout</button>
+            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">Update</a></button>
+            <button sec:authorize="!isAuthenticated()" class="button" disabled><a href="/userUpdate">Update</a></button>
+            <button class="button"><a href="/register">Register</a></button>
+        </div>
+        <div class="grid-item grid-item-5">
+            <span th:text="${userName}"></span>
+        </div>
+    </div>
+</form>
+<div th:replace="~{layout :: footer}"></div>
 
-    <p th:replace="~{layout :: scripts}"></p>
-
+<p th:replace="~{layout :: scripts}"></p>
 
 
 </body>
