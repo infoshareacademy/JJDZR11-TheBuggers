@@ -91,4 +91,7 @@ header {
     .form .column {
         flex-wrap: wrap;
     }
+    .activity {
+        width: 80%;
+    }
 }
