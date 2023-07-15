@@ -11,6 +11,7 @@ import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
 import java.io.*;
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +41,7 @@ public class DietController {
                                            @RequestParam("weight") double weight,
                                            @RequestParam("gender") String gender,
                                            @RequestParam("activityLevel") String activityLevel,
-                                           Model model) {
+                                           Model model, UserData userData) {
         return processDiet(age, height, weight, gender, activityLevel, "glutenAndLactoseFree-diet", model);
     }
 
@@ -50,7 +51,7 @@ public class DietController {
                                   @RequestParam("weight") double weight,
                                   @RequestParam("gender") String gender,
                                   @RequestParam("activityLevel") String activityLevel,
-                                  Model model) {
+                                  Model model, UserData userData) {
         return processDiet(age, height, weight, gender, activityLevel, "pescetarian-diet", model);
     }
 
@@ -60,7 +61,7 @@ public class DietController {
                                @RequestParam("weight") double weight,
                                @RequestParam("gender") String gender,
                                @RequestParam("activityLevel") String activityLevel,
-                               Model model) {
+                               Model model, UserData userData) {
         return processDiet(age, height, weight, gender, activityLevel, "standard-diet", model);
     }
 
@@ -70,7 +71,7 @@ public class DietController {
                            @RequestParam("weight") double weight,
                            @RequestParam("gender") String gender,
                            @RequestParam("activityLevel") String activityLevel,
-                           Model model) {
+                           Model model, UserData userData) {
         return processDiet(age, height, weight, gender, activityLevel, "vege-diet", model);
     }
 
@@ -80,35 +81,23 @@ public class DietController {
     }
 
     @GetMapping("/diets/glutenAndLactoseFree")
-    public String showGlutenAndLactoseFreeDietForm(Model model) {
-//        if (userRepository.isCurrentUser()){
-//            UserData user = userRepository.getCurrentUser();
-//            return processDiet(user.getAge(),
-//                    user.getHeight(),
-//                    user.getWeight(),
-//                    dtoGender(user.getWhatGender()),
-//                    user.getActivityLevel(),
-//                    "glutenAndLactoseFree-diet", model);
-//        }
-//        return "glutenAndLactoseFree-diet";
-        return dietCurrentUser("glutenAndLactoseFree-diet", model);
+    public String showGlutenAndLactoseFreeDietForm(Model model, Principal principal) {
+        return dietCurrentUser("glutenAndLactoseFree-diet", model, principal);
     }
 
     @GetMapping("/diets/pescetarian")
-    public String showPescetarianDietForm(Model model) {
-        return dietCurrentUser("pescetarian-diet", model);
+    public String showPescetarianDietForm(Model model, Principal principal) {
+        return dietCurrentUser("pescetarian-diet", model, principal);
     }
 
     @GetMapping("/diets/standard")
-    public String showStandardDietForm(Model model) {
-        return dietCurrentUser("standard-diet", model);
-//        return "standard-diet";
+    public String showStandardDietForm(Model model, Principal principal) {
+        return dietCurrentUser("standard-diet", model, principal);
     }
 
     @GetMapping("/diets/vege")
-    public String showVegeDietForm(Model model) {
-        return dietCurrentUser("vege-diet", model);
-//        return "vege-diet";
+    public String showVegeDietForm(Model model, Principal principal) {
+        return dietCurrentUser("vege-diet", model, principal);
     }
 
     private String processDiet(int age, double height, double weight, String gender, String activityLevel, String dietTemplateName, Model model) {
@@ -205,25 +194,19 @@ public class DietController {
         return dietContent.toString();
     }
 
-    private String dietCurrentUser(String dietTemplateName, Model model) {
-        if (userRepository.isCurrentUser()) {
-            UserData user = userRepository.getCurrentUser();
+    private String dietCurrentUser(String dietTemplateName, Model model, Principal principal) {
+        if (principal != null) {
+            UserData user = userRepository.getUserFromPrincipal(principal);
+            model.addAttribute("userData", user);
             return processDiet(user.getAge(),
                     user.getHeight(),
                     user.getWeight(),
-                    dtoGender(user.getWhatGender()),
+                    user.getGender(),
                     user.getActivityLevel(),
                     dietTemplateName, model);
         }
+        model.addAttribute("userData", UserData.createUserData());
         return dietTemplateName;
-    }
-
-    public static String dtoGender(boolean gender) {
-        if (gender) {
-            return "male";
-        } else {
-            return "female";
-        }
     }
 
 }
