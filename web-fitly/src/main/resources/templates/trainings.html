@@ -9,7 +9,7 @@
 
     <div th:replace="~{layout :: container}"></div>
 
-    <div class="container">
+    <div class="container training" style="padding-top:240px">
             <h2>Calculate Training Weights</h2>
             <form  th:action="@{/training}" th:object="${userData}" method="post">
                 <label for="weight">Enter your weight:</label>

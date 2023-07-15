@@ -10,7 +10,7 @@
 <div th:replace="~{layout :: container}"></div>
 <div class="reg-container">
     <h1>Registration</h1>
-    <form th:action="@{/register}" th:object="${userData}" method="post" class="form">
+    <form th:action="@{/userUpdate}" th:object="${userData}" method="post" class="form">
 
         <div class="inputs">
             <span class="error" th:text="${error}"></span>

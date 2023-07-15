@@ -11,6 +11,8 @@ import pl.isa.fitly.service.TrainingCalculator;
 import pl.isa.fitly.service.TrainingCalculatorPrinter;
 import pl.isa.fitly.service.TrainingFileReader;
 
+import java.security.Principal;
+
 
 @Controller
 public class TrainingController {
@@ -27,9 +29,9 @@ public class TrainingController {
     }
 
     @GetMapping("/trainings")
-    public String showTrainingsPage(Model model, UserData userData) {
-        if (userRepository.isCurrentUser()) {
-            userData = userRepository.getCurrentUser();
+    public String showTrainingsPage(Model model, UserData userData, Principal principal) {
+        if (principal != null) {
+            userData=userRepository.getUserFromPrincipal(principal);
             trainingCalculator.calculateTrainingWeights(userData.getWeight());
             trainingCalculatorPrinter.printTraining(model);
             trainingCalculatorPrinter.printTrainingWeightBasedOnRM(model);

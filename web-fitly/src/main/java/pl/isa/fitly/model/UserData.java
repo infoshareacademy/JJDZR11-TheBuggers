@@ -3,6 +3,8 @@ package pl.isa.fitly.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class UserData {
 
@@ -12,8 +14,9 @@ public class UserData {
     private int age;
     private double weight;
     private String activityLevel;
-    private boolean whatGender;
+    private String gender;
     private int height;
+    private String role;
 
     public static UserData createUserData() {
         return new UserData();
@@ -27,13 +30,17 @@ public class UserData {
         this.height = height;
     }
 
-    public UserData(String name, int age, double weight, String activityLevel, boolean whatGender, int height) {
+    public UserData(String name, int age, double weight, String activityLevel, String gender, int height) {
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.activityLevel = activityLevel;
-        this.whatGender = whatGender;
+        this.gender = gender;
         this.height = height;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getName() {
@@ -52,12 +59,8 @@ public class UserData {
         return activityLevel;
     }
 
-    public boolean getWhatGender() {
-        return whatGender;
-    }
-
-    public void setWhatGender(boolean whatGender) {
-        this.whatGender = whatGender;
+    public String getGender() {
+        return gender;
     }
 
     public int getHeight() {
@@ -100,6 +103,14 @@ public class UserData {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public static double bmiValue(double weight, int height) {
         // height converted from centimeters to meters (/100)
         return (weight / Math.pow((double) height / 100, 2));
@@ -129,8 +140,8 @@ public class UserData {
         }
     }
 
-    public boolean emptyUser(){
-        return (this.email==null || this.password==null || this.weight ==0 ||this.height==0 || this.age==0 );
+    public boolean emptyUser() {
+        return (this.email == null || this.password == null || this.weight == 0 || this.height == 0 || this.age == 0);
     }
 
     @Override
@@ -141,9 +152,21 @@ public class UserData {
                 ", age=" + age +
                 ", weight=" + weight +
                 ", activityLevel='" + activityLevel + '\'' +
-                ", whatGender=" + whatGender +
+                ", gender=" + gender +
                 ", height=" + height +
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserData userData = (UserData) o;
+        return Objects.equals(email, userData.email) && Objects.equals(role, userData.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, role);
+    }
 }

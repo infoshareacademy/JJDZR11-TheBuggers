@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <script th:replace="~{layout :: head}"></script>
     <link rel="stylesheet" type="text/css" href="/css/login-form.css">
@@ -7,61 +7,63 @@
 </head>
 <body>
 
-    <div th:replace="~{layout :: container}"></div>
+<div th:replace="~{layout :: container}"></div>
 
-    <form th:action="@{/login}" method="post">
-        <div class="login-container">
+<form th:action="@{/login}" method="post" id="formLogin">
+    <div class="login-container">
 
-            <div class="item">
-                <label>User Name:</label><br>
-                <input type="text" name="username" placeholder="Enter username (email)"/>
-                <i class='bx bxs-user'></i>
-            </div>
-
-            <div class="item">
-                <label> Password: </label><br>
-                <input type="password" name="password" placeholder="Enter password"/>
-                <i class='bx bxs-lock-alt' ></i>
-            </div>
-
-            <div class="item">
-                <span th:text="${userName}"></span>
-            </div>
-
-            <div class="item">
-                <div th:if="${param.error}">
-                    Invalid username and password.
-                </div>
-            </div>
-
-            <div class="item">
-                <div th:if="${param.logout}">
-                    You have been logged out.
-                </div>
-            </div>
-
-            <div class="item">
-                <button class="button" type="submit">Sign In</button>
-            </div>
-
-            <div class="item">
-                <form th:action="@{/logout}" method="post">
-                    <button type="submit" class="button">Logout</button>
-                </form>
-            </div>
-
-            <div class="item">
-                <button class="button"><a href="/register">Register</a></button>
-            </div>
-
+        <div class="item">
+            <label>User Name:</label><br>
+            <input type="text" name="username" placeholder="Enter username (email)" required/>
+            <i class='bx bxs-user'></i>
         </div>
 
-    </form>
+        <div class="item">
+            <label> Password: </label><br>
+            <input type="password" name="password" placeholder="Enter password" required/>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
 
-    <div th:replace="~{layout :: footer}"></div>
+        <div class="item">
+            <span th:text="${userName}"></span>
+        </div>
 
-    <p th:replace="~{layout :: scripts}"></p>
+        <div class="item">
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+        </div>
 
+        <div class="item">
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+        </div>
+
+        <div class="item">
+            <button class="button" form="formLogin" type="submit">Sign In</button>
+        </div>
+
+        <div class="item">
+            <button type="submit" formaction="/logout" formmethod="post" class="button">Logout</button>
+        </div>
+
+        <div class="item">
+            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">Update</a></button>
+            <button sec:authorize="!isAuthenticated()" class="button" disabled><a href="/userUpdate">Update</a></button>
+        </div>
+
+        <div class="item">
+            <button class="button"><a href="/register">Register</a></button>
+        </div>
+
+    </div>
+
+</form>
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
 
 
 </body>
