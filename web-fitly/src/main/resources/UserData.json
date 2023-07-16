@@ -38,4 +38,14 @@
   "gender" : "male",
   "height" : 33,
   "role" : "USER"
+}, {
+  "email" : "piotrek.fiuk@gmail.com",
+  "password" : "$2a$10$b7ifQw7MXLssmlaz1k4.1.76JfR2KrH57khAuOpk01L.U9knkLx0W",
+  "name" : "Piotr",
+  "age" : 30,
+  "weight" : 80.0,
+  "activityLevel" : "Moderately active",
+  "gender" : "male",
+  "height" : 180,
+  "role" : "USER"
 } ]
