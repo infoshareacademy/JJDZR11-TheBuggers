@@ -47,16 +47,24 @@
                     <li class="nav-item"><a th:href="@{/trainings}" class="nav-left-button">TRAININGS</a></li>
                 </ul>
             </div>
-            <a sec:authorize="isAuthenticated()" >
-                <p>Authenticated username: <span sec:authentication="name"></span></p>
-            </a>
-            <a th:href="@{/login}">
-                <button class="button">
-                    <span sec:authorize="!isAuthenticated()">LOGIN</span>
-                    <span sec:authorize="isAuthenticated()">LOGOUT</span>
 
+            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">PROFILE</a></button>
+<!--            <button sec:authorize="!isAuthenticated()" class="button" disabled><a href="/userUpdate">Profile</a></button>-->
+
+            <a th:href="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}">
+                <button class="button">
+                    <span>LOGOUT</span>
                 </button>
             </a>
+            <a th:href="@{/login}" th:unless="${#authorization.expression('isAuthenticated()')}">
+                <button class="button">
+                    <span>LOGIN</span>
+                </button>
+            </a>
+
+
+
+            <!--            TODO - Old code, might remove later when everything works fine-->
 <!--            <a sec:authorize="isAuthenticated()" >-->
 <!--                <form th:action="@{/logout}" method="post">-->
 <!--                    <button type="submit" class="button">-->
@@ -71,6 +79,10 @@
 <!--            </a>-->
         </div>
     </nav>
+    <a sec:authorize="isAuthenticated()" class="authenticated">
+        <p>Authenticated username:<br>
+            <span sec:authentication="name"></span></p>
+    </a>
 </div>
 
 

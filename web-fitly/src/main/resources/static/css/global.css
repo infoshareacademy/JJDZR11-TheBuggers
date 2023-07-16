@@ -39,6 +39,18 @@ body {
     animation: vibration 8s infinite;
 }
 
+.layout .authenticated {
+    margin-left: 100%;
+    text-align: right;
+}
+
+
+.authenticated a,
+.authenticated p {
+    font-size: x-small;
+    font-family: "Noto Sans", serif;
+}
+
 @keyframes vibration {
     0% {
         transform: translateX(0) translateY(0) rotate(0);
@@ -67,6 +79,7 @@ a:hover {
     text-align: center;
     margin-left: 5%;
     width: 90%;
+    z-index: 2;
 }
 .header {
     width: 100%;
