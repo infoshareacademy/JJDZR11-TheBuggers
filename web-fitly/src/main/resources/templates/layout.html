@@ -51,9 +51,6 @@
                 </ul>
             </div>
 
-<!--            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">PROFILE</a></button>-->
-<!--            <button sec:authorize="!isAuthenticated()" class="button" disabled><a href="/userUpdate">Profile</a></button>-->
-
             <a th:href="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}">
                 <button class="button">
                     <span>LOGOUT</span>
@@ -64,22 +61,6 @@
                     <span>LOGIN</span>
                 </button>
             </a>
-
-
-
-            <!--            TODO - Old code, might remove later when everything works fine-->
-<!--            <a sec:authorize="isAuthenticated()" >-->
-<!--                <form th:action="@{/logout}" method="post">-->
-<!--                    <button type="submit" class="button">-->
-<!--                        <span>LOGOUT</span>-->
-<!--                    </button>-->
-<!--                </form>-->
-<!--                <form th:action="@{/userUpdate}" method="get">-->
-<!--                <button type="submit" class="button">-->
-<!--                    <span>UPDATE</span>-->
-<!--                </button>-->
-<!--                </form>-->
-<!--            </a>-->
         </div>
     </nav>
     <a sec:authorize="isAuthenticated()" class="authenticated">
