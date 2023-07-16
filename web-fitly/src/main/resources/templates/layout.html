@@ -41,14 +41,17 @@
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a th:href="@{/}" class="nav-left-button active">MAIN</a></li>
+                    <li class="nav-item"><a th:href="@{/}" sec:authorize="!isAuthenticated()"
+                                            class="nav-left-button active">MAIN</a></li>
+                    <li class="nav-item"><a href="/userUpdate" sec:authorize="isAuthenticated()"
+                                            class="nav-left-button active">PROFILE</a></li>
                     <li class="nav-item"><a th:href="@{/bmi}" class="nav-left-button">BMI</a></li>
                     <li class="nav-item"><a th:href="@{/diets}" class="nav-left-button">DIETS</a></li>
                     <li class="nav-item"><a th:href="@{/trainings}" class="nav-left-button">TRAININGS</a></li>
                 </ul>
             </div>
 
-            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">PROFILE</a></button>
+<!--            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">PROFILE</a></button>-->
 <!--            <button sec:authorize="!isAuthenticated()" class="button" disabled><a href="/userUpdate">Profile</a></button>-->
 
             <a th:href="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}">
