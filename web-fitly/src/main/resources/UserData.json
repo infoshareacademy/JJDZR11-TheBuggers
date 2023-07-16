@@ -40,9 +40,9 @@
   "role" : "USER"
 }, {
   "email" : "piotrek.fiuk@gmail.com",
-  "password" : "$2a$10$vDtyvmYtkWo0hc86Vrhiz.iqxDzAtqjzbRmmwbhi4elkb3iqaaNSG",
+  "password" : "$2a$10$FAeKnU56pgKK/1zz38sjUuOa2Oje6aoL0CyDk0Ov3QdeLINyz6eT6",
   "name" : "Piotr",
-  "age" : 30,
+  "age" : 40,
   "weight" : 80.0,
   "activityLevel" : "Moderately active",
   "gender" : "male",
