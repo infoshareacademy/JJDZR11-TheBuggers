@@ -47,19 +47,10 @@
                     <li class="nav-item"><a th:href="@{/trainings}" class="nav-left-button">TRAININGS</a></li>
                 </ul>
             </div>
-<!--            section moved below navbar-->
-<!--            <a sec:authorize="isAuthenticated()" >-->
-<!--                <p>Authenticated username: <span sec:authentication="name"></span></p>-->
-<!--            </a>-->
 
-<!--            #TODO NA CHWILE-->
-<!--            <a th:href="@{/login}">-->
-<!--                <button class="button">-->
-<!--                    <span sec:authorize="!isAuthenticated()">LOGIN</span>-->
-<!--                    <span sec:authorize="isAuthenticated()">LOGOUT</span>-->
+            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">PROFILE</a></button>
+<!--            <button sec:authorize="!isAuthenticated()" class="button" disabled><a href="/userUpdate">Profile</a></button>-->
 
-<!--                </button>-->
-<!--            </a>-->
             <a th:href="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}">
                 <button class="button">
                     <span>LOGOUT</span>

@@ -34,9 +34,6 @@ public class LoginController {
             model.addAttribute("loggedIn", false);
         }
         return "login";
-
-//        TODO - zrobić tak, żeby button LOGOUT wyświetlał się na layout.html a nie tylko na login.html jak to sugeruje return "login";
-
     }
 
 //    @GetMapping("/logoutButton")

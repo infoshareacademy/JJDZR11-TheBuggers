@@ -45,15 +45,6 @@
         </div>
 
         <div class="item">
-            <button type="submit" formaction="/logout" formmethod="post" class="button">Logout</button>
-        </div>
-
-        <div class="item">
-            <button sec:authorize="isAuthenticated()" class="button"><a href="/userUpdate">Update</a></button>
-            <button sec:authorize="!isAuthenticated()" class="button" disabled><a href="/userUpdate">Update</a></button>
-        </div>
-
-        <div class="item">
             <button class="button"><a href="/register">Register</a></button>
         </div>
 
