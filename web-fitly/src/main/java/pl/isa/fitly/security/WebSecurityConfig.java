@@ -15,10 +15,9 @@ import pl.isa.fitly.repository.UserRepository;
 @EnableMethodSecurity(securedEnabled = true)
 
 public class WebSecurityConfig {
-
     UserRepository userRepository;
-    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/diets", "/register",
-           "/diets/*", "/css/*.css", "/MacroAndMicroNutrients", "MacroAndMicroNutrients/search" ,"/img/**"};
+    private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/training", "/diets", "/register",
+           "/diets/*", "/css/*.css", "/MacroAndMicroNutrients", "MacroAndMicroNutrients/search" ,"/img/**", "/trainings/**"};
 
 
     public WebSecurityConfig(UserRepository userRepository) {
