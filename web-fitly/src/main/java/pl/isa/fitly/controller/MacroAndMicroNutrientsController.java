@@ -19,8 +19,8 @@ import java.util.List;
 @Controller
 public class MacroAndMicroNutrientsController {
     @GetMapping("/MacroAndMicroNutrients")
-    public String macroAndMicroNutrients() {
-        return "MacroAndMicroNutrients";
+    public String MacroAndMicroNutrients() {
+        return "macroAndMicroNutrients";
     }
 
     @PostMapping("/MacroAndMicroNutrients/search")
@@ -56,6 +56,6 @@ public class MacroAndMicroNutrientsController {
             e.printStackTrace();
         }
 
-        return "MacroAndMicroNutrients";
+        return "macroAndMicroNutrients";
     }
 }
