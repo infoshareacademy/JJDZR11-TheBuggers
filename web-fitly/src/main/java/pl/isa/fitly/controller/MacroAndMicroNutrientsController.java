@@ -19,7 +19,7 @@ import java.util.List;
 @Controller
 public class MacroAndMicroNutrientsController {
     @GetMapping("/MacroAndMicroNutrients")
-    public String macroAndMicroNutrients() {
+    public String MacroAndMicroNutrients() {
         return "MacroAndMicroNutrients";
     }
 
