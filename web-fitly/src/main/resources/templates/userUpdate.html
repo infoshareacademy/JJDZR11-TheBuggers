@@ -78,6 +78,17 @@
                     </select>
                 </div>
             </div>
+            <div class="inputs">
+                <label for="role" class="form-label">Role</label><br>
+                <div id="role" class="role">
+                    <select id="roleInput" th:field="*{role}" class="activity">
+                        <option  value="USER">User</option>
+                        <option value="ADMIN">Admin</option>
+                        <option value="TRAINER">Trainer</option>
+                        <option value="DIETITIAN">Dietitian</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
         <div style="text-align: end; margin-top: 30px">

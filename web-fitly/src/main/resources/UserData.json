@@ -48,4 +48,24 @@
   "gender" : "male",
   "height" : 160,
   "role" : "USER"
+}, {
+  "email" : "admin@fitly.com",
+  "password" : "$2a$10$wMiyOaCg0J0Gn3FjanY56u6oB7zmTO27WVkq5hcHFappIqaePi.3i",
+  "name" : "Grzegorz",
+  "age" : 20,
+  "weight" : 55.0,
+  "activityLevel" : "Sedentary",
+  "gender" : "male",
+  "height" : 155,
+  "role" : "ADMIN"
+}, {
+  "email" : "trainer@fitly.com",
+  "password" : "$2a$10$xAZgg39k9okDPP6J2RxWd.js25jLXczADOhM3YcDP0kBgsTUI9hWW",
+  "name" : "Grzegorz",
+  "age" : 22,
+  "weight" : 50.0,
+  "activityLevel" : "Sedentary",
+  "gender" : "male",
+  "height" : 150,
+  "role" : "TRAINER"
 } ]

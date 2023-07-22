@@ -21,13 +21,13 @@ public class UserService implements UserDetailsService {
 
     public UserRepository.formError createUser(UserData userData) {
         userData.setPassword(passwordEncoder.encode(userData.getPassword()));
-        userData.setRole("USER");
+//        userData.setRole("USER");
         return userRepository.addUser(userData);
     }
 
     public UserRepository.formError userUpdate(String email, UserData userData) {
         userData.setPassword(passwordEncoder.encode(userData.getPassword()));
-        userData.setRole("USER");
+//        userData.setRole("USER");
         return userRepository.userUpdate(email, userData);
     }
 
