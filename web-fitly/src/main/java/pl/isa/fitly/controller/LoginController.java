@@ -4,13 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 import pl.isa.fitly.service.UserService;
 
 import java.security.Principal;
-import java.sql.Date;
 import java.time.LocalDate;
 
 @Controller
@@ -29,11 +27,16 @@ public class LoginController {
     public String userSite(Model model) {
         if (userRepository.isCurrentUser()) {
             model.addAttribute("userName", "Current user: " + userRepository.getCurrentUser().getEmail());
-            model.addAttribute("loggedIn", true);
-        } else {
-            model.addAttribute("loggedIn", false);
         }
         return "login";
+
+    }
+
+    @GetMapping("/loginError")
+    public String loginError(Model model) {
+        model.addAttribute("error", true);
+        return "login";
+
     }
 
 //    @GetMapping("/logoutButton")
@@ -79,7 +82,7 @@ public class LoginController {
         if (principal != null) {
             userData = userRepository.getUserFromPrincipal(principal);
             model.addAttribute("userData", userData);
-            model.addAttribute("dateOfBirth", LocalDate.of(1997,12,29));
+            model.addAttribute("dateOfBirth", LocalDate.of(1997, 12, 29));
         } else {
             model.addAttribute("userData", UserData.createUserData());
         }
@@ -87,7 +90,7 @@ public class LoginController {
     }
 
     @PostMapping("/userUpdate")
-    public String updateUserPost(UserData userData, Model model, Principal principal ) {
+    public String updateUserPost(UserData userData, Model model, Principal principal) {
         String email = principal.getName();
         UserRepository.formError formError = userService.userUpdate(email, userData);
         if (formError == formError.OK) {

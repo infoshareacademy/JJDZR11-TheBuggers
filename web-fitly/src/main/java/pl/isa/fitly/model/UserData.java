@@ -17,6 +17,7 @@ public class UserData {
     private String gender;
     private int height;
     private String role;
+    private String description;
 
     public static UserData createUserData() {
         return new UserData();
@@ -109,6 +110,14 @@ public class UserData {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public static double bmiValue(double weight, int height) {

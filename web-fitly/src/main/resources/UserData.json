@@ -7,17 +7,19 @@
   "activityLevel" : "Lightly active",
   "gender" : "male",
   "height" : 193,
-  "role" : "USER"
+  "role" : "USER",
+  "description" : null
 }, {
   "email" : "1234@exp.com",
-  "password" : "$2a$10$esEBRccsCkiVURcDdyqDGOoCulc5nPK7v1t/OfrR9yUUt1EIfvVn6",
+  "password" : "$2a$10$wK5nONXyGkxU3Q938hVtguwX3zhK1esbLDEX49syUGONXG/nA9apu",
   "name" : "Grzegorz",
   "age" : 25,
   "weight" : 80.0,
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 193,
-  "role" : "USER"
+  "role" : "USER",
+  "description" : "user1"
 }, {
   "email" : "java@exp.com",
   "password" : "$2a$10$lmSuEN7rZSzgtUghHRX32eXTp1oZoa4e4lIsyRPpv8MMa6wie/h/a",
@@ -27,7 +29,8 @@
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 11,
-  "role" : "USER"
+  "role" : "USER",
+  "description" : null
 }, {
   "email" : "grzegorz@exp.com",
   "password" : "$2a$10$b.wBLRXexMlVW2nRGoKVSOleE7IcYsoEsVE3UcZc6G1y1ZDxLanQy",
@@ -37,7 +40,8 @@
   "activityLevel" : "Moderately active",
   "gender" : "male",
   "height" : 33,
-  "role" : "USER"
+  "role" : "USER",
+  "description" : null
 }, {
   "email" : "piotrek.fiuk@gmail.com",
   "password" : "$2a$10$dyII1..C47zcthfFcQ56Xefto/xVXKQm5aCrcDk6siiafWwBGvCje",
@@ -47,17 +51,19 @@
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 160,
-  "role" : "USER"
+  "role" : "USER",
+  "description" : null
 }, {
   "email" : "admin@fitly.com",
-  "password" : "$2a$10$wMiyOaCg0J0Gn3FjanY56u6oB7zmTO27WVkq5hcHFappIqaePi.3i",
+  "password" : "$2a$10$s7QJugUD6ip9vyVKLlmOhOxCaiui9JGaXghnKmwf9B81amKU4wKOy",
   "name" : "Grzegorz",
   "age" : 20,
   "weight" : 55.0,
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 155,
-  "role" : "ADMIN"
+  "role" : "ADMIN",
+  "description" : "admin"
 }, {
   "email" : "trainer@fitly.com",
   "password" : "$2a$10$xAZgg39k9okDPP6J2RxWd.js25jLXczADOhM3YcDP0kBgsTUI9hWW",
@@ -67,5 +73,6 @@
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 150,
-  "role" : "TRAINER"
+  "role" : "TRAINER",
+  "description" : null
 } ]

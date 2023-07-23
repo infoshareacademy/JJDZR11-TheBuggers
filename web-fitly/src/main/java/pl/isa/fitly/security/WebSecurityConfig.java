@@ -17,7 +17,7 @@ import pl.isa.fitly.repository.UserRepository;
 public class WebSecurityConfig {
     UserRepository userRepository;
     private final String[] UNAUTHORIZED_DOMAINS = {"/", "/home", "/bmi", "/trainings", "/training", "/diets", "/register",
-           "/diets/*", "/css/*.css", "/MacroAndMicroNutrients", "MacroAndMicroNutrients/search" ,"/img/**", "/trainings/**"};
+            "/diets/*", "/css/*.css", "/MacroAndMicroNutrients", "MacroAndMicroNutrients/search", "/img/**", "/trainings/**"};
 
 
     public WebSecurityConfig(UserRepository userRepository) {
@@ -36,12 +36,11 @@ public class WebSecurityConfig {
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login").permitAll()
-                        .failureUrl("/login")
+                        .failureUrl("/loginError")
                         .defaultSuccessUrl("/"))
                 .logout(logout -> logout.permitAll()
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/?logout=true"))
-//                        .logoutSuccessUrl("/logout"))
                 .csrf(csrf -> csrf.disable());
         return http.build();
     }

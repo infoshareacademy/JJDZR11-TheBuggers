@@ -21,19 +21,21 @@ public class UserService implements UserDetailsService {
 
     public UserRepository.formError createUser(UserData userData) {
         userData.setPassword(passwordEncoder.encode(userData.getPassword()));
-//        userData.setRole("USER");
         return userRepository.addUser(userData);
     }
 
     public UserRepository.formError userUpdate(String email, UserData userData) {
         userData.setPassword(passwordEncoder.encode(userData.getPassword()));
-//        userData.setRole("USER");
         return userRepository.userUpdate(email, userData);
     }
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return new CustomUserDetails(userRepository.getUserByEmail(username));
+        UserData user = userRepository.getUserByEmail(username);
+        if (user.emptyUser()) {
+            throw new UsernameNotFoundException("Username not found");
+        }
+        return new CustomUserDetails(user);
     }
 }
