@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Oswald, sans-serif;
+    font-size: 16px;
+    color: #bba674;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to left,
+    rgba(0, 0, 0, 0.99) 10%,
+    rgba(0, 0, 0, 0.87) 20%,
+    rgba(0, 0, 0, 0.85) 30%,
+    rgba(0, 0, 0, 0.89) 40%,
+    rgba(0, 0, 0, 0.91) 50%,
+    rgba(0, 0, 0, 0.93) 60%,
+    rgba(0, 0, 0, 0.95) 70%,
+    rgba(0, 0, 0, 0.97) 80%,
+    rgba(0, 0, 0, 0.98) 90%,
+    rgba(0, 0, 0, 1) 100%);
+    overflow: auto;
+    color: #bba674;
+    font-family: Oswald, sans-serif;
+    font-size: 16px;
+}
+
+.main-page h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #bba674;
+    text-shadow: 3px 7px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(187, 166, 116, 0.8);
+    animation: vibration 8s infinite;
+}
+
+.layout .authenticated {
+    margin-left: 100%;
+    text-align: right;
+}
+
+
+.authenticated a,
+.authenticated p {
+    font-size: x-small;
+    font-family: "Noto Sans", serif;
+}
+
+@keyframes vibration {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+    97% {
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+    98% {
+        transform: translateX(-2px) translateY(-2px) rotate(-2deg);
+    }
+    99% {
+        transform: translateX(2px) translateY(2px) rotate(2deg);
+    }
+    100% {
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+}
+
+a:hover {
+    color: #bba674;
+}
+
+.layout {
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5%;
+    width: 90%;
+    z-index: 2;
+}
+.header {
+    width: 100%;
+    height: 156px;
+    position: relative;
+    background-image: url("../img/background/header_background.png");
+    background-position: center right;
+    background-size: cover;
+    right: 0;
+    /*padding: 1px;*/
+}
+
+.inputs {
+    font-family: "Noto Sans", serif;
+    font-size: 13px;
+}
+
+/*SCROLLBAR PROPERTIES*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #333333;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000000;
+    box-shadow: inset 0 0 3px #bba674;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.65);
+}
+
+a {
+    font-family: Oswald, sans-serif;
+    color: #bba674;
+    text-decoration: none;
+}
+
+/*IMAGES PROPERTIES*/
+.logo {
+    position: absolute;
+    left: 100px;
+    padding-top: 30px;
+}
+.fit-person {
+    position: fixed;
+    left: auto;
+    right: 70%;
+    bottom: 0;
+    top: 350px;
+    height: calc(100vh - 300px);
+    transform: translateX(30%);
+}
+
+/*CONTAINERS*/
+.main-page {
+    color: #bba674;
+    font-size: 1.5rem;
+    position: absolute;
+    display: inline-block;
+    top: 350px;
+    width: 40%;
+    margin-left: 55%;
+    transform: translateX(-20%);
+    padding-bottom: 30px;
+}
+.main-page p {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.main-info {
+    font-family: "Noto Sans", serif;
+    font-size: 20px;
+}
+
+.grid-container {
+    position: absolute;
+    display: grid;
+}
+
+input {
+    font-family: "Noto Sans", serif;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.grid-item {
+    font-family: "Noto Sans", serif;
+    font-size: 13px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #333333;
+    border-top: 1px solid #bba674;
+    font-size: small;
+    padding-right: 5rem;
+    z-index: 3;
+}
+
+
+@media (max-width: 1250px) {
+    .main-page {
+        font-size: 1.3rem;
+    }
+}
+@media (max-width: 786px) {
+    .main-page {
+        font-size: 1rem;
+    }
+
+    .nav-button,
+    .login-button {
+        width: 100%;
+        height: auto;
+    }
+}

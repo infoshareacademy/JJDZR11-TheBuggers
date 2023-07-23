@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <script th:replace="~{layout :: head}"></script>
+    <link rel="stylesheet" type="text/css" href="/css/diet-sub-style.css">
+    <title>Pescetarian Diet</title>
+</head>
+<body>
+
+<div th:replace="~{layout :: container}"></div>
+
+
+<div class="grid-container">
+    <div class="formdiv grid-item-narrow-1">
+        <form th:action="@{/diets/pescetarian}" th:object="${userData}" method="post">
+            <div class="subDiet">
+                <div class="grid-item grid-item-1">
+                    <h1>Pescetarian Diet</h1>
+                </div>
+                <div class="grid-item grid-item-2">
+                    <label for="age">Age:</label><br>
+                    <input type="number" id="age" name="age" th:field="*{age}" required>
+                </div>
+
+                <div class="grid-item grid-item-3">
+                    <label for="height">Height (cm):</label><br>
+                    <input type="number" id="height" name="height" th:field="*{height}" required>
+                </div>
+
+                <div class="grid-item grid-item-4">
+                    <label for="weight">Weight (kg):</label><br>
+                    <input type="number" id="weight" name="weight" th:field="*{weight}" required>
+                </div>
+
+                <div class="grid-item grid-item-5">
+                    <label for="activityLevel">Activity Level:</label><br>
+                    <select id="activityLevel" name="activityLevel" th:field="*{activityLevel}" required class="drop-menu">
+                        <option value="Sedentary">Sedentary</option>
+                        <option value="Lightly active">Lightly Active</option>
+                        <option value="Moderately active">Moderately Active</option>
+                        <option value="Very active">Very Active</option>
+                        <option value="Super active">Super Active</option>
+                    </select>
+                </div>
+
+                <div class="grid-item grid-item-6">
+                    <label for="gender">Gender:</label><br>
+                    <select id="gender" name="gender" th:field="*{gender}"  required class="drop-menu">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="grid-item grid-item-7">
+                    <input type="submit" value="Calculate" class="button">
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="scrollBox grid-item-narrow-2">
+        <div>
+            <pre th:utext="${selectedFile}"></pre>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
+
+
+</body>
+</html>

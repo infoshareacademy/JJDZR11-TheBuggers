@@ -1,0 +1,16 @@
+Wzór Harrisa-Benedicta:
+	Dla mężczyzn: BMR = 88,36 + (13,4 x masa ciała w kilogramach) + (4,8 x wzrost w centymetrach) - (5,7 x wiek w latach)
+	Dla kobiet: BMR = 447,6 + (9,2 x masa ciała w kilogramach) + (3,1 x wzrost w centymetrach) - (4,3 x wiek w latach)
+
+Następnie należy pomnożyć wynik przez czynnik aktywności fizycznej:
+
+Mało aktywny (siedzący tryb życia, brak ćwiczeń): 1,2
+	Lekko aktywny (ćwiczenia 1-3 dni w tygodniu): 1,375
+	Średnio aktywny (ćwiczenia 3-5 dni w tygodniu): 1,55
+	Bardzo aktywny (ćwiczenia 6-7 dni w tygodniu): 1,725
+	Ekstremalnie aktywny (ćwiczenia 2 razy dziennie lub ciężka praca fizyczna): 1,9
+Wzór Mifflin-St Jeor:
+	Dla mężczyzn: BMR = (10 x masa ciała w kg) + (6,25 x wzrost w cm) - (5 x wiek w latach) + 5
+	Dla kobiet: BMR = (10 x masa ciała w kg) + (6,25 x wzrost w cm) - (5 x wiek w latach) - 161
+
+Następnie należy pomnożyć wynik przez czynnik aktywności fizycznej tak samo jak w wzorze Harrisa-Benedicta.

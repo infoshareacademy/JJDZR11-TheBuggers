@@ -1,0 +1,39 @@
+.navbar {
+    background-image: url("../img/background/menu_background.png");
+    height: 80px;
+    line-height: 40px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.navbar-nav {
+    flex-direction: initial;
+}
+
+.custom-toggler.navbar-toggler {
+    border: 1px solid #bba674;
+    color: #bba674;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        flex-basis: 100%;
+        order: 2;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0,0,0,0.65);
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}

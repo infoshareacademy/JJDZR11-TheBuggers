@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <script th:replace="~{layout :: head}"></script>
+    <link rel="stylesheet" type="text/css" href="/css/login-form.css">
+    <title>Login</title>
+</head>
+<body>
+
+<div th:replace="~{layout :: container}"></div>
+
+<form th:action="@{/login}" method="post" id="formLogin">
+    <div class="login-container">
+
+        <div class="item">
+            <label>User Name:</label><br>
+            <input type="text" name="username" placeholder="Enter username (email)" required/>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <div class="item">
+            <label> Password: </label><br>
+            <input type="password" name="password" placeholder="Enter password" required/>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+
+        <div class="item">
+            <span th:text="${userName}"></span>
+        </div>
+
+        <div class="item">
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+        </div>
+
+        <div class="item">
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+        </div>
+
+        <div class="item">
+            <button class="button" form="formLogin" type="submit">Sign In</button>
+        </div>
+
+        <div class="item">
+            <button class="button"><a href="/register">Register</a></button>
+        </div>
+
+    </div>
+
+</form>
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
+
+
+</body>
+</html>

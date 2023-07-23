@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <script th:replace="~{layout :: head}"></script>
+    <link rel="stylesheet" type="text/css" href="/css/diets-style.css"/>
+    <title>Diets</title>
+</head>
+
+<body>
+
+<div th:replace="~{layout :: container}"></div>
+
+<!-- ----------------------------------- FOR DIETS-STYLE/2 CSS LAYOUTS --------------------------------------------- -->
+<div class="grid-container">
+    <div class="grid-item">
+        <a href="/diets/standard" class="a-diet">
+            <img src="/img/diets-infographics/standard_diet_icon.png" alt="Standard diet infographic"
+                 class="infographic">
+            <div class="diet-tile">
+                <h2>Standard Diet</h2>
+                <p>Example description of standard diet.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="grid-item">
+        <a href="/diets/vege" class="a-diet">
+            <img src="/img/diets-infographics/vege_diet_icon.png" alt="Vegetarian Diet infographic" class="infographic">
+            <div class="diet-tile">
+                <h2>Vegetarian Diet</h2>
+                <p>Example description of vegetarian diet.</p>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="grid-item">
+        <a href="/diets/glutenAndLactoseFree" class="a-diet">
+            <img src="/img/diets-infographics/GluLacFree_diet_icon.png" alt="Gluten and Lactose Free diet infographic"
+                 class="infographic">
+            <div class="diet-tile">
+                <h2>Gluten and Lactose Free Diet</h2>
+                <p>Example description of gluten and lactose free diet.</p>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="grid-item">
+        <a href="/diets/pescetarian" class="a-diet">
+            <img src="/img/diets-infographics/pescet_diet_icon.png" alt="Pescetarian diet infographic"
+                 class="infographic">
+            <div class="diet-tile">
+                <h2>Pescetarian Diet</h2>
+                <p>Example description of pescetarian diet.</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<!-- ----------------------------------- FOR DIETS-STYLE3 CSS LAYOUT : IN PROGRESS --------------------------------- -->
+<!-- -------------------------------------- WORKING ON : MORE RESPONSIVE CONTENT ----------------------------------- -->
+<!--<div class="w3-main w3-content w3-padding w3-stretch" style="max-width:1200px;margin-top:100px">-->
+<!--    <div class="w3-display-middle">-->
+<!--        <div class="w3-quarter grid-item grid-item-1">-->
+<!--            <a href="/diets/standard" class="a-diet">-->
+<!--                <img src="/img/diets-infographics/standard_diet_icon.png" alt="Standard diet infographic" class="infographic">-->
+<!--                <div class="diet-tile">-->
+<!--                    <h2>Standard Diet</h2>-->
+<!--                    <p>Example description of standard diet.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </div>-->
+
+<!--        <div class="w3-quarter grid-item grid-item-2">-->
+<!--            <a href="/diets/vege" class="a-diet">-->
+<!--                <img src="/img/diets-infographics/vege_diet_icon.png" alt="Vegetarian Diet infographic" class="infographic">-->
+<!--                <div class="diet-tile">-->
+<!--                    <h2>Vegetarian Diet</h2>-->
+<!--                    <p>Example description of vegetarian diet.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </div>-->
+
+
+<!--        <div class="w3-quarter grid-item grid-item-3">-->
+<!--            <a href="/diets/glutenAndLactoseFree" class="a-diet">-->
+<!--                <img src="/img/diets-infographics/GluLacFree_diet_icon.png" alt="Gluten and Lactose Free diet infographic" class="infographic">-->
+<!--                <div class="diet-tile">-->
+<!--                    <h2>Gluten and Lactose Free Diet</h2>-->
+<!--                    <p>Example description of gluten and lactose free diet.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </div>-->
+
+
+<!--        <div class="w3-quarter grid-item grid-item-4">-->
+<!--            <a href="/diets/pescetarian" class="a-diet">-->
+<!--                <img src="/img/diets-infographics/pescet_diet_icon.png" alt="Pescetarian diet infographic" class="infographic">-->
+<!--                <div class="diet-tile">-->
+<!--                    <h2>Pescetarian Diet</h2>-->
+<!--                    <p>Example description of pescetarian diet.</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
+
+
+
+</body>
+</html>

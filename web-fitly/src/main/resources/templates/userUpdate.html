@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <script th:replace="~{layout :: head}"></script>
+    <link rel="stylesheet" type="text/css" href="/css/registration-form.css">
+    <title>Usersite</title>
+</head>
+<body>
+
+<div th:replace="~{layout :: container}"></div>
+<div class="reg-container">
+    <h1>Profile</h1>
+    <form th:action="@{/userUpdate}" th:object="${userData}" method="post" class="form">
+
+        <div class="inputs">
+            <span class="error" th:text="${error}"></span>
+        </div>
+
+        <div class="column">
+            <div class="inputs">
+                <label for="disabledEmailLogin" class="form-label">Email</label><br>
+                <input type="email" th:field="*{email}" id="disabledEmailLogin" class="form-control"
+                       placeholder="Email" minlength="5" required>
+            </div>
+
+            <div class="inputs">
+                <label for="disabledPasswordLogin" class="form-label">Password</label><br>
+                <input type="password" th:field="*{password}" id="disabledPasswordLogin" class="form-control"
+                       placeholder="Password" minlength="5" required>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="inputs">
+                <label for="disabledNameInput" class="form-label">Name</label><br>
+                <input type="text" th:field="*{name}" id="disabledNameInput" class="form-control"
+                       placeholder="Name" minlength="3" required>
+            </div>
+
+            <div class="inputs">
+                <label for="disabledAgeInput" class="form-label">Age</label><br>
+                <input type="number" th:field="*{age}" id="disabledAgeInput" class="form-control"
+                       placeholder="Age" min="1" required>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="inputs">
+                <label for="disabledWeightInput" class="form-label">Weight [kg]</label><br>
+                <input type="number" th:field="*{weight}" id="disabledWeightInput" class="form-control"
+                       placeholder="Weight" step="any" min="1" required>
+            </div>
+
+            <div class="inputs">
+                <label for="disabledHeightInput" class="form-label">Height [cm]</label><br>
+                <input type="number" th:field="*{height}" id="disabledHeightInput" class="form-control"
+                       placeholder="Height" min="1" required>
+            </div>
+        </div>
+        <div class="end-row">
+            <div class="inputs">
+                <label for="disabledActivityInput" class="form-label">Activity Level</label><br>
+                <select th:field="*{activityLevel}" id="disabledActivityInput" class="activity">
+                    <option value="Sedentary">Sedentary</option>
+                    <option value="Lightly active">Lightly active</option>
+                    <option value="Moderately active">Moderately active</option>
+                    <option value="Very active">Very active</option>
+                    <option value="Super active">Super active</option>
+                </select>
+            </div>
+
+            <div class="inputs">
+                <label for="gender" class="form-label">Gender</label><br>
+                <div id="gender" class="gender">
+                   <select id="inlineRadio1" th:field="*{gender}" class="activity">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: end; margin-top: 30px">
+        <button type="submit" class="button">UPDATE</button>
+        </div>
+
+    </form>
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
+
+
+
+</body>
+</html>
+

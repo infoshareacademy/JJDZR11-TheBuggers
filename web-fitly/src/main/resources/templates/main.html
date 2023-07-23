@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <script th:replace="~{layout :: head}"></script>
+    <title>Main</title>
+
+    <style>
+        .fit-person {
+            position: fixed;
+            left: auto;
+            right: 70%;
+            bottom: 0;
+            top: 370px;
+            height: calc(100vh - 300px);
+            transform: translateX(30%);
+        }
+    </style>
+    <script>
+        const button = document.querySelector('.bounce');
+        const animationDelay = 5000;
+
+        function startAnimation() {
+            button.classList.remove('animated');
+            void button.offsetWidth;
+            button.classList.add('animated');
+        }
+
+        setInterval(startAnimation, animationDelay);
+    </script>
+
+</head>
+
+<body>
+
+    <div th:replace="~{layout :: container}"></div>
+
+    <img src="/img/photos/fitgirl1.png" alt="fit person photo" class="fit-person">
+
+    <div class="main-page">
+
+        <h1>FIT YOUR MUSCLES</h1>
+
+        <p class="main-info">
+        Choose from hundreds of workouts, healthy recipes, relaxing meditations,
+        and expert articles, for a whole body and mind approach to feeling great.
+        Professionally designed programs take the guesswork out of exercising.
+        Exercise with certified personal trainers whether you're at home or on the road.
+        </p>
+
+        <p>
+            <a th:href="@{/register}">
+            <button class="button bounce animated">
+                <span>JOIN US</span>
+            </button>
+            </a>
+        </p>
+    </div>
+
+    <div th:replace="~{layout :: footer}"></div>
+
+    <p th:replace="~{layout :: scripts}"></p>
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+.reg-container {
+    background:
+            linear-gradient(to bottom,
+            rgba(30, 30, 30, .7),
+            rgba(30, 30, 30, .6),
+            rgba(30, 30, 30, .5),
+            rgba(30, 30, 30, 0));
+    border-radius: 20px;
+    position: relative;
+    display: block;
+    top: 300px;
+    margin: 0 auto;
+    max-width: 800px;
+    min-width: 300px;
+    width: 70%;
+    padding: 15px;
+    padding-bottom: 100px;
+}
+
+input[type="radio"]:focus {
+    background-color: white;
+    border-color: white;
+    cursor: pointer;
+    user-select:none;
+    box-shadow: inset 0 0 0 1px;
+}
+
+input[type="radio"]:active,
+input[type="radio"]:checked {
+    background-color: #2a2014;
+    border-color: #bba674;
+    cursor: pointer;
+    user-select:none;
+    box-shadow: inset 0 0 0 4px;
+}
+
+option:hover {
+    color: yellow;
+}
+
+header {
+    text-align: center;
+}
+
+.reg-container .inputs {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.inputs label {
+    font-size: 18px;
+}
+
+.form {
+    margin: 50px;
+}
+.end-row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.column {
+    display: flex;
+    column-gap: 10px;
+}
+
+.gender {
+    width: 100%;
+}
+.gender #inlineRadio2 {
+    margin-left: 50px;
+}
+
+.inputs {
+    vertical-align: center;
+    horiz-align: center;
+}
+
+.activity {
+    font-family: "Noto Sans", serif;
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    width: 50%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+}
+
+@media screen and (max-width: 800px) {
+    .form .column {
+        flex-wrap: wrap;
+    }
+    .activity {
+        width: 80%;
+    }
+}

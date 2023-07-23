@@ -1,0 +1,114 @@
+.grid-container {
+    display: grid;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 350px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    min-height: 260px;
+    transition: margin-left 1s;
+}
+.grid-item:hover ~ .grid-item {
+    margin-left: 10px;
+}
+
+.a-diet {
+    position: absolute;
+    background-color: black;
+    display: block;
+    min-height: 260px;
+    width: 100%;
+    border: 1px solid #bba674;
+    transition:
+            margin 0.5s,
+            background-color 2s,
+            border 1s,
+            color 0.5s,
+            box-shadow 0.7s,
+            border-radius 0.5s;
+}
+.a-diet:hover {
+    top: -1.5px;
+    left: -1.5px;
+    margin: 10px;
+    background-color: #333333;
+    border: 1px solid #bba674;
+    border-radius: 2px;
+    outline:none;
+    box-shadow:0 0 10px white;
+}
+
+.infographic {
+    min-width: 60px;
+    max-width: 70px;
+    position: absolute;
+    width: 30%;
+    height: auto;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 3s,
+                top 2s;
+}
+.a-diet:hover .infographic {
+    opacity: 0.1;
+    top: -30%;
+}
+.diet-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    font-size: 20px;
+    width: 100%;
+    min-height: 260px;
+}
+.diet-tile h2 {
+    font-size: 25px;
+    text-align: center;
+}
+.diet-tile p {
+    text-align: center;
+    font-size: 16px;
+    font-family: "Noto Sans", serif;
+}
+
+@media (max-width: 1300px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-item {
+        min-height: 320px;
+    }
+    .a-diet:hover .infographic {
+        top: -35%;
+    }
+    .infographic {
+        min-width: 60px;
+        max-width: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .grid-item {
+        width: 100%;
+        height: auto;
+    }
+    .infographic {
+        width: 25%;
+        min-width: 60px;
+        max-width: 70px;
+    }
+    .a-diet:hover .infographic {
+        top: -40%;
+    }
+}

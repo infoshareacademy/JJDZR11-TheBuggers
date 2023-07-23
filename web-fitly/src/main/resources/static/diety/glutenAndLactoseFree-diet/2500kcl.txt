@@ -1,0 +1,38 @@
+Breakfast:
+    Quinoa porridge made with almond milk and topped with mixed berries, chia seeds, and a drizzle of honey:
+        Quinoa porridge (cooked with almond milk) (300ml)
+        Mixed berries (150g)
+        Chia seeds (30g)
+        Honey (1 tablespoon)
+
+Mid-Morning Snack:
+    Rice cakes with cashew butter:
+        Rice cakes (50g)
+        Cashew butter (40g)
+        Sliced pear (1 medium-sized)
+
+Lunch:
+    Grilled chicken breast with quinoa, roasted vegetables, and a side of mixed greens with lemon-herb vinaigrette:
+        Grilled chicken breast (250g)
+        Quinoa (200g)
+        Roasted vegetables (carrots, broccoli, cauliflower) (200g)
+        Mixed greens (150g)
+        Lemon-herb vinaigrette
+
+Afternoon Snack:
+    Gluten-free crackers with dairy-free cream cheese and cherry tomatoes:
+        Gluten-free crackers (50g)
+        Dairy-free cream cheese (50g)
+        Cherry tomatoes (200g)
+
+Dinner:
+    Baked salmon fillet with roasted sweet potatoes, steamed broccoli, and a side of lemon-garlic sauce:
+        Baked salmon fillet (250g)
+        Roasted sweet potatoes (250g)
+        Steamed broccoli (200g)
+        Lemon-garlic sauce
+
+Evening Snack:
+    Dairy-free yogurt (200g)
+    Sliced peaches (150g)
+    Gluten-free granola (40g)
