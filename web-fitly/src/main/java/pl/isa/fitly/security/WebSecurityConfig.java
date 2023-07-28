@@ -41,24 +41,7 @@ public class WebSecurityConfig {
                 .logout(logout -> logout.permitAll()
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/?logout=true"))
-//                        .logoutSuccessUrl("/logout"))
                 .csrf(csrf -> csrf.disable());
         return http.build();
     }
-
-
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
-//        for (UserData userData : userRepository.getUsersData()) {
-//            UserDetails user = User.withDefaultPasswordEncoder()
-//                    .username(userData.getEmail())
-//                    .password(userData.getPassword())
-//                    .roles("USER")
-//                    .build();
-//            inMemoryUserDetailsManager.createUser(user);
-//        }
-//        return inMemoryUserDetailsManager;
-//    }
-
 }

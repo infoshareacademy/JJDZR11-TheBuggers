@@ -36,27 +36,6 @@ public class LoginController {
         return "login";
     }
 
-//    @GetMapping("/logoutButton")
-//    public String logoutButton(Model model) {
-//        model.addAttribute("logoutButton", true);
-//        return "layout";
-//    }
-//
-//    @GetMapping("/logoutButton")
-//    public String logoutButton(Model model) {
-//        if (userRepository.getCurrentUser() != null && !userRepository.getCurrentUser().emptyUser()) {
-//            model.addAttribute("logoutButton", true);
-//        }
-//        return "layout";
-//    }
-
-//    @PostMapping("/logout")
-//    public String logout(UserData userData, Model model) {
-//        this.userData = UserData.createUserData();
-//        userRepository.setCurrentUser(UserData.createUserData());
-//        return "login";
-//    }
-
     @PostMapping("/register")
     public String register(UserData userData, Model model) {
         UserRepository.formError formError = userService.createUser(userData);
