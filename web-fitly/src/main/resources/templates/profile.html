@@ -21,6 +21,9 @@
 
   <!-- Add a button to start a chat with the user -->
   <div class="chat-button-container">
+
+<!--  TODO  żeby prawidłowo odsyłało do czatu nie powinno być to: th:href="@{/chat}" ? tak zrobiłem w navbarze w buttonie jakbyś kończył ten czat to wtedy tam też trzeba zmienić -->
+
     <a th:href="@{/chat/{email}(email=${userData.email})}">
       <button class="button">Start Chat</button>
     </a>
