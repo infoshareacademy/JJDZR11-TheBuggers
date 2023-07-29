@@ -3,6 +3,7 @@ package pl.isa.fitly.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 import pl.isa.fitly.model.UserData;
 
 import java.nio.file.Files;
@@ -10,6 +11,7 @@ import java.nio.file.Path;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserRepository {
@@ -122,6 +124,12 @@ public class UserRepository {
         formError(String text) {
             this.text = text;
         }
+    }
+
+    public List<UserData> getSpecialists() {
+        return usersData.stream()
+                .filter(user -> !user.getRole().equals("USER"))
+                .collect(Collectors.toList());
     }
 
 }
