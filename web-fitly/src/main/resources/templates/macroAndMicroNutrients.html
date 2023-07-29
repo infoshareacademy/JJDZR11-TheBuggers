@@ -1,43 +1,60 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Macro and Micro Nutrients</title>
-</head>
-<body>
-<h1>Macro and Micro Nutrients</h1>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <script th:replace="~{layout :: head}"></script>
+    <link rel="stylesheet" type="text/css" href="/css/micromacro.css">
+    <title>Macro and Micro Nutrients</title>
+  </head>
 
-<form th:action="@{/MacroAndMicroNutrients/search}" method="post">
-  <input type="text" name="productName" placeholder="Enter a product name">
-  <button type="submit">Search</button>
-</form>
+  <body>
+    <div th:replace="~{layout :: container}"></div>
 
-<div th:if="${foundProducts}">
-  <h2>Search Results:</h2>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Nutrients</th>
-      <th>Fat</th>
-      <th>Calories</th>
-      <th>Proteins</th>
-      <th>Carbohydrates</th>
-    </tr>
-    <tr th:each="product : ${foundProducts}">
-      <td th:text="${product.name}"></td>
-      <td>
-        <ul>
-          <li th:each="entry : ${product.nutrients.entrySet()}">
-            <span th:text="${entry.key + ': ' + entry.value}"></span>
-          </li>
-        </ul>
-      </td>
-      <td th:text="${product.fat}"></td>
-      <td th:text="${product.calories}"></td>
-      <td th:text="${product.proteins}"></td>
-      <td th:text="${product.carbohydrates}"></td>
-    </tr>
-  </table>
-</div>
-</body>
+    <div class="container">
+      <div class="nutrientsTitle">
+        <h1>Macro and Micro Nutrients</h1>
+      </div>
+
+<!--      <div class="nutrientsForm">-->
+        <form th:action="@{/MacroAndMicroNutrients/search}" method="post" class="nutrientsForm">
+          <div class="nutrientsFormInput">
+            <input type="text" name="productName" placeholder="Enter a product name" class="nutrientsFormInput">
+          </div>
+          <div class="nutrientsFormButton">
+            <button type="submit" class="button">Search</button>
+          </div>
+        </form>
+<!--      </div>-->
+
+      <div th:if="${foundProducts}" th:class="result">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Nutrients</th>
+            <th>Fat</th>
+            <th>Calories</th>
+            <th>Proteins</th>
+            <th>Carbohydrates</th>
+          </tr>
+          <tr th:each="product : ${foundProducts}">
+            <td th:text="${product.name}"></td>
+            <td>
+              <ul>
+                <li th:each="entry : ${product.nutrients.entrySet()}">
+                  <span th:text="${entry.key + ': ' + entry.value}"></span>
+                </li>
+              </ul>
+            </td>
+            <td th:text="${product.fat}"></td>
+            <td th:text="${product.calories}"></td>
+            <td th:text="${product.proteins}"></td>
+            <td th:text="${product.carbohydrates}"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div th:replace="~{layout :: footer}"></div>
+
+    <p th:replace="~{layout :: scripts}"></p>
+  </body>
 </html>

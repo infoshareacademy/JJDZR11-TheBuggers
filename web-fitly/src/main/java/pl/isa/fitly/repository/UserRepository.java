@@ -25,12 +25,6 @@ public class UserRepository {
     public formError userUpdate(String email, UserData userData) {
         int userId = usersData.indexOf(getUserByEmail(email));
         usersData.set(userId,userData);
-//        if (!usersData.remove(user)) {
-//            return formError.UPDATE_ERROR;
-//        }
-//        if (!usersData.add(userData)) {
-//            return formError.UPDATE_ERROR;
-//        }
         return saveUsersData();
     }
 
@@ -88,7 +82,6 @@ public class UserRepository {
         ObjectMapper objectMapper = new ObjectMapper();
         Path pathJson = Path.of("web-fitly", "src", "main", "resources", "UserData.json");
         try {
-//            System.out.println(usersData);
             String json = objectMapper
                     .writerWithDefaultPrettyPrinter()
                     .writeValueAsString(usersData);
