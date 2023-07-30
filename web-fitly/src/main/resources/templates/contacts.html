@@ -1,0 +1,35 @@
+<!-- contacts.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <script th:replace="~{layout :: head}"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>">
+  <title>Contacts</title>
+</head>
+<div th:replace="~{layout :: container}"></div>
+<style>
+  .custom-contact-list {
+    margin-top: 300px;
+  }
+</style>
+<div class="contacts-container custom-contact-list">
+  <h1>Your Contacts</h1>
+
+  <ul class="contact-list custom-contact-list">
+    <li th:each="contact : ${contacts}">
+      <a th:href="@{'/chat/' + contact.roomId}">
+        <span th:text="${contact.name}"></span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
+
+</body>
+</html>
