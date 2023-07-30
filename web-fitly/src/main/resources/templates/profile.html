@@ -21,18 +21,32 @@
 
   <!-- Add a button to start a chat with the user -->
   <div class="chat-button-container">
-
-<!--  TODO  żeby prawidłowo odsyłało do czatu nie powinno być to: th:href="@{/chat}" ? tak zrobiłem w navbarze w buttonie jakbyś kończył ten czat to wtedy tam też trzeba zmienić -->
-
-    <a th:href="@{/chat/{email}(email=${userData.email})}">
-      <button class="button">Start Chat</button>
-    </a>
+    <!-- Przekazujemy wartość ${userData.email} jako argument do funkcji addContact -->
+    <button id="addContactButton" class="button" data-email="${userData.email}">Add Contact</button>
   </div>
 </div>
 
 <div th:replace="~{layout :: footer}"></div>
 
 <p th:replace="~{layout :: scripts}"></p>
+
+<!-- Add the JavaScript code here -->
+<script>
+  document.getElementById("addContactButton").addEventListener("click", function() {
+    var userEmail = this.getAttribute("data-email");
+    fetch('/profile/' + userEmail + '/add-contact')
+            .then(function(response) {
+              if (response.ok) {
+                alert("Contact added successfully. You can now start a chat.");
+              } else {
+                alert("Failed to add contact. Please try again.");
+              }
+            })
+            .catch(function(error) {
+              console.error('Error:', error);
+            });
+  });
+</script>
 
 </body>
 </html>

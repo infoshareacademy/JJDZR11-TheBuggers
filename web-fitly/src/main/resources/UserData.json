@@ -63,7 +63,7 @@
   "gender" : "male",
   "height" : 178,
   "role" : "USER",
-  "roomIds" : [ "803973c1-ea0c-437a-917e-fb06d79fc194", "25dea646-0b77-4012-b06b-faafa682128d" ]
+  "roomIds" : [ "56f8667c-509f-4ecb-9b57-cf3aa0c5a838" ]
 }, {
   "email" : "test2@test.com",
   "password" : "$2a$10$/BO5sY6CFioQzjs1RZQFX.LBuMeS1Zi00xvcz5OPXybn1bCknDlrC",
@@ -74,5 +74,5 @@
   "gender" : "male",
   "height" : 177,
   "role" : "Trainer",
-  "roomIds" : ["803973c1-ea0c-437a-917e-fb06d79fc194" ]
+  "roomIds" : [ "56f8667c-509f-4ecb-9b57-cf3aa0c5a838" ]
 } ]

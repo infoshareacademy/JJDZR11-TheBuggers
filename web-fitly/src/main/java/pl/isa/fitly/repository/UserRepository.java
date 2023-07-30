@@ -178,16 +178,29 @@ public class UserRepository {
 
     public List<ContactInfo> getContactsForUser(String userEmail) {
         List<ContactInfo> contacts = new ArrayList<>();
-        String userPrefix = userEmail + "_";
 
-        for (UserData user : usersData) {
-            if (user.getRoomIds().stream().anyMatch(roomId -> roomId.startsWith(userPrefix))) {
-                String contactEmail = user.getRoomIds().get(0).replace(userPrefix, "");
-                String contactName = getUserByEmail(contactEmail).getName();
-                contacts.add(new ContactInfo(contactEmail, contactName, user.getRoomIds().get(0)));
+        // Pobierz użytkownika na podstawie jego emaila
+        UserData user = getUserByEmail(userEmail);
+        if (user == null) {
+            return contacts;
+        }
+
+        // Przejdź przez wszystkie roomId użytkownika
+        for (String roomId : user.getRoomIds()) {
+            // Znajdź użytkownika, który ma dokładnie taki sam roomId
+            UserData contactUser = usersData.stream()
+                    .filter(u -> u.getRoomIds().contains(roomId) && !u.getEmail().equals(userEmail))
+                    .findFirst()
+                    .orElse(null);
+
+            if (contactUser != null) {
+                // Jeśli znaleziono użytkownika, dodaj go do listy kontaktów
+                String contactEmail = roomId.replace(userEmail + "_", "");
+                contacts.add(new ContactInfo(contactEmail, contactUser.getName(), roomId));
             }
         }
 
         return contacts;
     }
+
 }

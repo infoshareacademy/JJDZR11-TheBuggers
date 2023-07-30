@@ -11,10 +11,8 @@ import java.awt.*;
 @Builder
 public class ChatMessage {
 
-  //  private MessageType type;
-    private String content;
-    private String sender;
-  //  private String recipient; // Dodaj pole recipient
-    private String chatRoomId; // Dodaj pole chatRoomId
+  private MessageType type;
+  private String content;
+  private String sender;
 
 }

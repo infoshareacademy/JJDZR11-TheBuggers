@@ -23,21 +23,11 @@ public class ContactsController {
     }
 
     @GetMapping("/contacts")
-    public String showContactsPage(Model model, Principal principal, HttpServletRequest request) {
+    public String showContactsPage(Model model, Principal principal) {
         String userEmail = principal.getName();
         List<ContactInfo> contacts = userRepository.getContactsForUser(userEmail);
 
-        // Check if the contacts contain the old format links
-        for (ContactInfo contact : contacts) {
-            if (contact.getRoomId().contains("@")) {
-                // If yes, generate the new link and redirect the user
-                String newRoomId = contact.getRoomId().replace("@", "_");
-                String redirectUrl = request.getContextPath() + "/chat/" + newRoomId;
-                return "redirect:" + redirectUrl;
-            }
-        }
 
-        // If no old links are found, display the contacts page
         model.addAttribute("contacts", contacts);
         return "contacts";
     }

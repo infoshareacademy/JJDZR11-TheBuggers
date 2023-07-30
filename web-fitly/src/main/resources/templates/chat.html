@@ -1,74 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-  <title>Chat Room</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <script th:replace="~{layout :: head}"></script>
+  <link rel="stylesheet" href="/css/chat.css" />
 </head>
 <body>
-<h2>Chat Room</h2>
+<div th:replace="~{layout :: container}"></div>
+<noscript>
+  <h2>Sorry! Your browser doesn't support Javascript</h2>
+</noscript>
 
-<!-- Scrollable message area -->
-<div id="chat" style="height: 300px; overflow-y: scroll;">
-  <ul id="messageArea">
-    <!-- Wyświetlenie wcześniejszych wiadomości -->
-    <li th:each="message : ${messages}" th:text="${message.sender + ': ' + message.content}"></li>
-  </ul>
+<div id="username-page">
+  <div class="username-page-container">
+    <h1 class="title">Type your username to enter the Chatroom</h1>
+    <form id="usernameForm" name="usernameForm">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="accent username-submit">Start Chatting</button>
+      </div>
+    </form>
+  </div>
 </div>
 
-<form id="messageForm">
-  <input type="text" id="messageInput" placeholder="Type your message..."/>
-  <button type="submit">Send</button>
-</form>
+<div id="chat-page" class="hidden">
+  <div class="chat-container">
+    <div class="connecting">
+      Connecting...
+    </div>
+    <ul id="messageArea">
 
-<script th:inline="javascript">
-  var sender = /*[[${currentUser.email}]]*/ ''; // Zmienna zalogowanego użytkownika
-  var recipient = /*[[${recipient.email}]]*/ ''; // Zmienna użytkownika docelowego
-  var encodedChatRoomId = /*[[${recipient.encodedChatRoomId}]]*/; // Zakodowany identyfikator pokoju
-  var stompClient = null;
+    </ul>
+    <form id="messageForm" name="messageForm">
+      <div class="form-group">
+        <div class="input-group clearfix">
+          <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+          <button type="submit" class="primary">Send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
-  function connect() {
-    var socket = new SockJS('/chat');
-    stompClient = Stomp.over(socket);
-    stompClient.connect({}, onConnected, onError);
-  }
-
-  function onConnected() {
-    // Subskrybujemy odpowiedni pokój na podstawie zakodowanego identyfikatora
-    stompClient.subscribe('/topic/messages/' + encodedChatRoomId, onMessageReceived);
-  }
-
-  function onError(error) {
-    console.log('Error:', error);
-  }
-
-  function sendMessage(event) {
-    event.preventDefault();
-    var messageInput = document.getElementById('messageInput');
-    var messageContent = messageInput.value.trim();
-
-    if (messageContent && stompClient) {
-      var message = {
-        sender: sender,
-        content: messageContent,
-        encodedChatRoomId: encodedChatRoomId // Przekazujemy zakodowany identyfikator pokoju
-      };
-      stompClient.send('/app/chat/' + encodedChatRoomId, {}, JSON.stringify(message));
-      messageInput.value = '';
-    }
-  }
-
-  function onMessageReceived(payload) {
-    var message = JSON.parse(atob(payload.body.payload));
-    var messageArea = document.getElementById('messageArea');
-    var messageElement = document.createElement('li');
-    messageElement.textContent = message.sender + ': ' + message.content;
-    messageArea.appendChild(messageElement);
-  }
-
-  connect();
-  document.getElementById('messageForm').addEventListener('submit', sendMessage);
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/chat.js"></script>
 </body>
 </html>
-

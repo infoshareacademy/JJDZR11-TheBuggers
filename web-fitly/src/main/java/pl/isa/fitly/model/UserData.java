@@ -20,6 +20,10 @@ public class UserData {
     private int height;
     private String role;
 
+    private List<String> roomIds;
+
+
+
     public List<String> getRoomIds() {
         return roomIds;
     }
@@ -27,8 +31,6 @@ public class UserData {
     public void setRoomIds(List<String> roomIds) {
         this.roomIds = roomIds;
     }
-
-    private List<String> roomIds = new ArrayList<>();
 
     public static UserData createUserData() {
         return new UserData();

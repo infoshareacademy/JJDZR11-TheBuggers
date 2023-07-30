@@ -29,6 +29,8 @@ body {
 
 .hidden {
     display: none;
+    position: relative;
+    top: 300px;
 }
 
 .form-control {
