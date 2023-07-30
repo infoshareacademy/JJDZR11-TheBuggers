@@ -9,7 +9,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.isa.fitly.service.Product;
+import pl.isa.fitly.model.Product;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

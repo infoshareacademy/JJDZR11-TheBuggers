@@ -3,6 +3,8 @@ package pl.isa.fitly.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Component
@@ -17,6 +19,18 @@ public class UserData {
     private String gender;
     private int height;
     private String role;
+
+    private List<String> roomIds;
+
+
+
+    public List<String> getRoomIds() {
+        return roomIds;
+    }
+
+    public void setRoomIds(List<String> roomIds) {
+        this.roomIds = roomIds;
+    }
 
     public static UserData createUserData() {
         return new UserData();

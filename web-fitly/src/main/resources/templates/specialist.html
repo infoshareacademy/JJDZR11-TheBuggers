@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <script th:replace="~{layout :: head}"></script>
+  <meta charset="UTF-8">
+  <title>Specialists</title>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/buttons.css" />
+  <link rel="stylesheet" href="/css/specialist.css" />
+  <style>
+  </style>
+</head>
+<body>
+
+<div th:replace="~{layout :: container}"></div>
+
+
+<div class="container">
+
+  <div class="title">
+    <h1>List of Specialists</h1>
+  </div>
+
+  <div class="specialistTable">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Profile</th>
+      </tr>
+      <tr th:each="specialist : ${specialists}">
+        <td th:text="${specialist.name}"></td>
+        <td th:text="${specialist.role}"></td>
+        <td>
+          <button class="button">
+            <a th:href="@{/profile/{email}(email=${specialist.email})}">PROFILE</a>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
+
+</body>
+</html>

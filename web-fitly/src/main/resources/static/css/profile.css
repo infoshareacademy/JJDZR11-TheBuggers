@@ -1,0 +1,42 @@
+/* profile.css */
+
+/* Add styles for the navigation bar */
+.navbar {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Add styles for the profile container */
+.profile-container {
+    padding-top: 70px; /* Adjust the padding to make space for the fixed navigation bar */
+    text-align: center;
+}
+
+/* Add styles for the "Start Chat" button */
+.button {
+    font-family: Oswald, sans-serif;
+    color: #bba674;
+    text-decoration: none;
+    font-size: 20px;
+    background-image: url("../img/buttons/sm_button_off.png");
+    width: 115px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    justify-content: center;
+    margin: 10px;
+    transition: background-image 0.6s;
+}
+
+.button:hover {
+    background-image: url("../img/buttons/sm_button_on.png");
+}

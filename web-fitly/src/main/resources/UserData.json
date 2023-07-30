@@ -7,7 +7,8 @@
   "activityLevel" : "Lightly active",
   "gender" : "male",
   "height" : 193,
-  "role" : "USER"
+  "role" : "USER",
+  "roomIds" : [ ]
 }, {
   "email" : "1234@exp.com",
   "password" : "$2a$10$esEBRccsCkiVURcDdyqDGOoCulc5nPK7v1t/OfrR9yUUt1EIfvVn6",
@@ -17,7 +18,8 @@
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 193,
-  "role" : "USER"
+  "role" : "USER",
+  "roomIds" : [ ]
 }, {
   "email" : "java@exp.com",
   "password" : "$2a$10$lmSuEN7rZSzgtUghHRX32eXTp1oZoa4e4lIsyRPpv8MMa6wie/h/a",
@@ -27,7 +29,8 @@
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 11,
-  "role" : "USER"
+  "role" : "USER",
+  "roomIds" : [ ]
 }, {
   "email" : "grzegorz@exp.com",
   "password" : "$2a$10$b.wBLRXexMlVW2nRGoKVSOleE7IcYsoEsVE3UcZc6G1y1ZDxLanQy",
@@ -37,7 +40,8 @@
   "activityLevel" : "Moderately active",
   "gender" : "male",
   "height" : 33,
-  "role" : "USER"
+  "role" : "USER",
+  "roomIds" : [ ]
 }, {
   "email" : "piotrek.fiuk@gmail.com",
   "password" : "$2a$10$dyII1..C47zcthfFcQ56Xefto/xVXKQm5aCrcDk6siiafWwBGvCje",
@@ -47,5 +51,28 @@
   "activityLevel" : "Sedentary",
   "gender" : "male",
   "height" : 160,
-  "role" : "USER"
+  "role" : "USER",
+  "roomIds" : [ ]
+}, {
+  "email" : "test1@test.com",
+  "password" : "$2a$10$Kqxs.TA/S542bDVj75y8sO5xXOTJGIvVGlKvzADWWigUTO47VeRDG",
+  "name" : "test",
+  "age" : 23,
+  "weight" : 64.0,
+  "activityLevel" : "Moderately active",
+  "gender" : "male",
+  "height" : 178,
+  "role" : "USER",
+  "roomIds" : [ "56f8667c-509f-4ecb-9b57-cf3aa0c5a838" ]
+}, {
+  "email" : "test2@test.com",
+  "password" : "$2a$10$/BO5sY6CFioQzjs1RZQFX.LBuMeS1Zi00xvcz5OPXybn1bCknDlrC",
+  "name" : "test2",
+  "age" : 34,
+  "weight" : 80.0,
+  "activityLevel" : "Very active",
+  "gender" : "male",
+  "height" : 177,
+  "role" : "Trainer",
+  "roomIds" : [ "56f8667c-509f-4ecb-9b57-cf3aa0c5a838" ]
 } ]
