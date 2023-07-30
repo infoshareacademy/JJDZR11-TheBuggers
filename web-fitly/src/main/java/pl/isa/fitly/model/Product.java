@@ -1,4 +1,4 @@
-package pl.isa.fitly.service;
+package pl.isa.fitly.model;
 
 import java.util.Map;
 

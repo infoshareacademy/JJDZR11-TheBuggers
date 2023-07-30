@@ -9,7 +9,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.isa.fitly.service.Product;
+import pl.isa.fitly.model.Product;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -26,15 +26,12 @@ public class MacroAndMicroNutrientsController {
     @PostMapping("/MacroAndMicroNutrients/search")
     public String search(@RequestParam("productName") String productName, Model model) {
         try {
-            // Wczytaj zawartość pliku JSON do łańcucha tekstowego
             ClassPathResource resource = new ClassPathResource("foods.json");
             byte[] jsonData = FileCopyUtils.copyToByteArray(resource.getInputStream());
             String jsonStr = new String(jsonData, StandardCharsets.UTF_8);
 
-            // Inicjalizuj ObjectMapper
             ObjectMapper objectMapper = new ObjectMapper();
 
-            // Parsuj dane JSON
             List<Product> products = objectMapper.readValue(jsonStr, new TypeReference<List<Product>>() {
             });
 
@@ -42,7 +39,6 @@ public class MacroAndMicroNutrientsController {
 
             List<Product> foundProducts = new ArrayList<>();
 
-            // Przeszukaj dane JSON w poszukiwaniu pasujących produktów
             for (Product product : products) {
                 String name = product.getName().toLowerCase();
 

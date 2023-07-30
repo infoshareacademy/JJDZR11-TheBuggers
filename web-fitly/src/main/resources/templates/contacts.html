@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <script th:replace="~{layout :: head}"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Contacts</title>
+</head>
+<body>
+<div th:replace="~{layout :: container}"></div>
+<style>
+  .custom-contact-list {
+    margin-top: 300px;
+  }
+</style>
+<div class="contacts-container custom-contact-list">
+  <h1>Your Contacts</h1>
+
+  <ul class="contact-list custom-contact-list">
+    <!-- Zdefiniuj zmienną contextGroupId poza pętlą, aby przechować obecny groupId i sprawdzić, czy się zmienił -->
+    <th:block th:with="contextGroupId=''">
+      <li th:each="contact : ${contacts}">
+        <!-- Wyświetl roomId i nazwę użytkownika, aby sprawdzić, czy są poprawne -->
+        <p>RoomId: <span th:text="${contact.roomId}"></span></p>
+        <p>Name: <span th:text="${contact.name}"></span></p>
+
+        <!-- Jeśli groupId zmienił się w porównaniu do obecnej wartości, zaktualizuj contextGroupId i wyświetl nagłówek grupy -->
+        <th:block th:if="${contact.roomId != contextGroupId}">
+          <h3 th:text="${contact.roomId}"></h3>
+          <!-- Zaktualizuj contextGroupId -->
+          <th:block th:with="contextGroupId=${contact.roomId}"></th:block>
+        </th:block>
+        <!-- Skonstruuj link do czatu z odpowiednim roomId -->
+        <a th:href="@{'/chat/room/priv/' + ${contact.roomId}}">
+          <span th:text="${contact.name}"></span>
+        </a>
+      </li>
+    </th:block>
+  </ul>
+</div>
+
+<div th:replace="~{layout :: footer}"></div>
+
+<p th:replace="~{layout :: scripts}"></p>
+
+</body>
+</html>
