@@ -4,8 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
+
+import java.security.Principal;
+import java.util.UUID;
 
 @Controller
 public class ProfileController {
@@ -23,9 +27,27 @@ public class ProfileController {
         return "profile";
     }
 
-    @GetMapping("/profile/{email}/chat")
-    public String startChat(@PathVariable("email") String email) {
-        // Your logic to start the chat with the user identified by the email
-        return "redirect:/chat"; // Przekierowanie na stronę czatu po rozpoczęciu rozmowy
+
+    @GetMapping("/profile/{email}/add-contact")
+    @ResponseBody
+    public String addContact(@PathVariable("email") String recipientEmail, Principal principal) {
+        String senderEmail = principal.getName(); // Get the email of the currently logged-in user
+
+        // Generate the chat room ID based on sender and recipient emails
+        String chatRoomId = generateChatRoomId(senderEmail, recipientEmail);
+
+        // Add the chat room ID to both the sender and recipient users
+        userRepository.addChatRoom(senderEmail, chatRoomId);
+        userRepository.addChatRoom(recipientEmail, chatRoomId);
+
+        // Return a response indicating success
+        return "Success";
     }
+
+
+    private String generateChatRoomId(String senderEmail, String recipientEmail) {
+        // Generowanie losowego identyfikatora UUID
+        return UUID.randomUUID().toString();
+    }
+
 }

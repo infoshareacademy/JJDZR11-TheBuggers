@@ -1,42 +1,53 @@
 package pl.isa.fitly.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
-import org.springframework.messaging.simp.SimpMessageSendingOperations;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.annotation.SubscribeMapping;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import pl.isa.fitly.chat.ChatMessage;
-import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class ChatController {
 
-    @GetMapping("/chat")
-    public String chatPage() {
-        return "chat"; // To jest nazwa widoku chat.html
+    private final Map<String, List<ChatMessage>> chatRoomsMessages = new ConcurrentHashMap<>();
+
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @MessageMapping("/chat/{chatRoomId}")
+    public void sendMessage(@DestinationVariable String chatRoomId, @Payload ChatMessage message) {
+        // Ustaw nadawcę na aktualnie zalogowanego użytkownika
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        message.setSender(auth.getName());
+
+        // Dodaj wiadomość do pokoju
+        chatRoomsMessages.computeIfAbsent(chatRoomId, k -> new ArrayList<>()).add(message);
+
+        // Wysyłamy wiadomość do konkretnego pokoju
+        messagingTemplate.convertAndSend("/topic/messages/" + chatRoomId, message);
     }
 
-    @MessageMapping("/chat.sendMessage")
-    @SendTo("/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
-        return chatMessage;
-    }
-
-    @MessageMapping("/chat.addUser")
-    @SendTo("/topic/public")
-    public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
-        // Dodajemy nazwę użytkownika do sesji WebSocket
-        headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-        return chatMessage;
+    @SubscribeMapping("/topic/messages/{chatRoomId}")
+    public List<ChatMessage> onSubscribe(@DestinationVariable String chatRoomId) {
+        // Pobierz wiadomości z danego pokoju i zwróć je do nowego użytkownika do wyświetlenia
+        return chatRoomsMessages.getOrDefault(chatRoomId, new ArrayList<>());
     }
 }
+
+
+

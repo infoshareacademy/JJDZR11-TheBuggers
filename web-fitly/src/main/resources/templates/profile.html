@@ -6,7 +6,6 @@
   <title>Profile</title>
 </head>
 <body>
-
 <div th:replace="~{layout :: container}"></div>
 
 <div class="reg-container">
@@ -20,16 +19,32 @@
   </div>
 
   <!-- Add a button to start a chat with the user -->
-  <div class="chat-button-container">
-    <a th:href="@{/chat/{email}(email=${userData.email})}">
-      <button class="button">Start Chat</button>
-    </a>
+  <button class="button" onclick="addContact('${userData.email}', '${recipientEmail}')">Add Contact</button>
+  <div class="contact-info" id="contactInfo" th:if="${param.addedToContacts}">
+    <p>Added to contacts successfully!</p>
   </div>
 </div>
 
 <div th:replace="~{layout :: footer}"></div>
 
 <p th:replace="~{layout :: scripts}"></p>
-
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  function addContact(senderEmail, recipientEmail) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/profile/" + recipientEmail + "/add-contact", true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          document.getElementById("contactInfo").innerHTML = "<p>Added to contacts successfully!</p>";
+        } else {
+          document.getElementById("contactInfo").innerHTML = "<p>Failed to add to contacts!</p>";
+        }
+      }
+    };
+    xhr.send();
+  }
+  /*]]>*/
+</script>
 </body>
 </html>
