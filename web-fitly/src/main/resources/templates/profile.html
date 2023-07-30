@@ -22,7 +22,7 @@
   <!-- Add a button to start a chat with the user -->
   <div class="chat-button-container">
     <!-- Przekazujemy wartość ${userData.email} jako argument do funkcji addContact -->
-    <button id="addContactButton" class="button" data-email="${userData.email}">Add Contact</button>
+    <button id="addContactButton" class="button" data-email="${userData.email}">Chat</button>
   </div>
 </div>
 
@@ -34,17 +34,7 @@
 <script>
   document.getElementById("addContactButton").addEventListener("click", function() {
     var userEmail = this.getAttribute("data-email");
-    fetch('/profile/' + userEmail + '/add-contact')
-            .then(function(response) {
-              if (response.ok) {
-                alert("Contact added successfully. You can now start a chat.");
-              } else {
-                alert("Failed to add contact. Please try again.");
-              }
-            })
-            .catch(function(error) {
-              console.error('Error:', error);
-            });
+    window.location.href = '/chat/room?name=' + userEmail;
   });
 </script>
 

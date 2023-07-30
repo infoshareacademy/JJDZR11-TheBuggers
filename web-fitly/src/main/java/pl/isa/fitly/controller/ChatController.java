@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.isa.fitly.chat.ChatMessage;
+import pl.isa.fitly.model.UserData;
 import pl.isa.fitly.repository.UserRepository;
 
 import java.util.*;
@@ -24,10 +25,32 @@ import java.util.List;
 
 @Controller
 public class ChatController {
+    private final UserRepository userRepository;
+
+    public ChatController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/chat/room")
     public String chatRoom() {
-        return "chat";
+        // Pobierz informacje o aktualnie zalogowanym użytkowniku z SecurityContextHolder
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        // Pobierz nazwę użytkownika (email) aktualnie zalogowanego użytkownika
+        String name = authentication.getName();
+
+        UserData userData = userRepository.getUserByEmail(name);
+        if (userData == null) {
+            // Jeśli użytkownik o podanej nazwie nie istnieje, możesz podjąć odpowiednią akcję, np. przekierować na stronę błędu lub zarejestrować nowego użytkownika.
+            // W tym przykładzie zakładam, że jeśli użytkownik nie istnieje, dodamy go automatycznie do repozytorium z pustymi danymi.
+            userData = new UserData();
+            userData.setEmail(name);
+            userRepository.addUser(userData);
+        }
+
+        // Kontynuuj pozostałą część kodu, pobierając nazwę użytkownika z obiektu "userData" i łącząc się z WebSocket
+        String username = userData.getName().trim();
+        return "chat"; // Zwracamy "chat" jako nazwę widoku, aby użytkownik został przekierowany do chatu
     }
 
     @MessageMapping("/chat.sendMessage")
@@ -44,7 +67,7 @@ public class ChatController {
             @Payload ChatMessage chatMessage,
             SimpMessageHeaderAccessor headerAccessor
     ) {
-        // Add username in web socket session
+        // Dodaj nazwę użytkownika do sesji WebSocket
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         return chatMessage;
     }
