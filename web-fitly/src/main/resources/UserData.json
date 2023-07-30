@@ -68,4 +68,14 @@
   "gender" : "male",
   "height" : 177,
   "role" : "Trainer"
+}, {
+  "email" : "test@test.com",
+  "password" : "$2a$10$tjtBqaaEmoeUxzqcAnC7nOWYhjKCcibs9BB6OVtHLhIys8eWRqq9W",
+  "name" : "Krystian",
+  "age" : 20,
+  "weight" : 70.0,
+  "activityLevel" : "Moderately active",
+  "gender" : "male",
+  "height" : 185,
+  "role" : "USER"
 } ]
